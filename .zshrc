@@ -67,11 +67,11 @@ source $ZSH/oh-my-zsh.sh
 # export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
+if [[ -n $SSH_CONNECTION ]]; then
+  export EDITOR='vim'
+else
+  export EDITOR='nano'
+fi
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -87,7 +87,15 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+# Virtualenvwrapper envs
 export WORKON_HOME=/home/kiennt/Workspace/venv
 export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python
 # source virtualenvwrapper.sh
+
+# Ansible roles directory for galaxy
+export ANSIBLE_ROLES_PATH=~/roles
+if [ ! -d "${ANSIBLE_ROLES_PATH}" ]; then
+    mkdir "${ANSIBLE_ROLES_PATH}"
+fi}"
 
