@@ -1,0 +1,36 @@
+// Place your settings in this file to overwrite the default settings
+{
+    "editor.rulers": [
+        80,
+        120
+    ],
+    "workbench.colorTheme": "Material Theme",
+    "window.zoomLevel": 1,
+    "vim.disableAnnoyingNeovimMessage": true,
+    "files.exclude": {
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/CVS": true,
+        "**/.DS_Store": true,
+        "**/*.pyc": true,
+        "**/.tox": true,
+        "**/.idea": true,
+        "**/.testrepository": true,
+        "**/.vscode": true,
+        "**/__pycache__": true
+    },
+    "workbench.startupEditor": "newUntitledFile",
+    "workbench.iconTheme": "material-icon-theme",
+    "sync.gist": "",
+    "sync.lastUpload": "",
+    "sync.autoDownload": false,
+    "sync.autoUpload": false,
+    "sync.lastDownload": "",
+    "sync.forceDownload": false,
+    "sync.anonymousGist": false,
+    "sync.host": "",
+    "sync.pathPrefix": "",
+    "sync.quietSync": false,
+    "sync.askGistName": false
+}

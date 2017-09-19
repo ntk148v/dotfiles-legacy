@@ -1,0 +1,232 @@
+[
+  {
+    "metadata": {
+      "id": "5178733e-4b02-4829-95c5-1ce970847c23",
+      "publisherId": "8a0aaf7f-34ab-48b1-9384-c15c80413d57",
+      "publisherDisplayName": "teabyii"
+    },
+    "name": "ayu",
+    "publisher": "teabyii",
+    "version": "0.6.0"
+  },
+  {
+    "metadata": {
+      "id": "a6a0c5b2-d078-4bf5-a9ee-4e37054414b3",
+      "publisherId": "38bbe3f0-5204-4170-845e-c2f966d979b8",
+      "publisherDisplayName": "Jun Han"
+    },
+    "name": "code-runner",
+    "publisher": "formulahendry",
+    "version": "0.7.1"
+  },
+  {
+    "metadata": {
+      "id": "e337c67b-55c2-4fef-8949-eb260e7fb7fd",
+      "publisherId": "ac3a3342-db76-40ef-9277-4657632d3bfe",
+      "publisherDisplayName": "Shan Khan"
+    },
+    "name": "code-settings-sync",
+    "publisher": "Shan",
+    "version": "2.8.3"
+  },
+  {
+    "metadata": {
+      "id": "2335b326-c334-4e81-bc51-c408fcec6e7c",
+      "publisherId": "531ba7ca-0230-4a97-bfd1-0d02fdb02958",
+      "publisherDisplayName": "Wade Anderson"
+    },
+    "name": "gitblame",
+    "publisher": "waderyan",
+    "version": "2.2.0"
+  },
+  {
+    "metadata": {
+      "id": "5960f38e-0bbe-4644-8f9c-9c8824e82511",
+      "publisherId": "1ba8bd00-2ad1-4be0-a007-5b4b954c1ee7",
+      "publisherDisplayName": "Don Jayamanne"
+    },
+    "name": "githistory",
+    "publisher": "donjayamanne",
+    "version": "0.2.3"
+  },
+  {
+    "metadata": {
+      "id": "4de763bd-505d-4978-9575-2b7696ecf94e",
+      "publisherId": "678d198b-9b2e-49d3-96ff-6d801c9575df",
+      "publisherDisplayName": "Eric Amodio"
+    },
+    "name": "gitlens",
+    "publisher": "eamodio",
+    "version": "5.1.0"
+  },
+  {
+    "metadata": {
+      "id": "d6f6cfea-4b6f-41f4-b571-6ad2ab7918da",
+      "publisherId": "2bb7981d-dd9a-486d-8660-0cf1f838abf5",
+      "publisherDisplayName": "lukehoban"
+    },
+    "name": "Go",
+    "publisher": "lukehoban",
+    "version": "0.6.65"
+  },
+  {
+    "metadata": {
+      "id": "7f937559-a3c9-43e0-a62b-0008a5da127b",
+      "publisherId": "d142cf02-af52-4395-9363-148909445cb3",
+      "publisherDisplayName": "idleberg"
+    },
+    "name": "hopscotch",
+    "publisher": "idleberg",
+    "version": "0.2.0"
+  },
+  {
+    "metadata": {
+      "id": "1f5eb737-5496-44a3-a8a1-36a85eee4979",
+      "publisherId": "0f082869-2c63-4c83-b0e2-780d8e645f86",
+      "publisherDisplayName": "MagicStack Inc."
+    },
+    "name": "MagicPython",
+    "publisher": "magicstack",
+    "version": "1.0.12"
+  },
+  {
+    "metadata": {
+      "id": "98790d67-10fa-497c-9113-f6c7489207b2",
+      "publisherId": "36c8b41c-6ef6-4bf5-a5b7-65bef29b606f",
+      "publisherDisplayName": "Yu Zhang"
+    },
+    "name": "markdown-all-in-one",
+    "publisher": "yzhang",
+    "version": "0.9.0"
+  },
+  {
+    "metadata": {
+      "id": "2fb9491e-d250-48e4-b23e-cdbb81d655cf",
+      "publisherId": "f805269c-3b5d-49bd-95bf-e72ff809d997",
+      "publisherDisplayName": "AlanWalk"
+    },
+    "name": "markdown-toc",
+    "publisher": "AlanWalk",
+    "version": "1.5.6"
+  },
+  {
+    "metadata": {
+      "id": "5db78037-f674-459f-a236-db622c427c5b",
+      "publisherId": "f9e5bc2f-fea1-4075-917f-d83e01e69f56",
+      "publisherDisplayName": "Philipp Kief"
+    },
+    "name": "material-icon-theme",
+    "publisher": "PKief",
+    "version": "2.2.1"
+  },
+  {
+    "metadata": {
+      "id": "26a529c9-2654-4b95-a63f-02f6a52429e6",
+      "publisherId": "8ae75bda-ec22-4a17-9340-abf1a20beca9",
+      "publisherDisplayName": "zhuangtongfa"
+    },
+    "name": "Material-theme",
+    "publisher": "zhuangtongfa",
+    "version": "2.10.11"
+  },
+  {
+    "metadata": {
+      "id": "b027c4b2-25ad-46db-b574-05dae3b2dc92",
+      "publisherId": "25cdca6a-b422-4806-9041-a44a52d1a7d5",
+      "publisherDisplayName": "Joshua Azemoh"
+    },
+    "name": "one-monokai",
+    "publisher": "azemoh",
+    "version": "0.3.4"
+  },
+  {
+    "metadata": {
+      "id": "03e014a0-a915-4672-92b3-77e5a6ad72df",
+      "publisherId": "ad4b4a51-ddda-46ca-be95-1f009d9f031f",
+      "publisherDisplayName": "Haixin Chen"
+    },
+    "name": "preview-vscode",
+    "publisher": "searKing",
+    "version": "1.3.1"
+  },
+  {
+    "metadata": {
+      "id": "f1f59ae4-9318-4f3c-a9b5-81b2eaa5f8a5",
+      "publisherId": "1ba8bd00-2ad1-4be0-a007-5b4b954c1ee7",
+      "publisherDisplayName": "Don Jayamanne"
+    },
+    "name": "python",
+    "publisher": "donjayamanne",
+    "version": "0.7.0"
+  },
+  {
+    "metadata": {
+      "id": "dda49fd5-1f3b-4d25-bf61-4fc41905ede5",
+      "publisherId": "aa260071-fe15-4a92-8990-7b8753d9cbc7",
+      "publisherDisplayName": "Huachao Mao"
+    },
+    "name": "rest-client",
+    "publisher": "humao",
+    "version": "0.15.2"
+  },
+  {
+    "metadata": {
+      "id": "a5a4d637-aa11-4bd1-b404-9f10390f8d4b",
+      "publisherId": "4997bcf8-8791-4e20-b07f-68f1d8465c38",
+      "publisherDisplayName": "LeXtudio"
+    },
+    "name": "restructuredtext",
+    "publisher": "lextudio",
+    "version": "37.0.0"
+  },
+  {
+    "metadata": {
+      "id": "25a8a60f-d4ee-4918-b1e1-4843f7746d30",
+      "publisherId": "db55d06f-6e29-4f21-8b4c-68cc85168b5d",
+      "publisherDisplayName": "sozercan"
+    },
+    "name": "slack",
+    "publisher": "sozercan",
+    "version": "0.0.13"
+  },
+  {
+    "metadata": {
+      "id": "dffaf5a1-2219-434b-9d87-cb586fd59260",
+      "publisherId": "e41388a1-a892-4c1e-940b-1e7c1bf43c97",
+      "publisherDisplayName": "Mattia Astorino"
+    },
+    "name": "vsc-material-theme",
+    "publisher": "Equinusocio",
+    "version": "1.0.2"
+  },
+  {
+    "metadata": {
+      "id": "ccf9294f-f78f-429a-8856-387624db2432",
+      "publisherId": "3b7d8640-99aa-431b-ac5e-0969a2794cf2",
+      "publisherDisplayName": "hnw"
+    },
+    "name": "vscode-auto-open-markdown-preview",
+    "publisher": "hnw",
+    "version": "0.0.4"
+  },
+  {
+    "metadata": {
+      "id": "d960eabf-f421-4568-8be0-2633af2c37b0",
+      "publisherId": "65792330-895e-4895-a673-b152cfd2fcfa",
+      "publisherDisplayName": "Patryk Zawadzki"
+    },
+    "name": "vscode-code-outline",
+    "publisher": "patrys",
+    "version": "0.0.10"
+  },
+  {
+    "metadata": {
+      "id": "daf8b44d-8aae-4da2-80c5-1f770219f643",
+      "publisherId": "2e4d1cda-6ef0-4e42-a352-ab540afe8ff0",
+      "publisherDisplayName": "David Anson"
+    },
+    "name": "vscode-markdownlint",
+    "publisher": "DavidAnson",
+    "version": "0.10.1"
+  }
+]
