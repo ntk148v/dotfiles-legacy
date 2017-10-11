@@ -1,0 +1,38 @@
+---
+
+- hosts: all
+  sudo: yes
+  tasks:
+    - name: Update package list
+      apt: update_cache=yes
+      when: ansible_os_family == 'Debian'
+
+    - name: List packages to upgrade (1/2)
+      shell: aptitude -q -F%p --disable-columns search "~U"
+      register: updates
+      changed_when: False
+      when: ansible_os_family == 'Debian'
+
+    - name: Upgrade packages
+      apt: upgrade=safe
+      when: ansible_os_family == 'Debian'
+
+    - name: Check what the new version is
+      shell: lsb_release -r | awk '{print $2}'
+      changed_when: False
+      register: new_release
+
+    - new: Notify distribution version upgrade
+      debug: msg=Ubuntu has been upgraded from {{ ansible_lsb.release }} to {{ new_release.stdout }}
+      when: ansible_lsb.release != new_release.stdout
+
+    - name: List services to restart (1/2)
+      shell: checkrestart | grep ^service | awk '{print $2}'
+      register: services
+      changed_when: False
+      when: ansible_os_family == 'Debian'
+
+    - name: List services to restart (2/2)
+      debug: msg={{ services.stdout_lines | count }} services to restart ({{ services.stdout_lines | join (', ') }})
+      when: (ansible_os_family == 'Debian' and services.stdout_lines)
+
