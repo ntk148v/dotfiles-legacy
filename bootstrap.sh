@@ -3,8 +3,9 @@
 # Date for use when naming backup files
 DATE=`date +%Y%m%d`
 
-echo "Install Oh-my-zsh!"
+echo "Install Custom Oh-my-zsh & Powerlevel9k!"
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ntk148v/oh-my-zsh/master/tools/install.sh)"
+git clone https://github.com/ntk148v/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k
 
 # Check if dot files already exist:
 for FILE in ".vimrc" ".zshrc" ".gitconfig"; do
