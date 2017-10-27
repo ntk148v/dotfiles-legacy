@@ -11,5 +11,5 @@ Inspired by:
 Installation
 
 > TODO:
-    - Add Ansible modules to install & configure automatically.
-    - Use rsync (with --exclude option) in bootstrap.sh
+>     - Add Ansible modules to install & configure automatically.
+>     - Use rsync (with --exclude option) in bootstrap.sh
