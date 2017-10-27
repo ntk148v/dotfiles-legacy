@@ -10,8 +10,8 @@ export TERM="xterm-256color"
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 #ZSH_THEME="spaceship"
 #ZSH_THEME="refined"
-#ZSH_THEME="powerlevel9k/powerlevel9k"
-ZSH_THEME="af-magic"
+ZSH_THEME="powerlevel9k/powerlevel9k"
+#ZSH_THEME="af-magic"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -97,5 +97,9 @@ export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python
 export ANSIBLE_ROLES_PATH=~/roles
 if [ ! -d "${ANSIBLE_ROLES_PATH}" ]; then
     mkdir "${ANSIBLE_ROLES_PATH}"
-fi}"
+fi
 
+# Source aliases
+source ~/.aliases
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
