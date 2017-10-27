@@ -21,6 +21,9 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ntk148v/oh-my-zsh/master/t
 git clone https://github.com/ntk148v/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k
 git clone https://github.com/paulirish/git-open.git ~/.oh-my-zsh/custom/plugins/git-open
 
+echo "Install Vundle"
+git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+
 # Check if dot files already exist:
 for FILE in ".vimrc" ".zshrc" ".gitconfig"; do
     if [ -f "${HOME}/${FILE}" ]; then
