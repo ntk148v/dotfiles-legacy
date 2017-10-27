@@ -41,7 +41,7 @@ done
 
 # Special casing the .vim directory
 # Have to copy new .vim info into the user's ~/.vim recursively
-if ![ -d "${HOME}/.vim" ]; then
+if ! [ -d "${HOME}/.vim" ]; then
     mkdir ${HOME}/.vim
 fi
 echo "Recursively coping ${PWD}/.vim/* to ${HOME}/.vim"
