@@ -25,7 +25,9 @@ done
 
 # Special casing the .vim directory
 # Have to copy new .vim info into the user's ~/.vim recursively
-if [ -d "${HOME}/.vim"]; then
+if [ -d "${HOME}/.vim" ]; then
     echo "Recursively coping ${PWD}/.vim/* to ${HOME}/.vim"
     cp -r ${PWD}/.vim/* ${HOME}/vim
 fi
+
+vim +PluginInstall +qall
