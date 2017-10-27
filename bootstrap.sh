@@ -1,5 +1,18 @@
 #!/usr/bin/zsh
 
+# We also have to unset other variables that might impact LC_ALL
+# taking effect.
+unset LANG
+unset LANGUAGE
+LC_ALL=en_US.utf8
+export LC_ALL
+
+# Make sure umask is sane
+umask 022
+
+XTRACE=$(set +o | grep xtrace)
+set -o xtrace
+
 # Date for use when naming backup files
 DATE=`date +%Y%m%d`
 
@@ -31,3 +44,6 @@ if [ -d "${HOME}/.vim" ]; then
 fi
 
 vim +PluginInstall +qall
+
+# Restore xtrace
+$XTRACE
