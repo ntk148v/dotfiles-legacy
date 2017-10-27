@@ -1,4 +1,4 @@
 default: install
 
 install:
-	bash install.sh
+	zsh bootstrap.sh

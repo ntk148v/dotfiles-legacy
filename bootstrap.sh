@@ -1,7 +1,10 @@
-#!/bin/bash
+#!/usr/bin/zsh
 
 # Date for use when naming backup files
 DATE=`date +%Y%m%d`
+
+echo "Install Oh-my-zsh!"
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ntk148v/oh-my-zsh/master/tools/install.sh)"
 
 # Check if dot files already exist:
 for FILE in ".vimrc" ".zshrc" ".gitconfig"; do
