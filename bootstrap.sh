@@ -18,7 +18,7 @@ DATE=`date +%Y%m%d`
 
 echo "Install Custom Oh-my-zsh & Powerlevel9k!"
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ntk148v/oh-my-zsh/master/tools/install.sh)"
-git clone https://github.com/ntk148v/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k
+git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k
 git clone https://github.com/paulirish/git-open.git ~/.oh-my-zsh/custom/plugins/git-open
 
 echo "Install Vundle"
