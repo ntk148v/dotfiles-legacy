@@ -48,6 +48,7 @@ echo "Recursively coping ${PWD}/.vim/* to ${HOME}/.vim"
 cp -r ${PWD}/.vim/* ${HOME}/vim
 
 vim +PluginInstall +qall
+vim +PluginUpdate +qall
 
 # Restore xtrace
 $XTRACE
