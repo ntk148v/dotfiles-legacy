@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH=/home/kiennt/.oh-my-zsh
+export ZSH=${HOME}/.oh-my-zsh
 # Color term
 export TERM="xterm-256color"
 # Set name of the theme to load. Optionally, if you set this to "random"
@@ -85,7 +85,7 @@ export EDITOR='vim'
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 # Virtualenvwrapper envs
-export WORKON_HOME=/home/kiennt/Workspace/venv
+export WORKON_HOME=${HOME}/Workspace/venv
 export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python
 # source virtualenvwrapper.sh
 
