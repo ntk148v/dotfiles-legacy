@@ -21,7 +21,7 @@ ZSH_THEME="powerlevel9k/powerlevel9k"
 # HYPHEN_INSENSITIVE="true"
 
 # Uncomment the following line to disable bi-weekly auto-update checks.
-# DISABLE_AUTO_UPDATE="true"
+DISABLE_AUTO_UPDATE="false"
 
 # Uncomment the following line to change how often to auto-update (in days).
 # export UPDATE_ZSH_DAYS=13
@@ -67,11 +67,7 @@ source $ZSH/oh-my-zsh.sh
 # export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
-if [[ -n $SSH_CONNECTION ]]; then
-  export EDITOR='vim'
-else
-  export EDITOR='nano'
-fi
+export EDITOR='vim'
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -93,18 +89,18 @@ export WORKON_HOME=/home/kiennt/Workspace/venv
 export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python
 # source virtualenvwrapper.sh
 
+# Aliases
+source ~/.aliases
+
 # Ansible roles directory for galaxy
 export ANSIBLE_ROLES_PATH=~/roles
 if [ ! -d "${ANSIBLE_ROLES_PATH}" ]; then
     mkdir "${ANSIBLE_ROLES_PATH}"
 fi
 
-# Source aliases
-source ~/.aliases
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-# Powerlevel9k
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(dir rbenv vcs virtualenv)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status ram time)
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(dir vcs virtualenv)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status ram root_indicator)
 POWERLEVEL9K_PROMPT_ADD_NEWLINE=true
