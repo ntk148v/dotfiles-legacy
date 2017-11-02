@@ -25,7 +25,7 @@ echo "Install Vundle"
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 
 # Check if dot files already exist:
-for FILE in ".vimrc" ".zshrc" ".gitconfig"; do
+for FILE in ".vimrc" ".zshrc" ".gitconfig" ".aliases"; do
     if [ -f "${HOME}/${FILE}" ]; then
         if [ -L "${HOME}/${FILE}" ]; then
             echo "Unlinking ${HOME}/${FILE}"
