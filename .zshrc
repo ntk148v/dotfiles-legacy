@@ -104,3 +104,6 @@ fi
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(dir vcs virtualenv)
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status ram root_indicator)
 POWERLEVEL9K_PROMPT_ADD_NEWLINE=true
+
+# Uncomment it if you need kubernetes completion
+# source <(kubectl completion zsh)
