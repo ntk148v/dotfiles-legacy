@@ -107,3 +107,5 @@ POWERLEVEL9K_PROMPT_ADD_NEWLINE=true
 
 # Uncomment it if you need kubernetes completion
 # source <(kubectl completion zsh)
+# https://github.com/ahmetb/kubectl-aliases
+# source ~/.kubectl_aliases
