@@ -101,9 +101,12 @@ fi
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+# Star, Hammer & sickle icons
 POWERLEVEL9K_CONTEXT_TEMPLATE="%F{yellow}\u2605 \u262D"
 POWERLEVEL9K_CONTEXT_DEFAULT_BACKGROUND="red"
 POWERLEVEL9K_CONTEXT_DEFAULT_FOREGROUND="red"
+# Python, Vim, Docker icons
+# POWERLEVEL9K_CONTEXT_TEMPLATE="\ue63a %F{yellow}\ue63c %F{cyan}\ue6c5 %F{blue}\ue6b0"
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir vcs virtualenv)
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status ram root_indicator)
 POWERLEVEL9K_PROMPT_ADD_NEWLINE=true
