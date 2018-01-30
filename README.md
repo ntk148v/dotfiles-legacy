@@ -19,7 +19,7 @@ Remember to install [zsh](https://github.com/zsh-users/zsh) & git first.
 
 ```zsh
 $ git clone https://github.com/ntk148v/dotfiles.git
-$ cd dotfiles && source bootstrap.sh
+$ cd dotfiles && source bootstrap.sh # WIP!!!
 ```
 
 > TODO:
