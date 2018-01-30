@@ -91,4 +91,18 @@ function rmpyc {
     find $1 -name \*.pyc -delete
 }
 
+# Neovim
 alias vim="nvim"
+
+# Git review
+function grw () {
+	if [[ "$#" = 0 ]]
+	then
+		git review
+	elif [[ "$#" = 1 ]]
+	then
+		git review -d "$1"
+	else
+		echo "Unknow args!"
+	fi
+}
