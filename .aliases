@@ -106,3 +106,14 @@ function grw () {
 		echo "Unknow args!"
 	fi
 }
+
+# Prezto upgrade
+function upgrade_prezto() {
+    cd $ZPREZTODIR
+    git pull
+    git submodule update --init --recursive
+    # keep the fork up to date
+    git fetch upstream
+    git pull upstream master
+    git push origin master
+}
