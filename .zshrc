@@ -14,8 +14,19 @@ fi
 
 # Customize to your needs...
 
+# Preferred editor for local and remote sessions
+if ! type "$nvim" > /dev/null; then
+    export EDITOR='nvim'
+else
+    export EDITOR='vim'
+fi
+
 # Aliases
 source ~/.aliases
+
+# Virtualenvwrapper envs
+export WORKON_HOME=${HOME}/Workspace/venv
+export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
 
 # Star, Hammer & sickle icons
 POWERLEVEL9K_CONTEXT_TEMPLATE="%F{yellow}\u2605 \u262D"
@@ -40,8 +51,12 @@ POWERLEVEL9K_RPROMPT_ON_NEWLINE=false
 # source ~/.kubectl_aliases
 
 #####################################
-# Pure - Remove it if use pure themes
+# Pure - Uncomment it if use pure themes
 # fpath=( "$ZSH/functions" $fpath )
 # autoload -U promptinit; promptinit
 # prompt pure
 # PURE_PROMPT_SYMBOL="➠"
+
+###########################################
+# Spaceship - Uncomment it if use spaceship
+SPACESHIP_CHAR_SYMBOL="%F{1}\uf2d6 %B%F{1}❯%F{3}❯%F{2}❯%f%b "
