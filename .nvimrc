@@ -60,7 +60,9 @@ set guifont=DroidSansMono\ Nerd\ Font\ 12
 colorscheme solarized
 syntax enable                             " enable syntaax highlighting
 
-let g:loaded_python_provider=1
+"let g:loaded_python_provider=1
+let g:python2_host_prog='/usr/bin/python'
+let g:python3_host_prog='/usr/bin/python3'
 set shell=/bin/zsh
 set number                                " show line numbers
 set ruler
