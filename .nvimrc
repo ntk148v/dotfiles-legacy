@@ -20,6 +20,7 @@ Plug 'vim-airline/vim-airline'            " Lean & mean status/tabline for vim
 Plug 'vim-airline/vim-airline-themes'     " Themes for airline
 Plug 'yuttie/comfortable-motion.vim'      " Smooth scrolling
 Plug 'thaerkh/vim-indentguides'           " Visual representation of indents
+Plug 'majutsushi/tagbar'                  " Class/module browser
 
 "-------------------=== Fancy things ===----------------------------
 Plug 'flazz/vim-colorschemes'             " Colorschemes
@@ -138,6 +139,15 @@ let NERDTreeIgnore=['\.pyc$', '\.pyo$', '__pycache__$']     " Ignore files in NE
 let NERDTreeWinSize=40
 autocmd VimEnter * if !argc() | NERDTree | endif  " Load NERDTree only if vim is run without arguments
 nmap " :NERDTreeToggle<CR>
+
+" -----------------------
+" TagBar
+" -----------------------
+let g:tagbar_autofocus=0
+let g:tagbar_width=42
+autocmd BufEnter *.py :call tagbar#autoopen(0)
+autocmd BufWinLeave *.py :TagbarClose
+nmap <F8> :TagbarToggle<CR>
 
 " -----------------------
 " NERDComment settings
