@@ -42,6 +42,8 @@ Plug 'w0rp/ale'
 Plug 'klen/python-mode'                   " Python mode (docs, refactor, lints...)
 Plug 'jmcantrell/vim-virtualenv'
 
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+
 " Initialize plugin system
 call plug#end()
 filetype on

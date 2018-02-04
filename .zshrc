@@ -60,3 +60,11 @@ POWERLEVEL9K_RPROMPT_ON_NEWLINE=false
 ###########################################
 # Spaceship - Uncomment it if use spaceship
 SPACESHIP_CHAR_SYMBOL="%F{1}\uf2d6 %B%F{1}❯%F{3}❯%F{2}❯%f%b "
+
+if [[ $TERM == xterm-termite ]]; then                                          
+    . /etc/profile.d/vte-2.91.sh                                               
+    __vte_osc7                                                                 
+fi
+
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
