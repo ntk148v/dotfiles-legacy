@@ -59,7 +59,7 @@ set t_Co=256
 let base16colorspace=256
 set background=dark
 set guifont=DroidSansMono\ Nerd\ Font\ 12
-colorscheme solarized
+colorscheme onedark
 syntax enable                             " enable syntaax highlighting
 
 "let g:loaded_python_provider=1
