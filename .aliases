@@ -167,6 +167,9 @@ function upgrade_prezto() {
     # Sync your fork
     # Requirement: Configure a remote for a fork
     # Follow https://help.github.com/articles/configuring-a-remote-for-a-fork/
+    git stash
+    git pull
+    git submodule update --init --recursive
     git remote -v
     git ls-remote --heads upstream master &> /dev/null | wc -l
     if [[ "$?" == 0 ]]; then
@@ -175,9 +178,6 @@ function upgrade_prezto() {
     git fetch upstream
     git checkout master
     git merge upstream/master
-    # Stash .zshrc .zpreztorc
-    git stash
-    git pull
-    git submodule update --init --recursive
+    git push origin master
     git stash pop
 }
