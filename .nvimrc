@@ -91,6 +91,15 @@ set scrolloff=20
 set clipboard=unnamed                     " use system clipboard
 set listchars=tab:>\ ,trail:•,extends:#,nbsp:." Indent guides settings
 
+" Auto update
+set autoread
+set autowrite
+
+" Use mouse
+if has('mouse')
+    set mouse=a
+endif
+
 " -----------------------
 " Tab / Buffers settings
 " ----------------------
