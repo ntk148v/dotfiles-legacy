@@ -308,3 +308,6 @@ let g:airline#extensions#tabline#enabled = 1
 
 imap <F5> <Esc>:w<CR>:!clear;python %<CR>
 
+if executable('ag')
+    let g:ackprg = 'ag --vimgrep'
+endif
