@@ -41,7 +41,8 @@ zstyle ':prezto:load' pmodule \
   'history' \
   'git-open' \
   'autosuggestions' \
-  'syntax-highlighting'
+  'syntax-highlighting' \
+  'golang'
 
 #
 # Autosuggestions
