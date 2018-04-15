@@ -95,10 +95,13 @@ SPACESHIP_TIME_SHOW=true
 
 
 
-if [[ $TERM == xterm-termite ]]; then                                          
-    . /etc/profile.d/vte-2.91.sh                                               
-    __vte_osc7                                                                 
+if [[ $TERM == xterm-termite ]]; then
+    . /etc/profile.d/vte-2.91.sh
+    __vte_osc7
 fi
 
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# The fuck alias
+eval "$(thefuck --alias)"
