@@ -121,8 +121,10 @@ function gclone() {
     done
     if [[ "$1" =~ "openstack"  ]]; then
         # Clone and run git review -s
-        git clone https://git.openstack.org/$1/$2 $HOME/Workspace/$1/$2
+        git clone git://git.openstack.org/$1/$2 $HOME/Workspace/$1/$2
         cd $HOME/Workspace/$1/$2
+        # Fujitsu server needs this.
+        git config remote.gerrit.url ssh://kiennt@review.openstack.org:29418/$1/$2.git
         git review -s
         if $yes_cd; then echo "cd to $HOME/Workspace/$1/$2/"; else cd -; fi
     else
@@ -154,7 +156,7 @@ function gclone() {
                 fi
                 if $yes_cd; then; cd $3; fi
             else
-                git clone https://github.com:$1/$2.git
+                git clone git@github.com:$1/$2.git
                 if $yes_cd; then; cd $2; fi
             fi
         fi
