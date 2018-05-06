@@ -55,6 +55,22 @@ function extract {
     fi
 }
 
+function compress {
+    if [ "$#" -lt 2 ]; then
+        echo "Usage: compress <file_name>.<zip|tar|tar.gz|tar.xz|rar|gzip> file1 file2 ..."
+    else
+        case $1 in
+            *.zip)      zip $1 "${@:1}"       ;;
+            *.tar)      tar cvf $1 "${@:2}"   ;;
+            *.tar.gz)   tar zcvf $1 "${@:2}"  ;;
+            *.tar.xz)   tar Jcvf $1 "${@:2}"  ;;
+            *.rar)      rar a $1 "${@:2}"     ;;
+            *.gzip)     gzip "${@:2}"         ;;
+            *.bzip2)    bzip2 "${@:2}"        ;;
+        esac
+    fi
+}
+
 function extract_and_remove {
     extract $1
     rm -f $1
