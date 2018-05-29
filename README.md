@@ -22,6 +22,14 @@ $ git clone https://github.com/ntk148v/dotfiles.git
 $ cd dotfiles && source bootstrap.sh # WIP!!!
 ```
 
+# Fonts
+
+* [What are the best fonts to use in a terminal emulator?](https://www.slant.co/topics/7014/~fonts-to-use-in-a-terminal-emulator)
+* [What are the best programming fonts?](https://www.slant.co/topics/67/~best-programming-fonts)
+* [Hack](https://github.com/source-foundry/Hack)
+* [Iosevka](https://github.com/be5invis/Iosevka)
+* [Source Code Pro](https://github.com/adobe-fonts/source-code-pro)
+
 > TODO:
   - Add Ansible modules to install & configure automatically.
   - Use rsync (with --exclude option) in bootstrap.sh
