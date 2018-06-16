@@ -15,14 +15,18 @@ this repository, review the code, and remove things you don’t want or need.
 Don’t blindly use my settings unless you know what that entails. Use at your
 own risk!
 
-Remember to install [zsh](https://github.com/zsh-users/zsh) & git first.
+Remember to install:
+* zsh shell.
+* Tilix (Previously known as Terminix).
+* Neovim.
+* Git (of course)
 
 ```zsh
 $ git clone https://github.com/ntk148v/dotfiles.git
 $ cd dotfiles && source bootstrap.sh # WIP!!!
 ```
 
-# Fonts
+## Fonts
 
 * [What are the best fonts to use in a terminal emulator?](https://www.slant.co/topics/7014/~fonts-to-use-in-a-terminal-emulator)
 * [What are the best programming fonts?](https://www.slant.co/topics/67/~best-programming-fonts)
@@ -30,3 +34,6 @@ $ cd dotfiles && source bootstrap.sh # WIP!!!
 * [Iosevka](https://github.com/be5invis/Iosevka)
 * [Source Code Pro](https://github.com/adobe-fonts/source-code-pro)
 
+## Tilix Scheme
+
+* All color schemes I'm using are available [here](https://github.com/storm119/Tilix-Themes).
