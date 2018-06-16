@@ -30,6 +30,3 @@ $ cd dotfiles && source bootstrap.sh # WIP!!!
 * [Iosevka](https://github.com/be5invis/Iosevka)
 * [Source Code Pro](https://github.com/adobe-fonts/source-code-pro)
 
-> TODO:
-  - Add Ansible modules to install & configure automatically.
-  - Use rsync (with --exclude option) in bootstrap.sh
