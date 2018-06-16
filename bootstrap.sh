@@ -12,6 +12,7 @@ function install() {
           --exclude "LICENSE" \
           --exclude "README.md" \
           --exclude "nvim/" -av --no-perms . ${HOME}
+    fc-cache -fv
 }
 
 if [ "$1" == "--force" -o "$1" == "-f" ]; then
