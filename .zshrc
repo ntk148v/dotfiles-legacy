@@ -14,12 +14,7 @@ fi
 
 # Customize to your needs...
 
-# Preferred editor for local and remote sessions
-if ! type "$nvim" > /dev/null; then
-    export EDITOR='nvim'
-else
-    export EDITOR='vim'
-fi
+export EDITOR='nvim'
 
 # Aliases
 source ~/.aliases
@@ -50,8 +45,6 @@ POWERLEVEL9K_SHORTEN_STRATEGY="truncate_from_right"
 
 ###########################################
 # Spaceship - Uncomment it if use spaceship
-# SPACESHIP_CHAR_SYMBOL="%F{1}❯%F{3}❯%F{2}❯%f%b "
-SPACESHIP_CHAR_SYMBOL="%F{1}\u262E %F{2}\u2696 %F{3}\u279F "
 SPACESHIP_PROMPT_ORDER=(
   user          # Username section
   dir           # Current directory section
