@@ -11,6 +11,8 @@ function install() {
           --exclude "bootstrap.sh" \
           --exclude "LICENSE" \
           --exclude "README.md" \
+          --exclude "Makefile" \
+          --exclude "python-pkgs.txt" \
           --exclude "nvim/" -av --no-perms . ${HOME}
     fc-cache -fv
 }
