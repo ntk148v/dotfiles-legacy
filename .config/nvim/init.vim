@@ -76,9 +76,7 @@ if (has("termguicolors"))
    set termguicolors
 endif
 
-colorscheme sol
-" colorscheme ayu
-" let ayucolor="dark"
+colorscheme nord
 syntax enable                             " enable syntaax highlighting
 
 "let g:loaded_python_provider=1
@@ -173,7 +171,6 @@ nnoremap <silent> <C-b> :call comfortable_motion#flick(g:comfortable_motion_impu
 " Lightline settings
 " ---------------------
 let g:lightline = {
-    \ 'colorscheme': 'one',
     \ 'active': {
     \   'left': [ ['mode', 'paste'],
     \             ['gitbranch', 'readonly', 'filename', 'modified'] ],
@@ -185,7 +182,7 @@ let g:lightline = {
     \     'gitbranch': 'gitbranch#name'
     \  }
     \ }
-let g:lightline.colorscheme = 'one'
+let g:lightline.colorscheme = 'darcula'
 
 "------------------------
 " NERDTree settings
