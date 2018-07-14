@@ -37,3 +37,10 @@ $ cd dotfiles && source bootstrap.sh # WIP!!!
 ## Tilix Scheme
 
 * All color schemes I'm using are available [here](https://github.com/storm119/Tilix-Themes).
+
+## Additional tools
+
+* [diff-so-fancy](https://github.com/so-fancy/diff-so-fancy)
+* [z](https://github.com/rupa/z)
+* [fzf](https://github.com/junegunn/fzf)
+* [thefuck](https://github.com/nvbn/thefuck)
