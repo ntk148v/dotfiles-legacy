@@ -84,6 +84,7 @@ fi
 
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+[ -f ~/.config/z.sh ] && source ~/.config/z.sh
 
 # The fuck alias
 eval "$(thefuck --alias)"

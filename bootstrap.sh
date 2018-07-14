@@ -17,6 +17,13 @@ function install() {
     fc-cache -fv
 }
 
+echo "Install diff-so-fancy"
+sudo wget https://raw.githubusercontent.com/so-fancy/diff-so-fancy/master/third_party/build_fatpack/diff-so-fancy -O /usr/local/bin/diff-so-fancy
+sudo chmod +x /usr/local/bin/diff-so-fancy
+
+echo "Install z"
+wget https://raw.githubusercontent.com/rupa/z/master/z.sh ~/.config/z.sh
+
 if [ "$1" == "--force" -o "$1" == "-f" ]; then
     install
 else
