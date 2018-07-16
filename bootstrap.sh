@@ -22,7 +22,7 @@ sudo wget https://raw.githubusercontent.com/so-fancy/diff-so-fancy/master/third_
 sudo chmod +x /usr/local/bin/diff-so-fancy
 
 echo "Install z"
-wget https://raw.githubusercontent.com/rupa/z/master/z.sh ~/.config/z.sh
+wget https://raw.githubusercontent.com/rupa/z/master/z.sh -O  ~/.config/z.sh
 
 if [ "$1" == "--force" -o "$1" == "-f" ]; then
     install
