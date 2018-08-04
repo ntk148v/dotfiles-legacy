@@ -12,5 +12,5 @@
 # 	proxy = http://10.61.2.237:3128
 # [https]
 # 	proxy = https://10.61.2.237:3128
-[remote "gerrit"]
-	fetch = +refs/heads/*:refs/remotes/gerrit/*
+# [remote "gerrit"]
+# 	fetch = +refs/heads/*:refs/remotes/gerrit/*

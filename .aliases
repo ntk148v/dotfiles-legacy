@@ -138,9 +138,9 @@ function gclone() {
     done
     if [[ "$1" =~ "openstack"  ]]; then
         # Clone and run git review -s
-        git clone https://git.openstack.org/$1/$2.git $HOME/Workspace/$1/$2
+        git clone git://git.openstack.org/$1/$2.git $HOME/Workspace/$1/$2
         cd $HOME/Workspace/$1/$2
-        git remote add gerrit https://kiennt@review.openstack.org/$1/$2.git
+        git remote add gerrit ssh://kiennt@review.openstack.org:29418/$1/$2.git
         git review -s
         if $yes_cd; then echo "cd to $HOME/Workspace/$1/$2/"; else cd -; fi
     else
