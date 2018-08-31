@@ -107,6 +107,9 @@ function wttr {
     curl wttr.in/~$location
 }
 
+# Remove none tag Docker images
+alias drmi='docker rmi $(docker images -f "dangling=true" -q)'
+
 function rmpyc {
     find $1 -name \*.pyc -delete
 }
