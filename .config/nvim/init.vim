@@ -23,17 +23,17 @@ Plug 'itchyny/lightline.vim'
 Plug 'yuttie/comfortable-motion.vim'      " Smooth scrolling
 Plug 'thaerkh/vim-indentguides'           " Visual representation of indents
 Plug 'majutsushi/tagbar'                  " Class/module browser
+Plug 'bling/vim-bufferline'               " Buffer-line vim - show list of buffers in command bar
 
 "-------------------=== Fancy things ===----------------------------
 Plug 'flazz/vim-colorschemes'             " Colorschemes
 Plug 'jreybert/vimagit'                   " Git Operations
-Plug 'kien/rainbow_parentheses.vim'       " Rainbow Parentheses
 Plug 'chriskempson/base16-vim'            " Base 16 colors
 Plug 'ryanoasis/vim-devicons'             " Dev Icons
 Plug 'arcticicestudio/nord-vim'           " Nord colorscheme
 Plug 'ayu-theme/ayu-vim'                  " Ayu colorscheme
 Plug 'sonph/onehalf', {'rtp': 'vim/'}     " One1/2 colorschme
-Plug 'mhartington/oceanic-next'           " Oceanic-next colorscheme
+Plug 'iCyMind/NeoSolarized'
 
 "-------------------=== Snippets support ===------------------------
 Plug 'honza/vim-snippets'                 " snippets repo
@@ -76,7 +76,7 @@ if (has("termguicolors"))
    set termguicolors
 endif
 
-colorscheme nord
+colorscheme NeoSolarized
 syntax enable                             " enable syntaax highlighting
 
 "let g:loaded_python_provider=1
@@ -173,16 +173,18 @@ nnoremap <silent> <C-b> :call comfortable_motion#flick(g:comfortable_motion_impu
 let g:lightline = {
     \ 'active': {
     \   'left': [ ['mode', 'paste'],
-    \             ['gitbranch', 'readonly', 'filename', 'modified'] ],
+    \             ['gitbranch', 'readonly', 'filename', 'modified'],
+    \             ['bufferline']],
     \  },
     \  'component': {
     \     'lineinfo': ' %3l:%-2v',
+    \     'bufferline': '%{bufferline#refresh_status()}%{g:bufferline_status_info.before . g:bufferline_status_info.current . g:bufferline_status_info.after}'
     \  },
     \  'component_function': {
     \     'gitbranch': 'gitbranch#name'
     \  }
     \ }
-let g:lightline.colorscheme = 'darcula'
+let g:lightline.colorscheme = 'solarized'
 
 "------------------------
 " NERDTree settings
@@ -285,14 +287,6 @@ let g:DevIconsEnableFolderExtensionPatternMatching = 0
 " SnipMate settings
 " -----------------------
 let g:snippets_dir='~/.local/share/nvim/plugged/vim-snippets/snippets/'
-
-" ----------------------------
-" Rainbow Parentheses Autoload
-" ----------------------------
-au VimEnter * RainbowParenthesesToggle
-au Syntax * RainbowParenthesesLoadRound
-au Syntax * RainbowParenthesesLoadSquare
-au Syntax * RainbowParenthesesLoadBraces
 
 " ------------------------
 " CtrlSpace - Fuzzy search
