@@ -33,6 +33,8 @@ $ cd dotfiles && source bootstrap.sh # WIP!!!
 * [Hack](https://github.com/source-foundry/Hack)
 * [Iosevka](https://github.com/be5invis/Iosevka)
 * [Source Code Pro](https://github.com/adobe-fonts/source-code-pro)
+* [Fira Code](https://github.com/tonsky/FiraCode)
+* [Inconsolata](https://github.com/google/fonts/tree/master/ofl/inconsolata)
 
 ## Tilix Scheme
 
