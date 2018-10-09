@@ -19,7 +19,8 @@ Remember to install:
 * zsh shell.
 * Tilix (Previously known as Terminix).
 * Neovim.
-* Git (of course)
+* Git (of course).
+* Tint2.
 
 ```zsh
 $ git clone https://github.com/ntk148v/dotfiles.git
@@ -46,3 +47,4 @@ $ cd dotfiles && source bootstrap.sh # WIP!!!
 * [z](https://github.com/rupa/z)
 * [fzf](https://github.com/junegunn/fzf)
 * [thefuck](https://github.com/nvbn/thefuck)
+* [tint2](https://gitlab.com/o9000/tint2)
