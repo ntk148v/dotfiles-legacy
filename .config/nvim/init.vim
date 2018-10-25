@@ -1,4 +1,5 @@
 set nocompatible
+set completeopt+=noselect
 filetype off
 set hidden
 set showtabline=0
@@ -14,8 +15,11 @@ Plug 'scrooloose/nerdtree'                " Project and file navigation
 Plug 'Xuyuanp/nerdtree-git-plugin'        " NerdTree git functionality
 Plug 'neomake/neomake'                    " Asynchronous Linting and Make Framework
 Plug 'Shougo/deoplete.nvim'               " Asynchronous Completion
+Plug 'zchee/deoplete-go', { 'do': 'make'} " Asynchronous completion for go
 Plug 'vim-ctrlspace/vim-ctrlspace'        " Tabs/Buffers/Fuzzy/Workspaces/Bookmarks
 Plug 'mileszs/ack.vim'                    " Ag/Grep
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 " Uncomment if you want to use vim-airline over lightline
 " Plug 'vim-airline/vim-airline'            " Lean & mean status/tabline for vim
 " Plug 'vim-airline/vim-airline-themes'     " Themes for airline
@@ -48,7 +52,8 @@ Plug 'w0rp/ale'
 Plug 'klen/python-mode'                   " Python mode (docs, refactor, lints...)
 Plug 'jmcantrell/vim-virtualenv'
 
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+"-------------------=== Go ===---------------------------------------
+Plug 'fatih/vim-go', {'do': ':GoUpdateBinaries'}
 
 " Initialize plugin system
 call plug#end()
@@ -68,7 +73,7 @@ set guicursor+=i:blinkwait10
 set encoding=utf8
 set t_Co=256
 let base16colorspace=256
-set background=dark
+set background=light
 set guifont=DroidSansMono\ Nerd\ Font\ 12
 " NOTE: This is only compatible with Guake 3.X.
 " Check issue: https://github.com/Guake/guake/issues/772
@@ -76,7 +81,8 @@ if (has("termguicolors"))
    set termguicolors
 endif
 
-colorscheme NeoSolarized
+colorscheme ayu
+let ayucolor="mirage"
 syntax enable                             " enable syntaax highlighting
 
 "let g:loaded_python_provider=1
@@ -139,6 +145,9 @@ let g:neomake_open_list=2
 " Deoplete settings
 " -----------------------
 let g:deoplete#enable_at_startup=1
+" deoplete-go settings
+let g:deoplete#sources#go#gocode_binary = '$GOPATH/bin/gocode'
+let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']
 
 " -----------------------
 " Search settings
@@ -184,7 +193,7 @@ let g:lightline = {
     \     'gitbranch': 'gitbranch#name'
     \  }
     \ }
-let g:lightline.colorscheme = 'solarized'
+let g:lightline.colorscheme = 'one'
 
 "------------------------
 " NERDTree settings
@@ -314,6 +323,11 @@ let g:CtrlSpaceLoadLastWorkspaceOnStart = 1
 let g:CtrlSpaceSaveWorkspaceOnSwitch = 1
 let g:CtrlSpaceSaveWorkspaceOnExit = 1
 
+" ----------------------
+" Fuzzysearch - fzf
+" ----------------------
+map ; :Files<CR>
+
 " -----------------------
 " Python
 " -----------------------
@@ -367,8 +381,12 @@ let g:ale_emit_conflict_warnings=0
 let g:pymode_rope_lookup_project = 0
 let g:pymode_rope = 0
 
+let b:ale_linters = ['pylakes', 'flake8', 'pylint']
+
 imap <F5> <Esc>:w<CR>:!clear;python %<CR>
 
 if executable('ag')
     let g:ackprg = 'ag --vimgrep'
 endif
+
+let g:go_version_warning = 0
