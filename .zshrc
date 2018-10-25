@@ -27,7 +27,7 @@ export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
 # Powerlevel9k - Uncomment it if you use powerlinelevel9k theme
 POWERLEVEL9K_CONTEXT_TEMPLATE="$USER"
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir vcs virtualenv)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status history ram time)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status history time)
 POWERLEVEL9K_SHORTEN_DIR_LENGTH=1
 POWERLEVEL9K_SHORTEN_STRATEGY="truncate_from_right"
 
@@ -35,6 +35,9 @@ POWERLEVEL9K_SHORTEN_STRATEGY="truncate_from_right"
 # source <(kubectl completion zsh)
 # https://github.com/ahmetb/kubectl-aliases
 # source ~/.kubectl_aliases
+if [ $commands[kubectl] ]; then
+  source <(kubectl completion zsh)
+fi
 
 #####################################
 # Pure - Uncomment it if use pure themes
@@ -63,7 +66,6 @@ SPACESHIP_PROMPT_ORDER=(
   exec_time     # Execution time
   line_sep      # Line break
   battery       # Battery level and status
-  vi_mode       # Vi-mode indicator
   jobs          # Background jobs indicator
   exit_code     # Exit code section
   char          # Prompt character
@@ -88,3 +90,6 @@ fi
 
 # The fuck alias
 eval "$(thefuck --alias)"
+
+export GOPATH=$HOME/go
+export PATH=$PATH:$GOPATH/bin
