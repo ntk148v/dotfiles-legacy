@@ -37,7 +37,8 @@ Plug 'ryanoasis/vim-devicons'             " Dev Icons
 Plug 'arcticicestudio/nord-vim'           " Nord colorscheme
 Plug 'ayu-theme/ayu-vim'                  " Ayu colorscheme
 Plug 'sonph/onehalf', {'rtp': 'vim/'}     " One1/2 colorschme
-Plug 'iCyMind/NeoSolarized'
+Plug 'iCyMind/NeoSolarized'               " NeoSolarized
+Plug 'kamwitsta/flatwhite-vim'            " Flatwhite
 
 "-------------------=== Snippets support ===------------------------
 Plug 'honza/vim-snippets'                 " snippets repo
@@ -81,8 +82,7 @@ if (has("termguicolors"))
    set termguicolors
 endif
 
-colorscheme ayu
-let ayucolor="mirage"
+colorscheme flatwhite
 syntax enable                             " enable syntaax highlighting
 
 "let g:loaded_python_provider=1
