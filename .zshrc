@@ -128,3 +128,7 @@ fi
 
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
+
+# Zsh-suggestions
+bindkey '^F' autosuggest-accept
+bindkey '^E' autosuggest-execute
