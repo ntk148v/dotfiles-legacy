@@ -3,7 +3,7 @@
 	url = https://github.com/zsh-users/zsh-autosuggestions
 [submodule ".oh-my-zsh/custom/plugins/git-open"]
 	path = .oh-my-zsh/custom/plugins/git-open
-	url = https://github.com/zsh-users/zsh-completions
+	url = https://github.com/paulirish/git-open
 [submodule ".oh-my-zsh/custom/themes/powerlevel9k"]
 	path = .oh-my-zsh/custom/themes/powerlevel9k
 	url = https://github.com/bhilburn/powerlevel9k.git
