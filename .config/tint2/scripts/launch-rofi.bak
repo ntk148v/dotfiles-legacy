@@ -21,10 +21,10 @@ rofi -sidebar-mode \
 -columns 1 \
 -font "Fira Code 10" \
 -color-enabled true \
--color-window "#000000,#000000,#000000" \
--color-normal "#000000,#e0e0e0,#000000,#000000,#e45566" \
--color-active "#000000,#e45566,#000000,#000000,#e45566" \
--color-urgent "#000000,#e45566,#000000,#000000,#e45566"
+-color-window "#303145,#303145,#303145" \
+-color-normal "#303145,#e0e0e0,#303145,#303145,#e45566" \
+-color-active "#303145,#e45566,#303145,#303145,#e45566" \
+-color-urgent "#303145,#e45566,#303145,#303145,#e45566"
 
 # Theming help
 # color window = background, border, separator
