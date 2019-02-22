@@ -24,7 +24,7 @@ Remember to install:
 
 ```zsh
 $ git clone https://github.com/ntk148v/dotfiles.git
-$ cd dotfiles && source bootstrap.sh # WIP!!!
+$ cd dotfiles && source bootstrap.sh
 ```
 
 ## Fonts
