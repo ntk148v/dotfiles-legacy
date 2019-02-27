@@ -28,17 +28,19 @@ Plug 'yuttie/comfortable-motion.vim'      " Smooth scrolling
 Plug 'thaerkh/vim-indentguides'           " Visual representation of indents
 Plug 'majutsushi/tagbar'                  " Class/module browser
 Plug 'bling/vim-bufferline'               " Buffer-line vim - show list of buffers in command bar
+Plug 'junegunn/limelight.vim'             " Hyperfocus-writing in Vim
+Plug 'brooth/far.vim'                     " Find and replace
 
 "-------------------=== Fancy things ===----------------------------
 Plug 'flazz/vim-colorschemes'             " Colorschemes
 Plug 'jreybert/vimagit'                   " Git Operations
 Plug 'chriskempson/base16-vim'            " Base 16 colors
 Plug 'ryanoasis/vim-devicons'             " Dev Icons
-Plug 'arcticicestudio/nord-vim'           " Nord colorscheme
-Plug 'ayu-theme/ayu-vim'                  " Ayu colorscheme
-Plug 'sonph/onehalf', {'rtp': 'vim/'}     " One1/2 colorschme
-Plug 'iCyMind/NeoSolarized'               " NeoSolarized
+Plug 'iCyMind/NeoSolarized'
 Plug 'kamwitsta/flatwhite-vim'            " Flatwhite
+Plug 'lifepillar/vim-colortemplate'       " Colortemplate
+Plug 'nightsense/cosmic_latte'            " Cosmic Latte
+Plug 'nightsense/snow'                    " Snow
 
 "-------------------=== Snippets support ===------------------------
 Plug 'honza/vim-snippets'                 " snippets repo
@@ -74,16 +76,14 @@ set guicursor+=i:blinkwait10
 set encoding=utf8
 set t_Co=256
 let base16colorspace=256
-set background=light
-set guifont=DroidSansMono\ Nerd\ Font\ 12
 " NOTE: This is only compatible with Guake 3.X.
 " Check issue: https://github.com/Guake/guake/issues/772
 if (has("termguicolors"))
    set termguicolors
 endif
 
-colorscheme flatwhite
 syntax enable                             " enable syntaax highlighting
+colorscheme cosmic_latte
 
 "let g:loaded_python_provider=1
 let g:python2_host_prog='/usr/bin/python'
@@ -193,7 +193,14 @@ let g:lightline = {
     \     'gitbranch': 'gitbranch#name'
     \  }
     \ }
-let g:lightline.colorscheme = 'one'
+" Set version automatically based on vim (neovim) launch time
+if strftime('%H') >= 7 && strftime('%H') < 19
+    set background=light
+    let g:lightline.colorscheme = 'cosmic_latte_light'
+else
+    set background=dark
+    let g:lightline.colorscheme = 'cosmic_latte_light'
+endif
 
 "------------------------
 " NERDTree settings
