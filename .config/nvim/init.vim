@@ -67,15 +67,13 @@ filetype plugin indent on
 "-------------------
 " General settings
 "------------
-highlight Cursor guifg=white guibg=black
-highlight iCursor guifg=white guibg=steelblue
-set guicursor=n-v-c:block-Cursor
-set guicursor+=i:ver100-iCursor
-set guicursor+=n-v-c:blinkon0
-set guicursor+=i:blinkwait10
 set encoding=utf8
 set t_Co=256
 let base16colorspace=256
+" Configure cursor
+set guicursor=n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50
+            \,a:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor
+            \,sm:block-blinkwait175-blinkoff150-blinkon175
 " NOTE: This is only compatible with Guake 3.X.
 " Check issue: https://github.com/Guake/guake/issues/772
 if (has("termguicolors"))
