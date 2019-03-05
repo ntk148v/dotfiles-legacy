@@ -185,6 +185,53 @@ function gclone() {
     fi
 }
 
+# Usage:
+# git-sync-fork <upstream-remote> <target-remote>
+# <upstream-remote> - default upstream
+# <target-remote> - default origin
+function git-sync-fork() {
+    UPSTREAM=$1
+    ORIGIN=$2
+    if [[ -z "$UPSTREAM" ]]; then
+        UPSTREAM="upstream"
+    fi
+
+    if [[ -z "$ORIGIN" ]]; then
+        ORIGIN="origin"
+    fi
+
+    if [[ -n "$ZSH_VERSION" ]]; then
+        vared -p "1. This will setup '$ORIGIN' to track all branches in '$UPSTREAM' - Are you sure ?" -c REPLY
+    elif [[ -n "$BASH_VERSION" ]]; then
+        read -p "1. This will setup '$ORIGIN' to track all branches in '$UPSTREAM' - Are you sure ?" -n 1 -r
+    else
+        echo "Unknow shell, only Zsh and Bash are supported"
+        exit 1
+    fi
+
+    if [[ $REPLY =~ ^[Yy]$ ]]
+    then
+        echo "\n"
+        for brname in `git branch -r | grep "$UPSTREAM" | grep -v master | grep -v HEAD | sed -e 's/.*\///g'`; do git branch --track $brname  $UPSTREAM/$brname ; done
+    fi
+
+    if [[ -n "$ZSH_VERSION" ]]; then
+        vared -p "2. This will push all local branches and tags into '$ORIGIN' - Are you sure ?" -c REPLY
+    elif [[ -n "$BASH_VERSION" ]]; then
+        read -p "2. This will push all local branches and tags into '$ORIGIN' - Are you sure ?" -n 1 -r
+    else
+        echo "Unknow shell, only Zsh and Bash are supported"
+        exit 1
+    fi
+
+    if [[ $REPLY =~ ^[Yy]$ ]]
+    then
+        echo "\n"
+        git push --all $ORIGIN
+        git push --tags $ORIGIN
+    fi
+}
+
 # Prezto upgrade
 function upgrade_prezto() {
     cd $ZPREZTODIR
