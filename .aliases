@@ -200,6 +200,8 @@ function git-sync-fork() {
         ORIGIN="origin"
     fi
 
+    unset REPLY
+
     if [[ -n "$ZSH_VERSION" ]]; then
         vared -p "1. This will setup '$ORIGIN' to track all branches in '$UPSTREAM' - Are you sure ?" -c REPLY
     elif [[ -n "$BASH_VERSION" ]]; then
@@ -213,6 +215,7 @@ function git-sync-fork() {
     then
         echo "\n"
         for brname in `git branch -r | grep "$UPSTREAM" | grep -v master | grep -v HEAD | sed -e 's/.*\///g'`; do git branch --track $brname  $UPSTREAM/$brname ; done
+        unset REPLY
     fi
 
     if [[ -n "$ZSH_VERSION" ]]; then
@@ -229,6 +232,7 @@ function git-sync-fork() {
         echo "\n"
         git push --all $ORIGIN
         git push --tags $ORIGIN
+        unset REPLY
     fi
 }
 
