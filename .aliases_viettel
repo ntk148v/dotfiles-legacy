@@ -6,6 +6,7 @@ alias ...="cd ../.."
 alias ....="cd ../../.."
 alias ~="cd ~"
 
+alias tailf="tail -f"
 # ls color
 # Very long line
 export LS_COLORS='no=00:fi=00:di=01;31:ln=01;36:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arj=01;31:*.taz=01;31:*.lzh=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.gz=01;31:*.bz2=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.avi=01;35:*.fli=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.ogg=01;35:*.mp3=01;35:*.wav=01;35:'
@@ -29,9 +30,6 @@ alias reload="exec ${SHELL} -l"
 
 # Print each PATH entry on a separate line
 alias path='echo -e ${PATH//:/\\n}'
-
-# Delete none tag Docker images
-alias drmi='docker rmi $(docker images -f "dangling=true" -q)'
 
 # Archives
 function extract {
@@ -101,6 +99,14 @@ alias aptuu="sudo apt update ; sudo apt upgrade -y"
 alias aptu="sudo apt update"
 alias aptar="sudo apt autoremove -y"
 alias aptac="sudo apt autoclean -y"
+
+# Gatepro
+alias gatepro="/usr/lib/jvm/java-8-oracle/jre/bin/java -classpath /usr/lib/jvm/java-8-oracle/jre/lib/deploy.jar -Djava.security.policy=file:/usr/lib/jvm/java-8-oracle/jre/lib/security/javaws.policy -DtrustProxy=true -Xverify:remote -Djnlpx.home=/usr/lib/jvm/java-8-oracle/jre/bin -Djava.security.manager -Djnlpx.origFilenameArg=/home/kiennt/Documents/gate-pro.jnlp -Djnlpx.remove=false -Dsun.awt.warmup=true -Xbootclasspath/a:/usr/lib/jvm/java-8-oracle/jre/lib/javaws.jar:/usr/lib/jvm/java-8-oracle/jre/lib/deploy.jar:/usr/lib/jvm/java-8-oracle/jre/lib/plugin.jar -Djnlpx.splashport=53785 -Djnlpx.jvm=/usr/lib/jvm/java-8-oracle/jre/bin/java com.sun.javaws.Main /home/kiennt/Documents/gate-pro.jnlp &"
+
+# Delete none tag Docker images
+
+alias drmi='docker rmi $(docker images -f "dangling=true" -q)'
+
 function wttr {
     local location=$1
     curl wttr.in/~$location
@@ -146,38 +152,89 @@ function gclone() {
         git review -s
         if $yes_cd; then echo "cd to $HOME/Workspace/$1/$2/"; else cd -; fi
     else
-        if [[ -z $2 ]]; then
+        if [[ $# -eq 1 ]]; then
+            git clone $1
+        elif [[ -z $2 ]]; then
             local repo_name=$1
             while [ "${repo_name%%/}" != "$repo_name" ]; do
                 repo_name=${repo_name#*/}
             done
             repo_name=${repo_name%.*}
             git clone $1
-            if $yes_cd; then; cd $repo_name; fi
-        else
-            if [[ $# -eq 4 ]]; then
-                if [[ "$1" == "ssh" ]]; then
-                    git clone git@github.com:$2/$3.git $4
-                elif [[ "$1" == "https" ]]; then
-                    git clone https://github.com/$2/$3.git $4
-                else
-                    echo "Usage: gclone [ssh|https] [username] [repo_name] [dir]"
-                fi
-                if $yes_cd; then cd $4; fi
-            elif [[ $# -eq 3 ]]; then
-                if [[ "$1" == "ssh" ]]; then
-                    git clone git@github.com:$2/$3.git
-                elif [[ "$1" == "https" ]]; then
-                    git clone https://github.com/$2/$3.git
-                else
-                    git clone git@github.com:$1/$2.git $3
-                fi
-                if $yes_cd; then; cd $3; fi
+            if $yes_cd; then cd $repo_name; fi
+        elif [[ $# -eq 4 ]]; then
+            if [[ "$1" == "ssh" ]]; then
+                git clone git@github.com:$2/$3.git $4
+            elif [[ "$1" == "https" ]]; then
+                git clone https://github.com/$2/$3.git $4
             else
-                git clone https://github.com/$1/$2.git
-                if $yes_cd; then; cd $2; fi
+                echo "Usage: gclone [ssh|https] [username] [repo_name] [dir]"
             fi
+            if $yes_cd; then cd $4; fi
+        elif [[ $# -eq 3 ]]; then
+            if [[ "$1" == "ssh" ]]; then
+                git clone git@github.com:$2/$3.git
+            elif [[ "$1" == "https" ]]; then
+                git clone https://github.com/$2/$3.git
+            else
+                git clone git@github.com:$1/$2.git $3
+            fi
+            if $yes_cd; then cd $3; fi
+        else
+            git clone https://github.com/$1/$2.git
+            if $yes_cd; then cd $2; fi
         fi
+    fi
+}
+
+# Usage:
+# git-sync-fork <upstream-remote> <target-remote>
+# <upstream-remote> - default upstream
+# <target-remote> - default origin
+function git-sync-fork() {
+    UPSTREAM=$1
+    ORIGIN=$2
+    if [[ -z "$UPSTREAM" ]]; then
+        UPSTREAM="upstream"
+    fi
+
+    if [[ -z "$ORIGIN" ]]; then
+        ORIGIN="origin"
+    fi
+
+    unset REPLY
+
+    if [[ -n "$ZSH_VERSION" ]]; then
+        vared -p "1. This will setup '$ORIGIN' to track all branches in '$UPSTREAM' - Are you sure ?" -c REPLY
+    elif [[ -n "$BASH_VERSION" ]]; then
+        read -p "1. This will setup '$ORIGIN' to track all branches in '$UPSTREAM' - Are you sure ?" -n 1 -r
+    else
+        echo "Unknow shell, only Zsh and Bash are supported"
+        exit 1
+    fi
+
+    if [[ $REPLY =~ ^[Yy]$ ]]
+    then
+        echo "\n"
+        for brname in `git branch -r | grep "$UPSTREAM" | grep -v master | grep -v HEAD | sed -e 's/.*\///g'`; do git branch --track $brname  $UPSTREAM/$brname ; done
+        unset REPLY
+    fi
+
+    if [[ -n "$ZSH_VERSION" ]]; then
+        vared -p "2. This will push all local branches and tags into '$ORIGIN' - Are you sure ?" -c REPLY
+    elif [[ -n "$BASH_VERSION" ]]; then
+        read -p "2. This will push all local branches and tags into '$ORIGIN' - Are you sure ?" -n 1 -r
+    else
+        echo "Unknow shell, only Zsh and Bash are supported"
+        exit 1
+    fi
+
+    if [[ $REPLY =~ ^[Yy]$ ]]
+    then
+        echo "\n"
+        git push --all $ORIGIN
+        git push --tags $ORIGIN
+        unset REPLY
     fi
 }
 
