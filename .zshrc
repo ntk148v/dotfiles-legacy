@@ -8,7 +8,7 @@
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="lambda-mod"
+ZSH_THEME="spaceship"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -89,8 +89,9 @@ source $ZSH/oh-my-zsh.sh
 # export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
+export VISUAL="/usr/bin/nvim"
 if [[ -n $SSH_CONNECTION ]]; then
-  export EDITOR='nvim'
+  export EDITOR="$VISUAL"
 else
   export EDITOR='mvim'
 fi
@@ -132,3 +133,33 @@ export PATH=$PATH:$GOPATH/bin
 # Zsh-suggestions
 bindkey '^F' autosuggest-accept
 bindkey '^E' autosuggest-execute
+
+export BAT_THEME='TwoDark'
+
+# spaceship
+SPACESHIP_PROMPT_ORDER=(
+  time          # Time stamps section
+  user          # Username section
+  dir           # Current directory section
+  host          # Hostname section
+  git           # Git section (git_branch + git_status)
+  hg            # Mercurial section (hg_branch  + hg_status)
+  package       # Package version
+  node          # Node.js section
+  ruby          # Ruby section
+  golang        # Go section
+  docker        # Docker section
+  venv          # virtualenv section
+  conda         # conda virtualenv section
+  pyenv         # Pyenv section
+  dotnet        # .NET section
+  kubecontext   # Kubectl context section
+  exec_time     # Execution time
+  line_sep      # Line break
+  battery       # Battery level and status
+  jobs          # Background jobs indicator
+  exit_code     # Exit code section
+)
+
+SPACESHIP_PROMPT_ADD_NEWLINE=false
+SPACESHIP_PROMPT_SEPARATE_LINE=false
