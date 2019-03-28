@@ -31,6 +31,9 @@ alias reload="exec ${SHELL} -l"
 # Print each PATH entry on a separate line
 alias path='echo -e ${PATH//:/\\n}'
 
+# Lazy pip
+alias piph="sudo -H pip"
+
 # Archives
 function extract {
     if [ -z "$1" ]; then

@@ -34,6 +34,9 @@ alias path='echo -e ${PATH//:/\\n}'
 # Delete none tag Docker images
 alias drmi='docker rmi $(docker images -f "dangling=true" -q)'
 
+# Lazy pip with -H option
+alias piph='sudo -H pip'
+
 # Archives
 function extract {
     if [ -z "$1" ]; then
