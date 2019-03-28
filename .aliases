@@ -31,9 +31,6 @@ alias reload="exec ${SHELL} -l"
 # Print each PATH entry on a separate line
 alias path='echo -e ${PATH//:/\\n}'
 
-# Delete none tag Docker images
-alias drmi='docker rmi $(docker images -f "dangling=true" -q)'
-
 # Lazy pip with -H option
 alias piph='sudo -H pip'
 

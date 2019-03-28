@@ -106,10 +106,6 @@ alias aptac="sudo apt autoclean -y"
 # Gatepro
 alias gatepro="/usr/lib/jvm/java-8-oracle/jre/bin/java -classpath /usr/lib/jvm/java-8-oracle/jre/lib/deploy.jar -Djava.security.policy=file:/usr/lib/jvm/java-8-oracle/jre/lib/security/javaws.policy -DtrustProxy=true -Xverify:remote -Djnlpx.home=/usr/lib/jvm/java-8-oracle/jre/bin -Djava.security.manager -Djnlpx.origFilenameArg=/home/kiennt/Documents/gate-pro.jnlp -Djnlpx.remove=false -Dsun.awt.warmup=true -Xbootclasspath/a:/usr/lib/jvm/java-8-oracle/jre/lib/javaws.jar:/usr/lib/jvm/java-8-oracle/jre/lib/deploy.jar:/usr/lib/jvm/java-8-oracle/jre/lib/plugin.jar -Djnlpx.splashport=53785 -Djnlpx.jvm=/usr/lib/jvm/java-8-oracle/jre/bin/java com.sun.javaws.Main /home/kiennt/Documents/gate-pro.jnlp &"
 
-# Delete none tag Docker images
-
-alias drmi='docker rmi $(docker images -f "dangling=true" -q)'
-
 function wttr {
     local location=$1
     curl wttr.in/~$location
