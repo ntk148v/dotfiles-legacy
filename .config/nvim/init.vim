@@ -30,6 +30,7 @@ Plug 'majutsushi/tagbar'                  " Class/module browser
 Plug 'bling/vim-bufferline'               " Buffer-line vim - show list of buffers in command bar
 Plug 'junegunn/limelight.vim'             " Hyperfocus-writing in Vim
 Plug 'brooth/far.vim'                     " Find and replace
+Plug 'junegunn/goyo.vim'                  " Distraction-free writing in Vim
 
 "-------------------=== Fancy things ===----------------------------
 Plug 'flazz/vim-colorschemes'             " Colorschemes
@@ -41,6 +42,8 @@ Plug 'kamwitsta/flatwhite-vim'            " Flatwhite
 Plug 'lifepillar/vim-colortemplate'       " Colortemplate
 Plug 'nightsense/cosmic_latte'            " Cosmic Latte
 Plug 'nightsense/snow'                    " Snow
+Plug 'ntk148v/vim-horizon'                " Horizon
+Plug 'liuchengxu/space-vim-theme'         " Space-vim
 
 "-------------------=== Snippets support ===------------------------
 Plug 'honza/vim-snippets'                 " snippets repo
@@ -81,7 +84,6 @@ if (has("termguicolors"))
 endif
 
 syntax enable                             " enable syntaax highlighting
-colorscheme cosmic_latte
 
 "let g:loaded_python_provider=1
 let g:python2_host_prog='/usr/bin/python'
@@ -176,12 +178,16 @@ nnoremap <silent> <C-b> :call comfortable_motion#flick(g:comfortable_motion_impu
 
 " --------------------
 " Lightline settings
-" ---------------------
+" --------------------
 let g:lightline = {
     \ 'active': {
     \   'left': [ ['mode', 'paste'],
-    \             ['gitbranch', 'readonly', 'filename', 'modified'],
+    \             ['gitbranch', 'filename', 'readonly', 'modified'],
     \             ['bufferline']],
+    \  },
+    \ 'inactive': {
+    \   'left': [],
+    \   'right': [],
     \  },
     \  'component': {
     \     'lineinfo': ' %3l:%-2v',
@@ -194,11 +200,13 @@ let g:lightline = {
 " Set version automatically based on vim (neovim) launch time
 if strftime('%H') >= 7 && strftime('%H') < 19
     set background=light
-    let g:lightline.colorscheme = 'cosmic_latte_light'
+    let g:lightline.colorscheme = 'snow_light'
 else
     set background=dark
-    let g:lightline.colorscheme = 'cosmic_latte_light'
+    let g:lightline.colorscheme = 'snow_dark'
 endif
+" colorscheme space_vim_theme
+colorscheme paramount
 
 "------------------------
 " NERDTree settings
@@ -250,10 +258,10 @@ let g:NERDTrimTrailingWhitespace = 1
 " -----------------------
 " DevIcon settings
 " -----------------------
-" loading the plugin 
+" loading the plugin
 let g:webdevicons_enable = 1
 
-" adding the flags to NERDTree 
+" adding the flags to NERDTree
 let g:webdevicons_enable_nerdtree = 1
 
 " adding to vim-airline's tabline
@@ -265,18 +273,18 @@ let g:webdevicons_enable_nerdtree = 1
 " turn on/off file node glyph decorations (not particularly useful)
 let g:WebDevIconsUnicodeDecorateFileNodes = 1
 
-" use double-width(1) or single-width(0) glyphs 
+" use double-width(1) or single-width(0) glyphs
 " only manipulates padding, has no effect on terminal or set(guifont) font
 let g:WebDevIconsUnicodeGlyphDoubleWidth = 1
 
-" whether or not to show the nerdtree brackets around flags 
+" whether or not to show the nerdtree brackets around flags
 let g:webdevicons_conceal_nerdtree_brackets = 0
 
 " the amount of space to use after the glyph character (default ' ')
 let g:WebDevIconsNerdTreeAfterGlyphPadding = ' '
 
 " Force extra padding in NERDTree so that the filetype icons line up vertically
-let g:WebDevIconsNerdTreeGitPluginForceVAlign = 1 
+let g:WebDevIconsNerdTreeGitPluginForceVAlign = 1
 
 " change the default character when no match found
 let g:WebDevIconsUnicodeDecorateFileNodesDefaultSymbol = 'ƛ'
@@ -395,3 +403,31 @@ if executable('ag')
 endif
 
 let g:go_version_warning = 0
+
+" -----
+" Goyo
+" -----
+
+" Start Goyo immediately when starting neovim/vim
+auto VimEnter * Goyo
+function! s:goyo_enter()
+    let b:quitting = 0
+    let b:quitting_bang = 0
+    autocmd QuitPre <buffer> let b:quitting = 1
+    cabbrev <buffer> q! let b:quitting_bang = 1 <bar> q!
+    silent! call lightline#enable()
+endfunction
+
+function! s:goyo_leave()
+    " Quit Vim if this is the only remaining buffer
+    if b:quitting && len(filter(range(1, bufnr('$')), 'buflisted(v:val)')) == 1
+        if b:quitting_bang
+            qa!
+        else
+            qa
+        endif
+    endif
+endfunction
+
+autocmd! User GoyoEnter nested call <SID>goyo_enter()
+autocmd! User GoyoLeave nested call <SID>goyo_leave()
