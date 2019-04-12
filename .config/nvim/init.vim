@@ -200,10 +200,10 @@ let g:lightline = {
 " Set version automatically based on vim (neovim) launch time
 if strftime('%H') >= 7 && strftime('%H') < 19
     set background=light
-    let g:lightline.colorscheme = 'snow_light'
+    let g:lightline.colorscheme = 'PaperColor_light'
 else
     set background=dark
-    let g:lightline.colorscheme = 'snow_dark'
+    let g:lightline.colorscheme = 'PaperColor_dark'
 endif
 " colorscheme space_vim_theme
 colorscheme paramount
