@@ -11,8 +11,20 @@ rofi -sidebar-mode \
 -hide-scrollbar true \
 -switchers "file:rofi-file-browser.sh" \
 -show file \
--columns 3 \
+-bw 2 \
+-lines 22 \
+-padding 36 \
+-xoffset 20 \
+-yoffset -64 \
+-width 24 \
+-location 7\
+-columns 1 \
 -font "Fira Code 9" \
+-color-enabled true \
+-color-window "#1c1e26,#1c1e26,#1c1e26" \
+-color-normal "#1c1e26,#e0e0e0,#1c1e26,#1c1e26,#e45566" \
+-color-active "#1c1e26,#e45566,#1c1e26,#1c1e26,#e45566" \
+-color-urgent "#1c1e26,#e45566,#1c1e26,#1c1e26,#e45566"
 
 # Theming help
 # color window = background, border, separator
