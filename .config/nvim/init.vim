@@ -40,10 +40,10 @@ Plug 'ryanoasis/vim-devicons'             " Dev Icons
 Plug 'iCyMind/NeoSolarized'
 Plug 'kamwitsta/flatwhite-vim'            " Flatwhite
 Plug 'lifepillar/vim-colortemplate'       " Colortemplate
-Plug 'nightsense/cosmic_latte'            " Cosmic Latte
 Plug 'nightsense/snow'                    " Snow
 Plug 'ntk148v/vim-horizon'                " Horizon
 Plug 'liuchengxu/space-vim-theme'         " Space-vim
+Plug 'dylanaraps/wal.vim'                 " PyWal vim
 
 "-------------------=== Snippets support ===------------------------
 Plug 'honza/vim-snippets'                 " snippets repo
@@ -79,9 +79,9 @@ set guicursor=n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50
             \,sm:block-blinkwait175-blinkoff150-blinkon175
 " NOTE: This is only compatible with Guake 3.X.
 " Check issue: https://github.com/Guake/guake/issues/772
-if (has("termguicolors"))
-   set termguicolors
-endif
+" if (has("termguicolors"))
+" "   set termguicolors
+" endif
 
 syntax enable                             " enable syntaax highlighting
 
@@ -176,6 +176,13 @@ nnoremap <silent> <C-b> :call comfortable_motion#flick(g:comfortable_motion_impu
 " let g:airline#extensions#ale#enabled = 1
 " let g:airline#extensions#tabline#enabled = 1
 
+" ---------------------
+"  Bufferline settings
+" ---------------------
+let g:bufferline_active_buffer_left = ''
+let g:bufferline_active_buffer_right = ''
+let g:bufferline_rotate = 2
+
 " --------------------
 " Lightline settings
 " --------------------
@@ -205,8 +212,7 @@ else
     set background=dark
     let g:lightline.colorscheme = 'PaperColor_dark'
 endif
-" colorscheme space_vim_theme
-colorscheme paramount
+colorscheme wal
 
 "------------------------
 " NERDTree settings
@@ -346,7 +352,7 @@ map ; :Files<CR>
 " -----------------------
 
 " python executables for different plugins
-let g:pymode_python='python'
+let g:pymode_python='python3'
 
 " lints
 let g:pymode_lint=0
@@ -395,6 +401,8 @@ let g:pymode_rope_lookup_project = 0
 let g:pymode_rope = 0
 
 let b:ale_linters = ['pylakes', 'flake8', 'pylint']
+let g:ale_python_flake8_executable = 'python3'   " or 'python' for Python 2
+let g:ale_python_flake8_options = '-m flake8'
 
 imap <F5> <Esc>:w<CR>:!clear;python %<CR>
 
@@ -415,7 +423,7 @@ function! s:goyo_enter()
     let b:quitting_bang = 0
     autocmd QuitPre <buffer> let b:quitting = 1
     cabbrev <buffer> q! let b:quitting_bang = 1 <bar> q!
-    silent! call lightline#enable()
+    " silent! call lightline#enable()
 endfunction
 
 function! s:goyo_leave()

@@ -21,6 +21,7 @@ Remember to install:
 * Neovim.
 * Git (of course).
 * Tint2.
+* PyWal.
 
 ```zsh
 $ git clone https://github.com/ntk148v/dotfiles.git
