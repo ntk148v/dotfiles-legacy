@@ -128,7 +128,7 @@ fi
 [ -f ~/.config/z.sh ] && source ~/.config/z.sh
 
 export GOPATH=$HOME/go
-export PATH=$PATH:$GOPATH/bin
+export PATH=$PATH:/usr/local/go/bin:$GOPATH/bin
 
 # Zsh-suggestions
 bindkey '^F' autosuggest-accept
