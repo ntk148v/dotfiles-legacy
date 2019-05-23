@@ -10,9 +10,10 @@ rofi -sidebar-mode \
 -display-window "Workspace " \
 -hide-scrollbar true \
 -switchers "file:rofi-file-browser.sh" \
+-show-icons \
 -show file \
 -columns 3 \
--font "Fira Code 9" \
+-font "Operator Mono Lig Book 12"
 
 # Theming help
 # color window = background, border, separator
