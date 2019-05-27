@@ -3,4 +3,4 @@
 # Simple scripts to monitor memory & cpu usage
 MEMORY=$(free -m | awk 'NR==2{printf "%.2f%%", $3*100/$2 }')
 CPU=$(top -b -n1 | grep "Cpu(s)" | awk '{printf "%.2f%%", $2+$4}')
-echo "▤ $MEMORY | ▥ $CPU"
+echo "MEM: $MEMORY | CPU: $CPU"
