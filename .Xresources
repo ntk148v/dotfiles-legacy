@@ -18,24 +18,26 @@ URxvt.urgentOnBell: true
 URxvt.depth: 24
 URxvt.iso14755: true
 
-!! Common Keybinds for Navigations
-URxvt.keysym.Shift-Up: command:\033]720;1\007
-URxvt.keysym.Shift-Down: command:\033]721;1\007
-URxvt.keysym.Control-Up: \033[1;5A
-URxvt.keysym.Control-Down: \033[1;5B
-URxvt.keysym.Control-Right: \033[1;5C
-URxvt.keysym.Control-Left: \033[1;5D
-
-!! Copy Paste & Other Extensions
-URxvt.perl-ext-common: default,clipboard,url-select,keyboard-select
-URxvt.copyCommand: xclip -i -selection clipboard
-URxvt.pasteCommand: xclip -o -selection clipboard
-URxvt.keysym.M-c: perl:clipboard:copy
-URxvt.keysym.M-v: perl:clipboard:paste
-URxvt.keysym.M-C-v: perl:clipboard:paste_escaped
-URxvt.keysym.M-Escape: perl:keyboard-select:activate
-URxvt.keysym.M-s: perl:keyboard-select:search
-URxvt.keysym.M-u: perl:url-select:select_next
-URxvt.urlLauncher: google-chrome
-URxvt.underlineURLs: true
-URxvt.urlButton: 1
+!! Extensions
+URxvt.perl-ext-common: default,matcher,selection-to-clipboard,selection-autotransform,confirm-paste,font-size
+! Clickable URLs
+URxvt.url-launcher: google-chrome
+URxvt.keysym.C-Delete:    matcher:last
+URxvt.keysym.M-Delete:    matcher:list
+URxvt.matcher.button:     1
+URxvt.matcher.pattern.1:  \\bwww\\.[\\w-]+\\.[\\w./?&@#-]*[\\w/-]
+URxvt.matcher.pattern.2:  \\B(/\\S+?):(\\d+)(?=:|$)
+URxvt.matcher.launcher.2: vim +$2 $1
+! Tabbed
+! [New] button - Click a button - activate that tab
+! Shift-Left & Shift-Right - switch to the tab left or right of the current one
+! Shift-Down - create a new tab
+! Ctrl+d - close tab
+! Ctrl-Left & Ctrl-Right - renumber the current tab by moving it to the left or to the right
+! Font-size
+URxvt.keysym.C-Up:     font-size:increase
+URxvt.keysym.C-Down:   font-size:decrease
+URxvt.keysym.C-S-Up:   font-size:incglobal
+URxvt.keysym.C-S-Down: font-size:decglobal
+URxvt.keysym.C-equal:  font-size:reset
+URxvt.keysym.C-slash:  font-size:show
