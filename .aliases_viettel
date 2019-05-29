@@ -37,17 +37,6 @@ alias piph="sudo -H pip"
 # Lazygit
 alias lg='lazygit'
 
-# Find and kill processes
-func fkill() {
-    if [ -z "$1" ]; then
-        echo "Usage: fkill <string-pattern>"
-        exit 1
-    fi
-    
-    pattern=$1
-    kill $(ps aux | grep "$pattern" | awk '{print $2}')
-}
-
 # Archives
 function extract {
     if [ -z "$1" ]; then
