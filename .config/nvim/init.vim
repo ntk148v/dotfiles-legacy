@@ -31,6 +31,7 @@ Plug 'bling/vim-bufferline'               " Buffer-line vim - show list of buffe
 Plug 'junegunn/limelight.vim'             " Hyperfocus-writing in Vim
 Plug 'brooth/far.vim'                     " Find and replace
 Plug 'junegunn/goyo.vim'                  " Distraction-free writing in Vim
+Plug 'sheerun/vim-polyglot'               " A collection of language packs for Vim
 
 "-------------------=== Fancy things ===----------------------------
 Plug 'flazz/vim-colorschemes'             " Colorschemes
@@ -43,7 +44,7 @@ Plug 'lifepillar/vim-colortemplate'       " Colortemplate
 Plug 'nightsense/snow'                    " Snow
 Plug 'ntk148v/vim-horizon'                " Horizon
 Plug 'liuchengxu/space-vim-theme'         " Space-vim
-Plug 'dylanaraps/wal.vim'                 " PyWal vim
+Plug 'ntk148v/wal.vim'                    " PyWal vim
 
 "-------------------=== Snippets support ===------------------------
 Plug 'honza/vim-snippets'                 " snippets repo
@@ -56,10 +57,11 @@ Plug 'w0rp/ale'
 
 "-------------------=== Python ===----------------------------------
 Plug 'klen/python-mode'                   " Python mode (docs, refactor, lints...)
-Plug 'jmcantrell/vim-virtualenv'
+" Plug 'jmcantrell/vim-virtualenv'
 
 "-------------------=== Go ===---------------------------------------
 Plug 'fatih/vim-go', {'do': ':GoUpdateBinaries'}
+Plug 'buoto/gotests-vim'                  " Generate table driven tests.
 
 " Initialize plugin system
 call plug#end()
@@ -207,12 +209,13 @@ let g:lightline = {
 " Set version automatically based on vim (neovim) launch time
 if strftime('%H') >= 7 && strftime('%H') < 19
     set background=light
-    let g:lightline.colorscheme = 'PaperColor_light'
 else
     set background=dark
-    let g:lightline.colorscheme = 'PaperColor_dark'
 endif
+"colorscheme madeofcode
+"let g:lightline.colorscheme = 'one'
 colorscheme wal
+let g:lightline.colorscheme = 'wal'
 
 "------------------------
 " NERDTree settings
@@ -358,7 +361,7 @@ let g:pymode_python='python3'
 let g:pymode_lint=0
 
 " virtualenv
-let g:pymode_virtualenv=1
+" let g:pymode_virtualenv=1
 
 " breakpoints
 let g:pymode_breakpoint=1
@@ -423,7 +426,7 @@ function! s:goyo_enter()
     let b:quitting_bang = 0
     autocmd QuitPre <buffer> let b:quitting = 1
     cabbrev <buffer> q! let b:quitting_bang = 1 <bar> q!
-    " silent! call lightline#enable()
+    silent! call lightline#enable()
 endfunction
 
 function! s:goyo_leave()
