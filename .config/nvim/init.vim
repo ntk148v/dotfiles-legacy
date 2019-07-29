@@ -31,7 +31,7 @@ Plug 'bling/vim-bufferline'               " Buffer-line vim - show list of buffe
 Plug 'junegunn/limelight.vim'             " Hyperfocus-writing in Vim
 Plug 'brooth/far.vim'                     " Find and replace
 Plug 'junegunn/goyo.vim'                  " Distraction-free writing in Vim
-Plug 'sheerun/vim-polyglot'               " A collection of language packs for Vim
+"Plug 'sheerun/vim-polyglot'               " A collection of language packs for Vim
 
 "-------------------=== Fancy things ===----------------------------
 Plug 'flazz/vim-colorschemes'             " Colorschemes
@@ -45,6 +45,7 @@ Plug 'nightsense/snow'                    " Snow
 Plug 'ntk148v/vim-horizon'                " Horizon
 Plug 'liuchengxu/space-vim-theme'         " Space-vim
 Plug 'ntk148v/wal.vim'                    " PyWal vim
+Plug 'flrnprz/candid.vim'
 
 "-------------------=== Snippets support ===------------------------
 Plug 'honza/vim-snippets'                 " snippets repo
