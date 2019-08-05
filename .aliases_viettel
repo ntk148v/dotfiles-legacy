@@ -31,11 +31,12 @@ alias reload="exec ${SHELL} -l"
 # Print each PATH entry on a separate line
 alias path='echo -e ${PATH//:/\\n}'
 
-# Lazy pip
-alias piph="sudo -H pip"
+# Lazy pip with -H option
+alias piph='sudo -H pip3'
 
-# Lazygit
-alias lg='lazygit'
+# Enable go module
+alias engomod="export GO111MODULE=on"
+alias disgomod="export GO111MODULE=off"
 
 # Archives
 function extract {
@@ -105,18 +106,13 @@ alias aptuu="sudo apt update ; sudo apt upgrade -y"
 alias aptu="sudo apt update"
 alias aptar="sudo apt autoremove -y"
 alias aptac="sudo apt autoclean -y"
-
-# Gatepro
-alias gatepro="/usr/lib/jvm/java-8-oracle/jre/bin/java -classpath /usr/lib/jvm/java-8-oracle/jre/lib/deploy.jar -Djava.security.policy=file:/usr/lib/jvm/java-8-oracle/jre/lib/security/javaws.policy -DtrustProxy=true -Xverify:remote -Djnlpx.home=/usr/lib/jvm/java-8-oracle/jre/bin -Djava.security.manager -Djnlpx.origFilenameArg=/home/kiennt/Documents/gate-pro.jnlp -Djnlpx.remove=false -Dsun.awt.warmup=true -Xbootclasspath/a:/usr/lib/jvm/java-8-oracle/jre/lib/javaws.jar:/usr/lib/jvm/java-8-oracle/jre/lib/deploy.jar:/usr/lib/jvm/java-8-oracle/jre/lib/plugin.jar -Djnlpx.splashport=53785 -Djnlpx.jvm=/usr/lib/jvm/java-8-oracle/jre/bin/java com.sun.javaws.Main /home/kiennt/Documents/gate-pro.jnlp & > /dev/null 2>&1"
-
-# Delete none tag Docker images
-
-alias drmi='docker rmi $(docker images -f "dangling=true" -q)'
-
 function wttr {
     local location=$1
     curl wttr.in/~$location
 }
+
+# Remove none tag Docker images
+alias drmi='docker rmi $(docker images -f "dangling=true" -q)'
 
 function rmpyc {
     find $1 -name \*.pyc -delete
@@ -152,7 +148,7 @@ function gclone() {
     done
     if [[ "$1" =~ "openstack"  ]]; then
         # Clone and run git review -s
-        git clone https://opendev.org/$1/$2.git $HOME/Workspace/$1/$2
+        git clone http://opendev.org/$1/$2.git $HOME/Workspace/$1/$2
         cd $HOME/Workspace/$1/$2
         git remote add gerrit https://kiennt@review.opendev.org/$1/$2.git
         git review -s
