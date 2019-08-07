@@ -2,6 +2,7 @@
 
 cd "$(dirname "${BASH_SOURCE[0]-$0}")"
 git pull origin master
+git submodule update --init --recursive
 
 # Do it quick with rsync
 function install() {
