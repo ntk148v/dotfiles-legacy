@@ -32,11 +32,15 @@ function install() {
     # Set prefix, the dependencies are the same in different distro
     debian* | ubuntu | *mint*)
         pkg_install_prefix="sudo apt install -y"
-        distro_pkgs="python3-dev python-dev rofi dunst tint2 software-properties-common synaptic make build-essential"
+        echo "## Add neovim repository"
+        sudo add-apt-repository ppa:neovim-ppa/stable -y && sudo apt update
+        distro_pkgs="python3-dev python-dev rofi dunst tint2 software-properties-common synaptic make build-essential neovim"
         ;; # For Distro based on Ubuntu 18.04 (and up)
     centos*)
+        echo "## Add EPEL repo"
+        yum install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
         pkg_install_prefix="sudo yum install -y"
-        distro_pkgs="python3-devel python-devel"
+        distro_pkgs="python3-devel python-devel neovim python3-neovim"
         ;;
     *)
         echo "unknow distro: ${distro}"
@@ -58,24 +62,19 @@ function install() {
     echo "## Clone MT7630e to build manually"
     git clone https://github.com/neurobin/MT7630E $HOME/Workspace/github-repos/MT7630E
 
-    echo "## Install neovim (ubuntu only)"
-    sudo add-apt-repository ppa:neovim-ppa/stable -y
-    sudo apt update
-    sudo apt install neovim -y
-
     echo "## Install vim-plug"
-    sh -c "$(curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim)"
+    sh -c "$(curl -fLo $HOME/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim)"
 
     echo "## Install oh-my-zsh"
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
     # echo "## Install oh-my-fish"
     # sudo curl -L https://get.oh-my.fish > install
-    # sudo fish install --path=~/.local/share/omf --config=~/.config/omf
+    # sudo fish install --path=$HOME/.local/share/omf --config=$HOME/.config/omf
 
     echo "## Install fzf"
-    git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
-    ~/.fzf/install
+    git clone --depth 1 https://github.com/junegunn/fzf.git $HOME/.fzf
+    $HOME/.fzf/install
 
     echo "## Install pywal"
     sudo -H pip3 install pywal==3.0.1
@@ -84,10 +83,11 @@ function install() {
     sudo -H pip3 install thefuck
 
     echo "## Install oomox & warnai (ubuntu 18.04 only)"
-    sh -c "$(curl -fssL -o /tmp/oomox.deb https://github.com/themix-project/oomox/releases/download/oomox_1.11-3-gde075379_17.04+.deb)"
+    sh -c "$(curl -fssL -o /tmp/oomox.deb https://github.com/themix-project/oomox/releases/download/1.11/oomox_1.11-3-gde075379_17.04+.deb)"
     sudo dpkg -i /tmp/oomox.deb
     sudo apt install -f -y
-    sudo chown $USER:$USER -R ~/.themes
+    mkdir -p $HOME/.themes
+    sudo chown $USER:$USER -R $HOME/.themes
     git clone https://github.com/reorr/warnai $HOME/Workspace/github-repos/warnai
 
     # Uncomment if want to use
@@ -112,7 +112,6 @@ function install() {
         -av --no-perms . ${HOME}
     sudo cp -r .fonts/* /usr/share/fonts
     sudo fc-cache -fv
-    upgrade_oh_my_zsh
 }
 
 if [ "$1" == "--force" -o "$1" == "-f" ]; then
@@ -126,6 +125,6 @@ else
 fi
 
 unset install
-source ~/.zshrc
+exec zsh
 # This is my alias
 aptuu
