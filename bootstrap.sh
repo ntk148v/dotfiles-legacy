@@ -29,7 +29,7 @@ function install() {
     # now do different things depending on distro
     case "${distro}" in
     # Set prefix, the dependencies are the same in different distro
-    debian* | ubuntu | mint*)
+    debian* | ubuntu | *mint*)
         pkg_install_prefix="sudo apt install -y"
         distro_pkgs="python3-dev python-dev rofi dunst tint2 software-properties-common synaptic make build-essential"
         ;; # For Distro based on Ubuntu 18.04 (and up)
