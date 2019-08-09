@@ -95,10 +95,6 @@ function install() {
     sudo wget https://raw.githubusercontent.com/so-fancy/diff-so-fancy/master/third_party/build_fatpack/diff-so-fancy -O /usr/local/bin/diff-so-fancy
     sudo chmod +x /usr/local/bin/diff-so-fancy
 
-    echo "## Install snap packages"
-    sudo snap install spotify
-    sudo snap install hugo --channel=extended
-
     echo "## Install golang 1.12"
     wget https://dl.google.com/go/go1.12.7.linux-amd64.tar.gz -O /tmp/go1.12.7.linux-amd64.tar.gz
     sudo tar -C /usr/local -xzf /tmp/go1.12.7.linux-amd64.tar.gz
@@ -112,6 +108,16 @@ function install() {
         -av --no-perms . ${HOME}
     sudo cp -r .fonts/* /usr/share/fonts
     sudo fc-cache -fv
+
+    echo "## Install snap packages"
+    sudo snap install spotify
+    sudo snap install hugo --channel=extended
+    sudo snap install telegram-desktop
+    sudo snap install goland --classic
+    sudo nap install slack --classic
+    sudo snap install postman
+    sudo snap install pycharm-professional --classic
+    sudo snap install code --classic
 }
 
 if [ "$1" == "--force" -o "$1" == "-f" ]; then
