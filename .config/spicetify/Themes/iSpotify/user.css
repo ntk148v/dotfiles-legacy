@@ -1,0 +1,572 @@
+.card-image,
+.card-placeholder-wrapper,
+.card-image-content-wrapper,
+.GlueCard:not(.GlueCard--artist) .GlueCard__image,
+.GlueCard:not(.GlueCard--artist) .GlueCard__image-wrapper,
+.Card:not(.Card--artist) .Card__image,
+.Card:not(.Card--artist) .Card__image-wrapper {
+	border-radius: 1px !important;
+	overflow: hidden !important
+}
+
+.profile.content-top-bar__profile-link, .content-top-bar__profile-menu-button,
+.upgrade-button,
+.view-player .remote-playback-bar,
+.NewPlaylistButton {
+	display: none !important;
+}
+body.remotebar .view-player .player-bar-wrapper {
+	height: 87px !important;
+}
+.profile-items-container,
+.profile
+ {
+	-webkit-app-region: no-drag !important;
+}
+::-webkit-scrollbar {
+	height: 6px !important;
+	width: 6px !important;
+	background-color: transparent;
+}
+::-webkit-scrollbar-thumb {
+	border-radius: 3px !important;
+}
+::-webkit-scrollbar-button {
+	display: none !important;
+}
+.card-overlay {
+	visibility: hidden !important;
+}
+.card-image-content-wrapper,
+.GlueCard__image-wrapper,
+.Card:not(.Card--artist) .Card__image-wrapper {
+	transition-property: transform box-shadow !important;
+	transition-duration: 1s !important;
+	transition-timing-function: cubic-bezier(.3,0,0,1) !important;
+	box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+}
+
+.card-image-hit-area:not(.no-hover):hover .card-image-content-wrapper,
+.GlueCard__image-hit-area-counter-scale:hover .GlueCard__image-wrapper,
+.Card:not(.Card--artist) .Card__image-hit-area-counter-scale:hover .Card__image-wrapper {
+	transform: translateY(-10px);
+	box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+}
+
+.card-image-hit-area .card-button-add,
+.card-image-hit-area .card-button-play,
+.card-image-hit-area .card-button-more,
+.GlueCard__image-hit-area .card-button-add,
+.GlueCard__image-hit-area .card-button-play,
+.GlueCard__image-hit-area .card-button-more,
+.GlueCard__image-hit-area .GlueCard__play-button,
+.GlueCard__image-hit-area .GlueCard__add-button,
+.GlueCard__image-hit-area .GlueCard__more-button,
+.GlueCard__image-hit-area .GlueCard__overlay,
+.Card__image-hit-area .card-button-add,
+.Card__image-hit-area .card-button-play,
+.Card__image-hit-area .card-button-more,
+.Card__image-hit-area .Card__play-button,
+.Card__image-hit-area .Card__add-button,
+.Card__image-hit-area .Card__more-button,
+.Card__image-hit-area .Card__overlay  {
+	transition-property: all !important;
+	transition-duration: 1s !important;
+	transition-timing-function: cubic-bezier(.3,0,0,1) !important;
+	opacity: 0 !important;
+}
+.card-image-hit-area:not(.no-hover):hover .card-button-add,
+.card-image-hit-area:not(.no-hover):hover .card-button-play,
+.card-image-hit-area:not(.no-hover):hover .card-button-more,
+.GlueCard__image-hit-area:not(.no-hover):hover .card-button-add,
+.GlueCard__image-hit-area:not(.no-hover):hover .card-button-play,
+.GlueCard__image-hit-area:not(.no-hover):hover .card-button-more,
+.Card__image-hit-area:not(.no-hover):hover .card-button-add,
+.Card__image-hit-area:not(.no-hover):hover .card-button-play,
+.Card__image-hit-area:not(.no-hover):hover .card-button-more {
+	opacity: 1 !important;
+	transform: translateY(-10px);
+}
+
+.GlueCard__image-hit-area:hover .GlueCard__play-button,
+.GlueCard__image-hit-area:hover .GlueCard__add-button,
+.GlueCard__image-hit-area:hover .GlueCard__more-button,
+.GlueCard__image-hit-area:hover .GlueCard__overlay,
+.Card__image-hit-area:hover .Card__play-button,
+.Card__image-hit-area:hover .Card__add-button,
+.Card__image-hit-area:hover .Card__more-button,
+.Card__image-hit-area:hover .Card__overlay {
+	opacity: 1 !important;
+}
+
+.card-placeholder-wrapper {
+	background: transparent !important;
+}
+.SearchInput__input {
+	color: var(--modspotify_secondary_fg);
+	background-color: rgba(var(--modspotify_rgb_scrollbar_fg_and_selected_row_bg), 0.5) !important;
+}
+.view-player {
+	height: 80px !important;
+	box-shadow: 0 -10px 25px rgba(0,0,0,0.5) !important;
+	position:fixed !important;
+	top:0px;
+	width:100%
+
+}
+.view-player .now-playing,
+.view-player .now-playing-container,
+.view-player .now-playing .cover-image-container {
+	height: 100% !important;
+	overflow: visible !important;
+}
+
+.view-player .now-playing .cover-image-container {
+	position: absolute !important;
+	overflow: visible !important;
+	bottom: 55px !important;
+	left: -70px !important;
+}
+.view-player .now-playing .cover-image-container .cover-image {
+	width: 120px !important;
+	height: 120px !important;
+	position: absolute !important;
+	box-shadow: 0 5px 10px rgba(0,0,0,0.5) !important;
+	background-size: cover !important;
+}
+
+.view-player .now-playing-container .caption {
+	height: 100% !important;
+	align-content: center !important;
+	padding-left: 70px !important;
+}
+
+@media (min-width: 1200px){
+	.view-player .now-playing-container {
+		min-width: 250px;
+	}
+}
+
+
+.view-player .now-playing-container {
+	z-index: 9998 !important;
+}
+.sidebar {
+	/*Widen the hover zone here*/
+	min-width: 15px !important;
+	width: 190px !important;
+	opacity: 1 !important;
+	position: static !important;
+	padding-top: 32px !important;
+		
+
+}
+
+.sidebar .sidebar-navbar.sidebar-scroll-element {
+	
+	padding-bottom: 60px !important;
+	opacity: 1 !important;
+	background-color:#eeeeee !important;
+	overflow:hidden !important;
+}
+.sidebar .sidebar-navbar.sidebar-scroll-element:hover {
+overflow:auto !important;
+}
+#content {
+	padding-bottom: 60px;
+}
+
+.sidebar:hover .sidebar-navbar.sidebar-scroll-element {
+	opacity: 1!important;
+}
+
+.view-player .player-controls-container,
+.view-player .player-controls-container .controls {
+	overflow: visible !important;
+}
+
+.view-player .player-controls-container .controls .button-play{
+	height:50px !important;
+	border-radius:50px !important;
+	background: transparent !important;
+	box-shadow:0 0 0 0 !important;
+	width:50px !important;
+	overflow: visible !important;
+	box-shadow: 0 5px 15px rgba(0,0,0,0.7) !important;
+	transition:none 0.3s cubic-bezier(.3,0,.7,1);
+}
+.view-player .player-controls-container .controls .previous, 
+.view-player .player-controls-container .controls .next{
+	height:35px !important;
+	border-radius:50px !important;
+	background: transparent !important;
+	width:35px !important;
+	overflow: visible !important;
+	border:2px solid #a5a5a5;
+	transition:none 0.3s cubic-bezier(.3,0,.7,1);
+	text-align:center !important;
+	}
+	
+.view-player .player-controls-container .controls .button-play:before{
+	font-size:18px !important;
+	padding-left: 16px !important;
+	padding-top: 9px !important;
+}
+
+
+
+.view-player .player-controls-container .controls {
+	width: 100% !important;
+	height: 100%  !important;
+	align-items: center !important;
+	margin-top : 0px !important;
+	
+}
+.gc-image-container,
+.gc-image {
+	border-radius: 10px !important;
+}
+.card-puff__image-wrapper,
+.card-puff__info-container,
+.card-puff__card-image {
+	border-radius: 10px !important;
+}
+
+.card-puff__image-wrapper {
+  overflow: visible;
+}
+
+.card-puff__card-image {
+	box-shadow: 5px 0 30px rgba(0,0,0,0.7);
+	overflow: visible;
+}
+
+.card-puff__title-container {
+	background-color: rgba(0,0,0,0) !important;
+	align-items: start !important;
+}
+
+.card-puff.pressed .card-puff__image-wrapper,
+.card-puff.pressed .card-puff__info-container {
+  opacity: 0.7 !important;
+}
+
+.card-puff__title {
+	padding: 5px 10px 5px 10px !important;
+	background-color: rgba(var(--modspotify_rgb_cover_overlay_and_shadow),0.8) !important;
+	border-radius: 10px 10px 0 0 !important;
+	text-align: left !important;
+	width: 100% !important;
+	margin: 0 20px !important;
+}
+
+.card-puff__card-image:nth-child(1) {
+	right: 20px;
+	box-shadow: 0 0 0 0 !important;
+}
+
+.card-puff__card-image:nth-child(3) {
+	left: 20px;
+}
+
+.grid-overlay-label {
+	top: 140px !important;
+}
+
+/**/
+.glue-page-header__background-color {
+	background-image: none !important;
+	background: var(--modspotify_main_bg);
+}
+
+.glue-page-header__background-overlay {
+	background-color: transparent !important;
+}
+
+.glue-page-header__sticky {
+  	padding-top: -1px !important;
+}
+
+
+.carousel .card-info-subtitle-description,
+.carousel .card-info-subtitle-metadata,
+.carousel .card:not(.card-type-station).card-info-title,
+.carousel .card.card-type-playlist.image-loaded .card-info-subtitle-description,
+.carousel .card.card-type-playlist.image-loaded .card-info-subtitle-metadata {
+	display: none !important;
+}
+
+
+.carousel {
+	overflow: visible !important;
+}
+
+
+.button.button-green,
+.GlueButton.GlueButton--style-green {
+	color: var(--modspotify_main_bg) !important;
+}
+
+.tl-explicit .label,
+.tl-premium .label,
+.tl-cell:not(.tl-number),
+.tl-cell a:link,
+.tl-highlight {
+  color: var(--modspotify_secondary_fg);
+}
+
+.card-type-album .card-info-title,
+.card-type-track .card-info-title,
+.card-type-collection-album .card-info-title,
+.card-type-episode .card-info-title {
+  	font-size: 15px;
+  	font-weight: 900 !important;
+	text-align: center !important;
+	width: 100% !important;
+}
+
+.card-type-album .card-info-subtitle-links,
+.card-type-track .card-info-subtitle-links,
+.card-type-collection-album .card-info-subtitle-links,
+.card-type-episode .card-info-subtitle-links {
+	text-align: center !important;
+	width: 100% !important;
+}
+
+.tracklist-station-container::after {
+	background: transparent !important;
+}
+
+.GlueHeader__background-overlay {
+	background: var(--modspotify_main_bg) !important;
+}
+
+.content-top-bar{top:90% !important;margin-left:-25px;}
+
+
+.browser-navigation-top-bar {
+	margin-left: 22px !important;
+	margin-top: 15px !important;
+}
+
+.SearchInput__input,
+.SearchInput__searchIcon,
+.SearchInput__clearButton {
+	margin-top: 15px !important;
+}
+
+
+.body-container--windows:not(.with-buddy-list):not(.messagebar) .content-top-bar__profile {
+	margin-right: 110px !important;
+	margin-top: -5px;
+}
+
+/* Spice up Fullscreen mode */
+#view-player .album-art .album-art__image {
+	border-radius: 30px !important;
+	box-shadow: 0 10px 70px rgba(var(--modspotify_rgb_cover_overlay_and_shadow),.5) !important;
+}
+
+#view-player .album-art .album-art__image .card-image-content-wrapper,
+#view-player .album-art .album-art__image .card-image-content-wrapper .card-image {
+	border-radius: 30px !important;
+}
+
+
+.carousel .card-info-wrapper.card-info-with-description.card-info-with-metadata {
+	height: 50px !important;
+}
+
+
+.section-divider {
+	border-bottom: 0 !important;
+}
+
+
+.nav.navbar-nav {
+	overflow: hidden !important;
+}
+
+.nav.navbar-nav a {
+	overflow: visible !important;
+}
+
+.nav.navbar-nav a::after {
+	bottom: 0px !important;
+	width: 100% !important;
+}
+
+.nav.navbar-nav .active  a::after{
+	box-shadow: 0 0px 20px !important;
+}
+
+.nav.navbar-nav a:focus:not(.button):active::after{
+	background-color: var(--modspotify_pressing_fg) !important;
+}
+
+
+#view-buddy-list {
+	min-width: 15px !important;
+	width: 15px !important;
+	transition-property: all !important;
+	transition-duration: .5s !important;
+	transition-timing-function: cubic-bezier(.3,0,0,1) !important;
+	opacity: 0;
+}
+
+#view-buddy-list:hover {
+	width: 277px !important;
+	opacity: 1;
+}
+
+.body-container--windows .buddy-list-iframe {
+	height: 100% !important;
+}
+
+.with-buddy-list #view-buddy-list {
+	position: absolute;
+    right: 0px;
+    display: flex;
+    z-index: 999999;
+    height: 100%;
+}
+
+
+#content-wrapper #view-message-bar {
+	position: absolute !important;
+	width: calc(100% - 160px) !important;
+	margin-left: 80px !important;
+	border-radius: 0 0 10px 10px !important;
+}
+
+.now-playing.cover-size-transition.active.image-expanded .cover-image {
+    width: 10px !important;
+	height: 10px !important;
+}
+.now-playing.cover-size-transition.active.image-expanded .caption {
+	padding-left: 0px !important;
+}
+#view-now-playing a.image {
+	overflow: visible !important;
+}
+
+#view-now-playing.expanded {
+	width: 200px;
+	height: 200px;
+}
+
+#now-playing-image-large .cover-image {
+	height: 200px !important;
+}
+
+
+#tooltip {
+	box-shadow: 0 0 10px rgba(0,0,0,0.5) !important;
+	border-radius: 5px !important;
+}
+
+.lyrics-lines-container,
+.message-container {
+	color: var(--modspotify_secondary_fg) !important;
+}
+
+
+.GlueCarousel__grid-wrapper::-webkit-scrollbar-thumb {
+	display: none;
+}
+
+.GlueCard__info-wrapper,
+.Card__info-wrapper {
+	margin-bottom: 30px;
+}
+
+.card-horizontal-interior-wrapper .card-info-title {
+	text-align: start !important;
+}
+
+.tl-row.selected:hover .tl-cell {
+	background: var(--modspotify_scrollbar_fg_and_selected_row_bg) !important;
+}
+
+.GlueTableRow--is-selected {
+	background-color: var(--modspotify_scrollbar_fg_and_selected_row_bg) !important;
+}
+
+.tracklist-podcast .tl-progress .row-progress__bar {
+    background-color: var(--modspotify_main_fg);
+}
+
+.Header__background-color{
+	background-color: #fafafa !important;
+}
+
+.Button--style-green {
+	color: var(--modspotify_main_bg) !important;
+}
+
+.SidebarListItemLink--is-highlighted:hover, .SidebarListItemLink--is-highlighted:link, .SidebarListItemLink--is-highlighted:visited {
+color	: #50afea !important;
+font-weight:bold;
+}
+
+.main-view-wrapper{
+
+	margin-top:80px;
+	
+}
+.Header__content-wrapper {
+	padding-bottom:10px !important;
+}
+
+.HomeRoot__header{
+	display: none !important;
+}
+#view-offline-indicator{
+	background-color:#50aefa !important;
+	color: #fafafa;
+	}
+
+.extra-controls-container{
+	margin-top:40px !important;
+	float:right !important;
+	margin-right:-20px
+	
+	}
+
+.cover-image-link-wrapper{
+-webkit-transform: scale(0.55, 0.55);
+margin-left:-40px !important;
+margin-top: 20px !important;
+		}
+		
+.view-player .now-playing-container .caption .text-container{
+margin-left:-15px !important;
+}
+#connect-picker{
+position:fixed !important;
+left:50%;
+}
+.ConnectPopup:after{display:none;}
+
+.progress-bar, .progress-bar {
+background-color:#fafafa !important;
+border-radius:10px !important;
+}
+.progress-bar, .progress-bar .inner {
+border-radius:10px !important;			
+}
+.GlueSectionDivider{
+padding-top:1px !important;
+}
+.glue-page-header__content-wrapper{
+padding-top: 15px !important;
+}
+.RecentlyPlayedPage__header{margin-top:-90px !important;}
+.MadeForYouRoot__header{
+margin-top:-50px !important;
+}
+.MadeForYouRoot__content{
+margin-top:-35px !important
+}
+.Card__info-subtitle-metadata, .Card__info-subtitle-description{display:none !important;}
+.Card__info-title{text-align:center!important;}
