@@ -22,6 +22,7 @@ Remember to install:
 * Git (of course).
 * Tint2.
 * PyWal.
+* Rofi.
 
 ```zsh
 $ git clone https://github.com/ntk148v/dotfiles.git
@@ -37,10 +38,16 @@ $ cd dotfiles && source bootstrap.sh
 * [Source Code Pro](https://github.com/adobe-fonts/source-code-pro)
 * [Fira Code](https://github.com/tonsky/FiraCode)
 * [Inconsolata](https://github.com/google/fonts/tree/master/ofl/inconsolata)
+* ...
 
 ## Tilix Scheme
 
 * All color schemes I'm using are available [here](https://github.com/storm119/Tilix-Themes).
+* Now I generate terminal colorscheme based on wallpaper using Pywal.
+
+## Rofi configuration
+
+* [Rofi-menu](https://gitlab.com/vahnrr/rofi-menus) with modifications.
 
 ## Additional tools
 
