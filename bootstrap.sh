@@ -106,7 +106,7 @@ function install() {
         --exclude "Makefile" \
         --exclude "python-pkgs.txt" \
         -av --no-perms . ${HOME}
-    sudo cp -r .fonts/* /usr/share/fonts
+    sudo cp -r .local/share/fonts/* /usr/share/fonts
     sudo fc-cache -fv
 
     echo "## Install snap packages"
