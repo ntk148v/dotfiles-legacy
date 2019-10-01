@@ -9,11 +9,11 @@ rofi -sidebar-mode \
 -display-run "Run " \
 -display-window "Workspace " \
 -hide-scrollbar true \
--switchers "file:rofi-file-browser.sh" \
 -show-icons \
--show file \
 -columns 3 \
--font "Operator Mono Lig Book 12"
+-font "Noto Sans 9" \
+-padding 20 \
+-width 60
 
 # Theming help
 # color window = background, border, separator

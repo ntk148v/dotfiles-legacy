@@ -1,43 +1,129 @@
-!! Colorscheme
+! ------------------------------------------------------------------------------
+! Colour Configuration
+! ------------------------------------------------------------------------------
 
-!! URxvt Appearance
-URxvt.font: xft:Operator Mono:style=Book,Regular:size=8
-URxvt.boldFont: xft:Operator Mono:style=Book,Bold:size=8
-URxvt.italicFont: xft:Operator Mono:style=Book,Italic:size=8
-URxvt.boldItalicfont: xft:Operator Mono:style=Bold Italic:size=8
-URxvt.letterSpace: 0
-URxvt.lineSpace: 0
-URxvt.geometry: 65x25
-URxvt.internalBorder: 24
-URxvt.cursorBlink: true
-URxvt.cursorUnderline: false
-URxvt.saveline: 2048
-URxvt.scrollBar: false
-URxvt.scrollBar_right: false
-URxvt.urgentOnBell: true
-URxvt.depth: 24
-URxvt.iso14755: true
+! special
+*.foreground:   #d8dee8
+*.background:   #2f343f
+*.cursorColor:  #b48ead
 
-!! Extensions
-URxvt.perl-ext-common: default,matcher,selection-to-clipboard,selection-autotransform,confirm-paste,font-size
-! Clickable URLs
-URxvt.url-launcher: google-chrome
-URxvt.keysym.C-Delete:    matcher:last
-URxvt.keysym.M-Delete:    matcher:list
-URxvt.matcher.button:     1
-URxvt.matcher.pattern.1:  \\bwww\\.[\\w-]+\\.[\\w./?&@#-]*[\\w/-]
-URxvt.matcher.pattern.2:  \\B(/\\S+?):(\\d+)(?=:|$)
-URxvt.matcher.launcher.2: vim +$2 $1
-! Tabbed
-! [New] button - Click a button - activate that tab
-! Shift-Left & Shift-Right - switch to the tab left or right of the current one
-! Shift-Down - create a new tab
-! Ctrl+d - close tab
-! Ctrl-Left & Ctrl-Right - renumber the current tab by moving it to the left or to the right
-! Font-size
-URxvt.keysym.C-Up:     font-size:increase
-URxvt.keysym.C-Down:   font-size:decrease
-URxvt.keysym.C-S-Up:   font-size:incglobal
-URxvt.keysym.C-S-Down: font-size:decglobal
-URxvt.keysym.C-equal:  font-size:reset
-URxvt.keysym.C-slash:  font-size:show
+! black
+*.color0  : #4b5262
+*.color8  : #434a5a
+
+! red
+*.color1  : #bf616a
+*.color9  : #b3555e
+
+! green
+*.color2  : #a3be8c
+*.color10 : #93ae7c
+
+! yellow
+*.color3  : #ebcb8b
+*.color11 : #dbbb7b
+
+! blue
+*.color4  : #81a1c1
+*.color12 : #7191b1
+
+! magenta
+*.color5  : #b48ead
+*.color13 : #a6809f
+
+! cyan
+*.color6  : #89d0bA
+*.color14 : #7dbba8
+
+! white
+*.color7  : #e5e9f0
+*.color15 : #d1d5dc
+
+! ------------------------------------------------------------------------------
+! Font configuration
+! ------------------------------------------------------------------------------
+
+URxvt*font:				xft:M+ 1mn:regular:size=8
+URxvt*boldFont:			xft:M+ 1mn:bold:size=8
+URxvt*italicFont:		xft:M+ 1mn:italic:size=8
+URxvt*boldItalicFont:	xft:M+ 1mn:bold italic:size=8
+
+! ------------------------------------------------------------------------------
+! Xft Font Configuration
+! ------------------------------------------------------------------------------
+
+Xft.autohint: 0
+Xft.lcdfilter: lcddefault
+Xft.hintstyle: hintslight
+Xft.hinting: 1
+Xft.antialias: 1
+Xft.rgba: rgb
+
+! ------------------------------------------------------------------------------
+! URxvt configs
+! ------------------------------------------------------------------------------
+
+! font spacing
+URxvt*letterSpace:		0
+URxvt.lineSpace:		0
+
+! general settings
+URxvt*saveline:			15000
+URxvt*termName:			rxvt-256color
+URxvt*iso14755:			false
+URxvt*urgentOnBell:		true
+
+! appearance
+URxvt*depth:			24
+URxvt*scrollBar:		false
+URxvt*scrollBar_right:	false
+URxvt*internalBorder:	24
+URxvt*externalBorder:	0
+URxvt.geometry:			84x22
+
+! perl extensions
+URxvt.perl-ext-common:	default,clipboard,url-select,keyboard-select
+
+! macros for clipboard and selection
+URxvt.copyCommand:		xclip -i -selection clipboard
+URxvt.pasteCommand:		xclip -o -selection clipboard
+URxvt.keysym.M-c:		perl:clipboard:copy
+URxvt.keysym.M-v:		perl:clipboard:paste
+URxvt.keysym.M-C-v:		perl:clipboard:paste_escaped
+URxvt.keysym.M-Escape:	perl:keyboard-select:activate
+URxvt.keysym.M-s:		perl:keyboard-select:search
+URxvt.keysym.M-u:		perl:url-select:select_next
+URxvt.urlLauncher:		firefox
+URxvt.underlineURLs:	true
+URxvt.urlButton:		1     
+
+! scroll one line
+URxvt.keysym.Shift-Up:		command:\033]720;1\007
+URxvt.keysym.Shift-Down:	command:\033]721;1\007
+
+! control arrow
+URxvt.keysym.Control-Up:	\033[1;5A
+URxvt.keysym.Control-Down:	\033[1;5B
+URxvt.keysym.Control-Right:	\033[1;5C
+URxvt.keysym.Control-Left:	\033[1;5D
+
+! ------------------------------------------------------------------------------
+! Rofi configs
+! ------------------------------------------------------------------------------
+
+rofi.color-enabled: true
+rofi.color-window: #2e3440, #2e3440, #2e3440
+rofi.color-normal: #2e3440, #d8dee9, #2e3440, #2e3440, #bf616a
+rofi.color-active: #2e3440, #b48ead, #2e3440, #2e3440, #93e5cc
+rofi.color-urgent: #2e3440, #ebcb8b, #2e3440, #2e3440, #ebcb8b
+rofi.modi: run,drun,window
+
+! ------------------------------------------------------------------------------
+! Dmenu configs
+! ------------------------------------------------------------------------------
+
+dmenu.selforeground:	    #d8dee9
+dmenu.background:	        #2e3440
+dmenu.selbackground:	    #bf616a
+dmenu.foreground:	        #d8dee9
+                                                           

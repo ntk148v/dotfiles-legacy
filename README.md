@@ -15,6 +15,8 @@ this repository, review the code, and remove things you don’t want or need.
 Don’t blindly use my settings unless you know what that entails. Use at your
 own risk!
 
+Follow i3-starterpack: https://github.com/addy-dclxvi/i3-starterpack
+
 Remember to install:
 * zsh shell.
 * Tilix (Previously known as Terminix).
