@@ -8,6 +8,14 @@ font pango: M+ 1m medium 8
 # Use Mouse+$super to drag floating windows to their wanted position
 floating_modifier $super
 
+# automatically putting workspaces on specific screens
+workspace 1 output HDMI-1
+workspace 2 output DPI-1
+workspace 3 output HDMI-1
+workspace 4 output DP-1
+workspace 5 output HDMI-1
+workspace 6 output DP-1
+
 # window rules, you can find the window class using xprop
 for_window [class=".*"] border pixel 5
 assign [class=URxvt|Tilix] 1
@@ -90,14 +98,6 @@ bindsym $super+space floating toggle
 
 # change focus between tiling / floating windows
 bindsym $super+Shift+space focus mode_toggle
-
-# automatically putting workspaces on specific screens
-workspace 1 output HDMI-1
-workspace 2 output DPI-1
-workspace 3 output HDMI-1
-workspace 4 output DP-1
-workspace 5 output HDMI-1
-workspace 6 output DP-1
 
 # switch to workspace
 bindsym $alt+Control+Right workspace next
