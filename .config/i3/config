@@ -17,7 +17,7 @@ workspace 5 output HDMI-1
 workspace 6 output DP-1
 
 # window rules, you can find the window class using xprop
-for_window [class=".*"] border pixel 5
+for_window [class=".*"] border pixel 10
 assign [class=URxvt|Tilix] 1
 assign [class=Google-chrome|Firefox] 2
 assign [class=Code|Goland*|Pycharm*|Neovim] 3
@@ -37,7 +37,6 @@ for_window [class=keepassxc|feh|Spotify] floating enable
 # autostart
 exec --no-startup-id nm-applet
 exec --no-startup-id tint2
-exec --no-startup-id feh --bg-scale ~/Pictures/solarized2.jpg
 exec --no-startup-id xsettingsd &
 exec --no-startup-id compton -b
 exec --no-startup-id thunderbird
@@ -143,14 +142,8 @@ bindsym $super+r mode "resize"
 #       status_command i3status
 # }
 
-# colour of border, background, text, indicator, and child_border
-# Set colors from Xresources
-# Change 'color7' and 'color2' to whatever colors you want i3 to use 
-# from the generated scheme.
-# NOTE: The '#f0f0f0' in the lines below is the color i3 will use if
-# it fails to get colors from Xresources.
-set_from_resource $fg i3wm.color7 #f0f0f0
-set_from_resource $bg i3wm.color2 #f0f0f0
+set_from_resource $fg foreground
+set_from_resource $bg background
 
 # class                 border  backgr. text indicator child_border
 client.focused          $bg     $bg     $fg  $bg       $bg
@@ -160,7 +153,17 @@ client.urgent           $bg     $bg     $fg  $bg       $bg
 client.placeholder      $bg     $bg     $fg  $bg       $bg
 
 # gaps
-smart_gaps on
-smart_borders on
-gaps inner 15
-gaps outer 0
+# gap variable
+set $inner 15
+set $outer 5
+gaps inner $inner
+gaps outer $outer
+# toggle gaps
+bindsym $super+g exec compton; gaps inner all set $inner; gaps outer all set $outer
+bindsym $super+Ctrl+g exec compton; gaps inner all set 0; gaps outer all set 0
+
+# reload
+exec_always --no-startup-id compton
+exec_always --no-startup-id dunst
+exec_always xrdb --merge ~/.Xresources
+exec_always --no-startup-id feh --bg-scale ~/Pictures/solarized2.jpg
