@@ -1,44 +1,66 @@
-! ------------------------------------------------------------------------------
-! Colour Configuration
-! ------------------------------------------------------------------------------
+!!!!! .Xresources / RESLOVED !!!!!!!!!!!!!!!!!!!!!! 
 
-! special
-*.foreground:   #d8dee8
-*.background:   #2f343f
-*.cursorColor:  #b48ead
+! MOLOKAI
+!*foreground:   #f8f8f8
+!*background:   #1b1d1e
+!*color0:       #808080
+!*color8:       #465457
+!*color1:       #d7005f
+!*color9:       #f92672
+!*color2:       #87ff00
+!*color10:      #a6e22e
+!*color3:       #ff8700
+!*color11:      #fd971f
+!*color4:       #acac85
+!*color12:      #c4be89
+!*color5:       #af5fff
+!*color13:      #ae81ff
+!*color6:       #5fd7ff
+!*color14:      #84e0f2
+!*color7:       #f8f8f8
+!*color15:      #ffffff
 
-! black
-*.color0  : #4b5262
-*.color8  : #434a5a
+! DRACULA
+!*foreground:    #F8F8F2
+!*background:    #282A36
+!*color0:        #44475a
+!*color8:        #6272a4
+!*color1:        #FF5555
+!*color9:        #FF6E67
+!*color2:        #50FA7B
+!*color10:       #5AF78E
+!*color3:        #F1FA8C
+!*color11:       #F4F99D
+!*color4:        #BD93F9
+!*color12:       #CAA9FA
+!*color5:        #FF79C6
+!*color13:       #FF92D0
+!*color6:        #8BE9FD
+!*color14:       #9AEDFE
+!*color7:        #BFBFBF
+!*color15:       #F8F8F2
 
-! red
-*.color1  : #bf616a
-*.color9  : #b3555e
+!! GRUVBOX - hard
+*foreground:    #D5C4A1
+*background:    #1D2021
+*color0:        #1D2021
+*color1:        #FB4934
+*color2:        #B8BB26
+*color3:        #FABD2F
+*color4:        #83A598
+*color5:        #D3869B
+*color6:        #8EC07C
+*color7:        #D5C4A1
+*color8:        #665C54
+*color9:        #FB4934
+*color10:       #B8BB26
+*color11:       #FABD2F
+*color12:       #83A598
+*color13:       #D3869B
+*color14:       #8EC07C
+*color15:       #FBF1C7
 
-! green
-*.color2  : #a3be8c
-*.color10 : #93ae7c
-
-! yellow
-*.color3  : #ebcb8b
-*.color11 : #dbbb7b
-
-! blue
-*.color4  : #81a1c1
-*.color12 : #7191b1
-
-! magenta
-*.color5  : #b48ead
-*.color13 : #a6809f
-
-! cyan
-*.color6  : #89d0bA
-*.color14 : #7dbba8
-
-! white
-*.color7  : #e5e9f0
-*.color15 : #d1d5dc
-
+!!!!! URXVT !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 ! ------------------------------------------------------------------------------
 ! Font configuration
 ! ------------------------------------------------------------------------------
@@ -69,7 +91,7 @@ URxvt.lineSpace:		0
 
 ! general settings
 URxvt*saveline:			15000
-URxvt*termName:			rxvt-256color
+URxvt*termName:			rxvt-unicode-256color
 URxvt*iso14755:			false
 URxvt*urgentOnBell:		true
 
@@ -126,4 +148,3 @@ dmenu.selforeground:	    #d8dee9
 dmenu.background:	        #2e3440
 dmenu.selbackground:	    #bf616a
 dmenu.foreground:	        #d8dee9
-                                                           
