@@ -154,7 +154,7 @@ client.placeholder      $bg     $bg     $fg  $bg       $bg
 
 # gaps
 # gap variable
-set $inner 15
+set $inner 10
 set $outer 5
 gaps inner $inner
 gaps outer $outer
@@ -166,4 +166,4 @@ bindsym $super+Ctrl+g exec compton; gaps inner all set 0; gaps outer all set 0
 exec_always --no-startup-id compton
 exec_always --no-startup-id dunst
 exec_always xrdb --merge ~/.Xresources
-exec_always --no-startup-id feh --bg-scale ~/Pictures/solarized2.jpg
+exec_always --no-startup-id feh --bg-scale ~/Pictures/411802.jpg
