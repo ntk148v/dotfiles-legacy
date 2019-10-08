@@ -17,12 +17,12 @@ workspace 5 output HDMI-1
 workspace 6 output DP-1
 
 # window rules, you can find the window class using xprop
-for_window [class=".*"] border pixel 10
+for_window [class=".*"] border pixel 5
 for_window [class="Tilix"] border pixel 30
-assign [class=URxvt|Tilix] 1
+assign [class=URxvt|Tilix|Telegram] 1
 assign [class=Google-chrome|Firefox] 2
 assign [class=Code|Goland*|Pycharm*|Neovim] 3
-assign [class=Slack|Telegram|Thunderbird|libreoffice*] 4
+assign [class=Slack|Thunderbird|libreoffice*] 4
 assign [class=Kdocker|Spotify|Vlc|mpv|Xfburn|Gimp*|Inkscape] 5
 assign [class=GParted] 6
 for_window [class=Firefox instance=DTA] floating enable
@@ -31,7 +31,7 @@ for_window [class=Firefox window_role=Options] floating enable
 for_window [class=Firefox window_role=About] floating enable
 for_window [window_role=pop-up] floating enable
 for_window [window_role=bubble] floating enable
-for_window [class=Telegram] resize set 375px
+for_window [class=Telegram] resize set 350px
 for_window [class=Telegram|Thunderbird|Slack|URxvt|Firefox|Google-Chrome|Tilix|Code|Goland*|Pycharm*|libreoffice*|Gimp*|Inkscape|Vlc] focus
 for_window [class=keepassxc|feh|Spotify] floating enable
 
