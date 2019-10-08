@@ -18,6 +18,7 @@ workspace 6 output DP-1
 
 # window rules, you can find the window class using xprop
 for_window [class=".*"] border pixel 10
+for_window [class="Tilix"] border pixel 30
 assign [class=URxvt|Tilix] 1
 assign [class=Google-chrome|Firefox] 2
 assign [class=Code|Goland*|Pycharm*|Neovim] 3
@@ -166,4 +167,4 @@ bindsym $super+Ctrl+g exec compton; gaps inner all set 0; gaps outer all set 0
 exec_always --no-startup-id compton
 exec_always --no-startup-id dunst
 exec_always xrdb --merge ~/.Xresources
-exec_always --no-startup-id feh --bg-scale ~/Pictures/411802.jpg
+exec_always --no-startup-id feh --bg-scale ~/Pictures/skyship.jpg
