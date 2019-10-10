@@ -18,11 +18,11 @@ workspace 6 output DP-1
 
 # window rules, you can find the window class using xprop
 for_window [class=".*"] border pixel 5
-for_window [class="Tilix"] border pixel 30
+for_window [class="Tilix"] border pixel 20
 assign [class=URxvt|Tilix|Telegram] 1
 assign [class=Google-chrome|Firefox] 2
 assign [class=Code|Goland*|Pycharm*|Neovim] 3
-assign [class=Slack|Thunderbird|libreoffice*] 4
+assign [class=Slack|Thunderbird|libreoffice*|Bluemail] 4
 assign [class=Kdocker|Spotify|Vlc|mpv|Xfburn|Gimp*|Inkscape] 5
 assign [class=GParted] 6
 for_window [class=Firefox instance=DTA] floating enable
@@ -31,8 +31,8 @@ for_window [class=Firefox window_role=Options] floating enable
 for_window [class=Firefox window_role=About] floating enable
 for_window [window_role=pop-up] floating enable
 for_window [window_role=bubble] floating enable
-for_window [class=Telegram] resize set 350px
-for_window [class=Telegram|Thunderbird|Slack|URxvt|Firefox|Google-Chrome|Tilix|Code|Goland*|Pycharm*|libreoffice*|Gimp*|Inkscape|Vlc] focus
+for_window [class=Telegram] resize set 370px
+for_window [class=Bluemail|Telegram|Thunderbird|Slack|URxvt|Firefox|Google-Chrome|Tilix|Code|Goland*|Pycharm*|libreoffice*|Gimp*|Inkscape|Vlc] focus
 for_window [class=keepassxc|feh|Spotify] floating enable
 
 # autostart
@@ -40,7 +40,7 @@ exec --no-startup-id nm-applet
 exec --no-startup-id tint2
 exec --no-startup-id xsettingsd &
 exec --no-startup-id compton -b
-exec --no-startup-id thunderbird
+exec --no-startup-id bluemail
 exec --no-startup-id pnmixer
 exec --no-startup-id /home/kiennt/Apps/Telegram/Telegram
 
@@ -155,7 +155,7 @@ client.placeholder      $bg     $bg     $fg  $bg       $bg
 
 # gaps
 # gap variable
-set $inner 10
+set $inner 15
 set $outer 5
 gaps inner $inner
 gaps outer $outer
@@ -167,4 +167,5 @@ bindsym $super+Ctrl+g exec compton; gaps inner all set 0; gaps outer all set 0
 exec_always --no-startup-id compton
 exec_always --no-startup-id dunst
 exec_always xrdb --merge ~/.Xresources
-exec_always --no-startup-id feh --bg-scale ~/Pictures/skyship.jpg
+exec_always --no-startup-id feh --bg-scale ~/Pictures/skull4-wallpaper-1.jpg
+# exec_always --no-startup-id hsetroot -add "#FC354C" -add "#0ABFBC" -gradient 0
