@@ -1,3 +1,8 @@
+" File              : init.vim
+" Author            : Kien Nguyen-Tuan <kiennt2609@gmail.com>
+" Date              : 10.09.2019
+" Last Modified Date: 10.09.2019
+" Last Modified By  : Kien Nguyen-Tuan <kiennt2609@gmail.com>
 set nocompatible
 set completeopt+=noselect
 filetype off
@@ -23,6 +28,7 @@ Plug 'junegunn/fzf.vim'
 " Uncomment if you want to use vim-airline over lightline
 " Plug 'vim-airline/vim-airline'            " Lean & mean status/tabline for vim
 " Plug 'vim-airline/vim-airline-themes'     " Themes for airline
+" Plug 'taigacute/spaceline.vim'
 Plug 'itchyny/lightline.vim'
 Plug 'yuttie/comfortable-motion.vim'      " Smooth scrolling
 Plug 'thaerkh/vim-indentguides'           " Visual representation of indents
@@ -31,7 +37,8 @@ Plug 'bling/vim-bufferline'               " Buffer-line vim - show list of buffe
 Plug 'junegunn/limelight.vim'             " Hyperfocus-writing in Vim
 Plug 'brooth/far.vim'                     " Find and replace
 Plug 'junegunn/goyo.vim'                  " Distraction-free writing in Vim
-"Plug 'sheerun/vim-polyglot'               " A collection of language packs for Vim
+" Or latest tag
+Plug 'neoclide/coc.nvim', {'tag': '*', 'branch': 'release'} "An intellisense engine
 
 "-------------------=== Fancy things ===----------------------------
 Plug 'flazz/vim-colorschemes'             " Colorschemes
@@ -45,7 +52,7 @@ Plug 'nightsense/snow'                    " Snow
 Plug 'ntk148v/vim-horizon'                " Horizon
 Plug 'liuchengxu/space-vim-theme'         " Space-vim
 Plug 'ntk148v/wal.vim'                    " PyWal vim
-Plug 'flrnprz/candid.vim'
+Plug 'sainnhe/gruvbox-material'
 
 "-------------------=== Snippets support ===------------------------
 Plug 'honza/vim-snippets'                 " snippets repo
@@ -80,13 +87,10 @@ let base16colorspace=256
 set guicursor=n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50
             \,a:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor
             \,sm:block-blinkwait175-blinkoff150-blinkon175
-if (has("termguicolors"))
-   set termguicolors
-endif
 
 syntax enable                             " enable syntaax highlighting
 
-"let g:loaded_python_provider=1
+let g:loaded_python_provider=1
 let g:python2_host_prog='/usr/bin/python'
 let g:python3_host_prog='/usr/bin/python3'
 set shell=/bin/zsh
@@ -211,10 +215,17 @@ if strftime('%H') >= 7 && strftime('%H') < 19
 else
     set background=dark
 endif
-"colorscheme madeofcode
-"let g:lightline.colorscheme = 'one'
 colorscheme wal
 let g:lightline.colorscheme = 'wal'
+
+" NOTE: This is only compatible with Guake 3.X.
+" Check issue: https://github.com/Guake/guake/issues/772
+" if (has("termguicolors"))
+"     set termguicolors
+" endif
+" set background=dark
+" let g:gruvbox_material_background = 'hard'
+" colorscheme gruvbox-material
 
 "------------------------
 " NERDTree settings
@@ -348,6 +359,33 @@ let g:CtrlSpaceSaveWorkspaceOnExit = 1
 " Fuzzysearch - fzf
 " ----------------------
 map ; :Files<CR>
+let g:fzf_tags_command = 'ctags -R'
+function! s:tags_sink(line)
+  let parts = split(a:line, '\t\zs')
+  let excmd = matchstr(parts[2:], '^.*\ze;"\t')
+  execute 'silent e' parts[1][:-2]
+  let [magic, &magic] = [&magic, 0]
+  execute excmd
+  let &magic = magic
+endfunction
+
+function! s:tags()
+  if empty(tagfiles())
+    echohl WarningMsg
+    echom 'Preparing tags'
+    echohl None
+    call system('ctags -R')
+  endif
+
+  call fzf#run({
+  \ 'source':  'cat '.join(map(tagfiles(), 'fnamemodify(v:val, ":S")')).
+  \            '| grep -v -a ^!',
+  \ 'options': '+m -d "\t" --with-nth 1,4.. -n 1 --tiebreak=index',
+  \ 'down':    '40%',
+  \ 'sink':    function('s:tags_sink')})
+endfunction
+
+command! Tags call s:tags()
 
 " -----------------------
 " Python
@@ -441,3 +479,71 @@ endfunction
 
 autocmd! User GoyoEnter nested call <SID>goyo_enter()
 autocmd! User GoyoLeave nested call <SID>goyo_leave()
+
+" -----
+"  COC
+" -----
+
+" Better display for messages
+set cmdheight=2
+" Smaller updatetime for CursorHold & CursorHoldI
+set updatetime=300
+" don't give |ins-completion-menu| messages
+set shortmess+=c
+" always show signcolumns
+set signcolumn=yes
+" Use tab for trigger completion with characters ahead and navigate.
+" Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+" Use <c-space> to trigger completion.
+inoremap <silent><expr> <c-space> coc#refresh()
+
+" Use `[c` and `]c` to navigate diagnostics
+nmap <silent> [c <Plug>(coc-diagnostic-prev)
+nmap <silent> ]c <Plug>(coc-diagnostic-next)
+
+" Remap keys for gotos
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+" Use U to show documentation in preview window
+nnoremap <silent> U :call <SID>show_documentation()<CR>
+
+" Remap for rename current word
+nmap <leader>rn <Plug>(coc-rename)
+
+" Remap for format selected region
+vmap <leader>f  <Plug>(coc-format-selected)
+nmap <leader>f  <Plug>(coc-format-selected)
+" Show all diagnostics
+nnoremap <silent> <space>a  :<C-u>CocList diagnostics<cr>
+" Manage extensions
+nnoremap <silent> <space>e  :<C-u>CocList extensions<cr>
+" Show commands
+nnoremap <silent> <space>c  :<C-u>CocList commands<cr>
+" Find symbol of current document
+nnoremap <silent> <space>o  :<C-u>CocList outline<cr>
+" Search workspace symbols
+nnoremap <silent> <space>s  :<C-u>CocList -I symbols<cr>
+" Do default action for next item.
+nnoremap <silent> <space>j  :<C-u>CocNext<CR>
+" Do default action for previous item.
+nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
+" Resume latest coc list
+nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
+
+" disable vim-go :GoDef short cut (gd)
+" this is handled by LanguageClient [LC]
+let g:go_def_mapping_enabled = 0
