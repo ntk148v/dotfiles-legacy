@@ -18,7 +18,8 @@ workspace 6 output DP-1
 
 # window rules, you can find the window class using xprop
 for_window [class=".*"] border pixel 5
-for_window [class=Tilix] border pixel 20
+for_window [class=Telegram] border pixel 0
+for_window [class=Tilix] border pixel 30
 assign [class=URxvt|Tilix|Telegram] 1
 assign [class=Google-chrome|Firefox] 2
 assign [class=Code|Goland*|Pycharm*|Neovim] 3
@@ -45,6 +46,11 @@ exec --no-startup-id pnmixer
 exec --no-startup-id /home/kiennt/Apps/Telegram/Telegram
 exec --no-startup-id tilix
 exec --no-startup-id flameshot
+# set desktop background with custom effect
+exec --no-startup-id betterlockscreen -w dim
+
+# Alternative (set last used background)
+exec --no-startup-id source ~/.fehbg
 
 # start a terminal
 bindsym $super+Return exec tilix
@@ -57,7 +63,7 @@ bindsym $super+n exec bash ~/.scripts/networkmenu.sh
 
 # common apps keybinds
 bindsym Print exec scrot 'Cheese_%a-%d%b%y_%H.%M.png' -e 'viewnior ~/$f'
-bindsym $super+l exec gnome-screensaver-command -l
+bindsym $super+l exec betterlockscreen -l dim
 bindsym $super+Shift+w exec firefox
 bindsym $super+Shift+f exec nautilus
 bindsym $super+Shift+m exec thunderbird
@@ -157,8 +163,8 @@ client.placeholder      $bg     $bg     $fg  $bg       $bg
 
 # gaps
 # gap variable
-set $inner 15
-set $outer 5
+set $inner 20
+set $outer 10
 gaps inner $inner
 gaps outer $outer
 # toggle gaps
@@ -169,4 +175,4 @@ bindsym $super+Ctrl+g exec compton; gaps inner all set 0; gaps outer all set 0
 exec_always --no-startup-id compton --config ~/.config/compton.conf
 exec_always --no-startup-id dunst
 exec_always xrdb --merge ~/.Xresources
-exec_always --no-startup-id feh --bg-scale ~/Pictures/Carmelo-Anthony-2013-Wallpaper.png
+exec_always --no-startup-id feh --bg-scale ~/Pictures/vaYTNt7.jpg
