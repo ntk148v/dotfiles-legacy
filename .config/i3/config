@@ -166,6 +166,9 @@ bar {
         urgent_workspacei       #2f343f #ebcb8b #2f343f
     }
     position top
+    tray_padding 5
+    font pango: M+ 1m medium 11
+    output primary
     status_command i3status
 }
 
