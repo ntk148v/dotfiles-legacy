@@ -208,6 +208,5 @@ exec_always --no-startup-id dunst -lb "${fg}" \
         -nf "$bg" \
         -geometry "${DUNST_SIZE:-300x30-40+70}" &
 exec_always xrdb --merge ~/.Xresources
-exec_always --no-startup-id feh --bg-scale /home/kiennt/Pictures/464cff1d-5a8a-4fea-841e-ed0dd281f0a9_rw_1920.png
+exec_always --no-startup-id feh --bg-scale /warehouse/Workspace/github-repos/wallpapers/chineseneonsign.jpg
 exec_always --no-startup-id pkill polybar && polybar top
-exec_always --no-startup-id bash ~/.scripts/blurme &
