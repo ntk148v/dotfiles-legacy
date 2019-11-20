@@ -50,7 +50,8 @@ exec --no-startup-id /home/kiennt/Apps/Telegram/Telegram
 exec --no-startup-id tilix
 exec --no-startup-id flameshot
 # set desktop background with custom effect
-exec --no-startup-id betterlockscreen -w dim
+exec --no-startup-id betterlockscreen -w dimblur
+exec --no-startup-id bash ~/.scripts/blurme &
 
 # Alternative (set last used background)
 exec --no-startup-id source ~/.fehbg
@@ -138,6 +139,8 @@ bindsym $alt+Control+Shift+Left move container to workspace prev
 
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $super+Shift+r restart
+# reload i3
+bindsym $super+Shift+c reload
 
 # exit i3
 bindsym $super+q exec "i3-nagbar -t warning -m 'Really, exit?' -b 'Yes' 'i3-msg exit'"
@@ -205,5 +208,6 @@ exec_always --no-startup-id dunst -lb "${fg}" \
         -nf "$bg" \
         -geometry "${DUNST_SIZE:-300x30-40+70}" &
 exec_always xrdb --merge ~/.Xresources
-exec_always --no-startup-id feh --bg-scale /warehouse/wallpapers/mobile-wallpapers/tim-mossholder-zs-PAgqgenQ-unsplash.jpg
+exec_always --no-startup-id feh --bg-scale /home/kiennt/Pictures/464cff1d-5a8a-4fea-841e-ed0dd281f0a9_rw_1920.png
 exec_always --no-startup-id pkill polybar && polybar top
+exec_always --no-startup-id bash ~/.scripts/blurme &
