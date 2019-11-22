@@ -41,7 +41,7 @@ for_window [class=keepassxc|feh|Spotify] floating enable
 # autostart
 exec --no-startup-id nm-applet
 #exec --no-startup-id tint2
-exec --no-startup-id polybar top
+exec --no-startup-id polybar bottom
 exec --no-startup-id xsettingsd &
 exec --no-startup-id compton -b
 exec --no-startup-id thunderbird
@@ -50,7 +50,7 @@ exec --no-startup-id /home/kiennt/Apps/Telegram/Telegram
 exec --no-startup-id tilix
 exec --no-startup-id flameshot
 # set desktop background with custom effect
-exec --no-startup-id betterlockscreen -w dimblur
+exec --no-startup-id betterlockscreen -w blur
 exec --no-startup-id bash ~/.scripts/blurme &
 
 # Alternative (set last used background)
@@ -189,7 +189,7 @@ client.placeholder      $bg     $bg     $fg  $bg       $bg
 
 # gaps
 # gap variable
-set $inner 20
+set $inner 30
 set $outer 10
 gaps inner $inner
 gaps outer $outer
@@ -208,5 +208,5 @@ exec_always --no-startup-id dunst -lb "${fg}" \
         -nf "$bg" \
         -geometry "${DUNST_SIZE:-300x30-40+70}" &
 exec_always xrdb --merge ~/.Xresources
-exec_always --no-startup-id feh --bg-scale /warehouse/Workspace/github-repos/wallpapers/chineseneonsign.jpg
-exec_always --no-startup-id pkill polybar && polybar top
+exec_always --no-startup-id feh --bg-scale /warehouse/wallpapers/my-own-wallpapers/17c95411-f179-4eec-a403-a271fd771b4c_rw_1920.jpeg
+exec_always --no-startup-id pkill polybar && polybar bottom
