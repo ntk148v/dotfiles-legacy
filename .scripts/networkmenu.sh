@@ -1,2 +1,2 @@
 #!/bin/bash
-python3 ~/.config/rofi/scripts/networkmenu.py
+python3 ~/.scripts/networkmenu.py
