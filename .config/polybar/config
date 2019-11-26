@@ -113,7 +113,7 @@ font-4 = Material:size=9;2
 
 modules-left = launcher i3
 modules-center = xwindow
-modules-right = memory_bar cpu_bar time
+modules-right = volume memory_bar cpu_bar time
 
 ;tray-detached = false
 ;tray-offset-x = 0
@@ -291,12 +291,13 @@ format-background = ${colors.background}
 
 #################################################################
 ###############################################################################
-[module/pulseaudio2]
-type = internal/alsa
+[module/volume]
+type = internal/pulseaudio
 format-volume = %{T2}%{F#fefefe}<ramp-volume> <label-volume> <bar-volume>
 label-volume = %percentage%%
 format-volume-background =${colors.background}
 format-muted = <label-muted>
+format-muted-background = ${colors.background}
 label-muted=""
 ramp-volume-0 = 
 ramp-volume-1 = 
