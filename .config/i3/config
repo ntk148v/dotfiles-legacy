@@ -45,10 +45,8 @@ exec --no-startup-id polybar bottom
 exec --no-startup-id xsettingsd &
 exec --no-startup-id compton -b
 exec --no-startup-id thunderbird
-exec --no-startup-id pnmixer
 exec --no-startup-id /home/kiennt/Apps/Telegram/Telegram
 exec --no-startup-id tilix
-exec --no-startup-id flameshot
 # set desktop background with custom effect
 exec --no-startup-id betterlockscreen -w blur
 exec --no-startup-id bash ~/.scripts/blurme &
