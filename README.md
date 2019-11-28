@@ -8,6 +8,12 @@ Inspired by:
 - [xsgordon/environment-configuration](https://github.com/xsgordon/environment-configuration)
 - [mathiasbynens/dotfiles](https://github.com/mathiasbynens/dotfiles)
 
+## Preview
+
+> 28 Nov 2019
+
+![screenshot](./screenshots/screenshot-2019-11-28-11-11-37.png)
+
 ## Installation
 
 **Warning:** If you want to give these dotfiles a try, you should first fork
