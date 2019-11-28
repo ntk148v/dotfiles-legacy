@@ -187,7 +187,7 @@ client.placeholder      $bg     $bg     $fg  $bg       $bg
 
 # gaps
 # gap variable
-set $inner 30
+set $inner 20
 set $outer 10
 gaps inner $inner
 gaps outer $outer
@@ -206,5 +206,6 @@ exec_always --no-startup-id dunst -lb "${fg}" \
         -nf "$bg" \
         -geometry "${DUNST_SIZE:-300x30-40+70}" &
 exec_always xrdb --merge ~/.Xresources
-exec_always --no-startup-id feh --bg-scale /warehouse/wallpapers/my-own-wallpapers/17c95411-f179-4eec-a403-a271fd771b4c_rw_1920.jpeg
+#exec_always --no-startup-id feh --bg-scale /warehouse/wallpapers/my-own-wallpapers/17c95411-f179-4eec-a403-a271fd771b4c_rw_1920.jpeg
+exec_always --no-startup-id feh --bg-scale /home/kiennt/Workspace/github-repos/wallpapers/tiger.jpg
 exec_always --no-startup-id pkill polybar && polybar bottom
