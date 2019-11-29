@@ -197,14 +197,8 @@ bindsym $super+Ctrl+g exec compton; gaps inner all set 0; gaps outer all set 0
 
 # reload
 exec_always --no-startup-id pkill compton && compton --config ~/.config/compton.conf
-exec_always --no-startup-id dunst -lb "${fg}" \
-        -nb "$fg" \
-        -cb "$bg" \
-        -lf "$bg" \
-        -bf "$bg" \
-        -cf "$bg" \
-        -nf "$bg" \
-        -geometry "${DUNST_SIZE:-300x30-40+70}" &
+exec_always --no-startup-id  bash ~/.scripts/dunst_xr_theme_changer.sh && \
+    dunst -conf ~/.config/dunst/dunstrc_xr_colors &
 exec_always xrdb --merge ~/.Xresources
 #exec_always --no-startup-id feh --bg-scale /warehouse/wallpapers/my-own-wallpapers/17c95411-f179-4eec-a403-a271fd771b4c_rw_1920.jpeg
 exec_always --no-startup-id feh --bg-scale /home/kiennt/Workspace/github-repos/wallpapers/tiger.jpg
