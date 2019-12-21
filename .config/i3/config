@@ -44,15 +44,14 @@ exec --no-startup-id nm-applet
 exec --no-startup-id polybar bottom
 exec --no-startup-id xsettingsd &
 exec --no-startup-id compton -b
-exec --no-startup-id thunderbird
 exec --no-startup-id /home/kiennt/Apps/Telegram/Telegram
 exec --no-startup-id tilix
 # set desktop background with custom effect
 exec --no-startup-id betterlockscreen -w blur
-exec --no-startup-id bash ~/.scripts/blurme &
+# exec --no-startup-id bash ~/.scripts/blurme &
 
 # Alternative (set last used background)
-exec --no-startup-id source ~/.fehbg
+# exec --no-startup-id source ~/.fehbg
 
 # start a terminal
 bindsym $super+Return exec tilix
@@ -65,14 +64,13 @@ bindsym $super+n exec bash ~/.scripts/networkmenu.sh
 
 # common apps keybinds
 bindsym Print exec scrot 'Cheese_%a-%d%b%y_%H.%M.png' -e 'viewnior ~/$f'
-bindsym $super+l exec betterlockscreen -l dim
+bindsym $super+l exec betterlockscreen -l blur
 bindsym $super+Shift+w exec firefox
-bindsym $super+Shift+f exec nautilus
-bindsym $super+Shift+m exec thunderbird
+bindsym $super+Shift+f exec thunar
 
 # change volume
-bindsym $alt+u exec amixer -q set Master 5%+
-bindsym $alt+d exec amixer -q set Master 5%-
+bindsym $alt+u exec amixer -D pulse sset Master 5%+
+bindsym $alt+d exec amixer -D pulse sset Master 5%-
 bindsym $alt+m exec pactl set-sink-mute 0 toggle
 
 # kill focused window
@@ -191,15 +189,19 @@ set $inner 20
 set $outer 10
 gaps inner $inner
 gaps outer $outer
+
+# rounded corners
+border_radius 5
+
 # toggle gaps
 bindsym $super+g exec compton; gaps inner all set $inner; gaps outer all set $outer
 bindsym $super+Ctrl+g exec compton; gaps inner all set 0; gaps outer all set 0
 
 # reload
 exec_always --no-startup-id pkill compton && compton --config ~/.config/compton.conf
+exec_always xrdb --merge ~/.Xresources
 exec_always --no-startup-id  bash ~/.scripts/dunst_xr_theme_changer.sh && \
     dunst -conf ~/.config/dunst/dunstrc_xr_colors &
-exec_always xrdb --merge ~/.Xresources
-#exec_always --no-startup-id feh --bg-scale /warehouse/wallpapers/my-own-wallpapers/17c95411-f179-4eec-a403-a271fd771b4c_rw_1920.jpeg
-exec_always --no-startup-id feh --bg-scale /home/kiennt/Workspace/github-repos/wallpapers/tiger.jpg
+# exec_always --no-startup-id feh --bg-scale /home/kiennt/Pictures/adrien-olichon-cHJ3YLYvEU4-unsplash.jpg
+exec_always --no-startup-id hsetroot -add "#DAD299" -add "#B0DAB9" -gradient 0
 exec_always --no-startup-id pkill polybar && polybar bottom
