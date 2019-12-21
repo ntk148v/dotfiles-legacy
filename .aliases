@@ -32,7 +32,7 @@ alias reload="exec ${SHELL} -l"
 alias path='echo -e ${PATH//:/\\n}'
 
 # Lazy pip with -H option
-alias piph='sudo -H pip'
+alias piph='sudo -H pip3'
 
 # Archives
 function extract {
