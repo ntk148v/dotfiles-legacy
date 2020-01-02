@@ -46,8 +46,7 @@ exec --no-startup-id compton -b
 exec --no-startup-id /home/kiennt/Apps/Telegram/Telegram
 exec --no-startup-id tilix
 # set desktop background with custom effect
-exec --no-startup-id betterlockscreen -w blur
-exec --no-startup-id hsetroot -add "#DAD299" -add "#B0DAB9" -gradient 0
+# exec --no-startup-id betterlockscreen -w blur
 
 # start a terminal
 bindsym $super+Return exec tilix
@@ -176,5 +175,5 @@ exec_always --no-startup-id pkill compton && compton --config ~/.config/compton.
 exec_always xrdb --merge ~/.Xresources
 exec_always --no-startup-id  bash ~/.scripts/dunst_xr_theme_changer.sh && \
     dunst -conf ~/.config/dunst/dunstrc_xr_colors &
-exec_always --no-startup-id hsetroot -add "#DAD299" -add "#B0DAB9" -gradient 0
+exec_always hsetroot -add "#c79081" -add "#dfa579" -gradient 0
 exec_always --no-startup-id pkill polybar && polybar bottom
