@@ -27,6 +27,7 @@ compositing-foreground = over
 compositing-overline = over
 compositing-underline = over
 compositing-border = over
+pseudo-transparency = true
 
 ; Define fallback values used by all module formats
 format-foreground = #FF0000
@@ -84,7 +85,8 @@ line-color = #f00
 border-right-size = 30
 border-left-size = 30
 border-top-size = 20
-border-color = #c79081
+#border-color = #aac79081
+border-color = #aa${colors.background}
 
 padding-left = 0
 padding-right = 1
@@ -104,7 +106,7 @@ font-3 = FontAwesome5Free:style=Regular:size=8;2
 font-4 = Material:size=9;2
 
 modules-left = launcher i3
-modules-center = xwindow
+;modules-center = xwindow
 modules-right = battery volume memory_bar cpu_bar time
 
 ;tray-detached = false
@@ -375,6 +377,8 @@ format-charging-background = ${colors.background}
 format-charging-foreground = ${colors.foreground}
 format-discharging-background = ${colors.background}
 format-discharging-foreground = ${colors.foreground}
+format-full-background = ${colors.background}
+format-full-foreground = ${colors.foreground}
 
 ; Available tags:
 ;   <label-full> (default)

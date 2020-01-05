@@ -175,5 +175,6 @@ exec_always --no-startup-id pkill compton && compton --config ~/.config/compton.
 exec_always xrdb --merge ~/.Xresources
 exec_always --no-startup-id  bash ~/.scripts/dunst_xr_theme_changer.sh && \
     dunst -conf ~/.config/dunst/dunstrc_xr_colors &
-exec_always hsetroot -add "#c79081" -add "#dfa579" -gradient 0
+#exec_always hsetroot -add "#c79081" -add "#dfa579" -gradient 0
+exec_always feh --bg-scale ~/Workspace/github.com/wallpapers/my-own-wallpapers/freshh-connection-djY0xDWCEUM-unsplash.jpg
 exec_always --no-startup-id pkill polybar && polybar bottom
