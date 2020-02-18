@@ -482,8 +482,8 @@ content-background = ${colors.background}
 content-foreground = ${colors.fg3}
 content-padding = 0
 ;click-left = ~/.bin/mpd_control.sh -j
-click-left = ~/.config/polybar/scripts/color-switch.sh
-click-right = ~/.config/polybar/scripts/color-switch.sh
+click-left = ~/.scripts/appsmenu.sh
+click-right = ~/.scripts/networkmenu.sh
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;,
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
