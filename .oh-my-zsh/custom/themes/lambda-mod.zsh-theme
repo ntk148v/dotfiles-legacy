@@ -10,13 +10,13 @@ function check_git_prompt_info() {
     if git rev-parse --git-dir > /dev/null 2>&1; then
         if [[ -z $(git_prompt_info 2> /dev/null) ]]; then
             echo "%{$fg[blue]%}detached-head%{$reset_color%}) $(git_prompt_status)
-%{$fg[yellow]%}→ "
+%{$fg[yellow]%}→  "
         else
             echo "$(git_prompt_info 2> /dev/null) $(git_prompt_status)
-%{$fg_bold[cyan]%}→ "
+%{$fg_bold[cyan]%}→  "
         fi
     else
-        echo "%{$fg_bold[cyan]%}→ "
+        echo "%{$fg_bold[cyan]%}→  "
     fi
 }
 
@@ -51,8 +51,9 @@ ZSH_THEME_GIT_PROMPT_UNMERGED="%{$fg_bold[yellow]%}#"
 ZSH_THEME_GIT_PROMPT_UNTRACKED="%{$fg_bold[cyan]%}?"
 
 # Format for git_prompt_ahead()
-ZSH_THEME_GIT_PROMPT_AHEAD=" %{$fg_bold[white]%}^"
-
+ZSH_THEME_GIT_PROMPT_AHEAD=" %{$fg_bold[white]%}⇡"
+# Format for git_prompt_behind()
+ZSH_THEME_GIT_PROMPT_BEHIND=" %{$fg_bold[white]%}⇣"
 
 # Format for git_prompt_long_sha() and git_prompt_short_sha()
 ZSH_THEME_GIT_PROMPT_SHA_BEFORE=" %{$fg_bold[white]%}[%{$fg_bold[blue]%}"
