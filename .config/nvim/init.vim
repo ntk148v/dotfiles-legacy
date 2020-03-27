@@ -53,6 +53,7 @@ Plug 'ntk148v/vim-horizon'                " Horizon
 Plug 'liuchengxu/space-vim-theme'         " Space-vim
 Plug 'ntk148v/wal.vim'                    " PyWal vim
 Plug 'sainnhe/gruvbox-material'
+Plug 'tyrannicaltoucan/vim-quantum'
 
 "-------------------=== Snippets support ===------------------------
 Plug 'honza/vim-snippets'                 " snippets repo
@@ -215,7 +216,8 @@ if strftime('%H') >= 7 && strftime('%H') < 19
 else
     set background=dark
 endif
-colorscheme wal
+set termguicolors
+colorscheme nord
 let g:lightline.colorscheme = 'wal'
 
 " NOTE: This is only compatible with Guake 3.X.
@@ -223,9 +225,6 @@ let g:lightline.colorscheme = 'wal'
 " if (has("termguicolors"))
 "     set termguicolors
 " endif
-" set background=dark
-" let g:gruvbox_material_background = 'hard'
-" colorscheme gruvbox-material
 
 "------------------------
 " NERDTree settings
