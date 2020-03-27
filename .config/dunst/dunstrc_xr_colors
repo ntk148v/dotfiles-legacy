@@ -17,7 +17,7 @@ horizontal_padding = 24
     frame_width = 1
 sort = no
 idle_threshold = 120
-font = Cascadia Code 8
+font = Hack Nerd Font Regular 8
 line_height = 4
 markup = full
 format = "<b>%s</b>\n%b"
@@ -43,17 +43,17 @@ history = ctrl+grave
 context = ctrl+shift+period
 
 [urgency_low]
-    background = "#292D3E"
-    foreground = "#82AAFF"
+    background = "#2E3440"
+    foreground = "#EBCB8B"
 timeout = 2
 
 [urgency_normal]
-    background = "#292D3E"
-    foreground = "#C3E88D"
+    background = "#2E3440"
+    foreground = "#BF616A"
 timeout = 4
 
 [urgency_critical]
-    background = "#292D3E"
-    foreground = "#F07178"
-    frame_color = "#F07178"
+    background = "#2E3440"
+    foreground = "#88C0D0"
+    frame_color = "#88C0D0"
 timeout = 0
