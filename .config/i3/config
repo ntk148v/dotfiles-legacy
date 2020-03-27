@@ -3,10 +3,13 @@ set $super Mod4
 set $alt Mod1
 
 # set font
-font pango: Cascadia Code 8
+#font pango: Cascadia Code 8
+font pange: Hack Nerd Font Regular 8
 
 # Use Mouse+$super to drag floating windows to their wanted position
 floating_modifier $super
+
+default_orientation vertical
 
 # automatically putting workspaces on specific screens
 workspace 1 output HDMI-1
@@ -23,7 +26,7 @@ for_window [class=".*"] border pixel 5
 for_window [class=Telegram] border pixel 0
 for_window [class=Tilix] border pixel 35
 assign [class=URxvt|Tilix|Telegram] 1
-assign [class=Google-chrome|Firefox] 2
+assign [class=Google-Chrome|Firefox] 2
 assign [class=Code|Goland*|Pycharm*|Neovim] 3
 assign [class=Slack|Thunderbird|libreoffice*|Bluemail] 4
 assign [class=Kdocker|Spotify|Vlc|mpv|Xfburn|Gimp*|Inkscape] 5
@@ -34,19 +37,19 @@ for_window [class=Firefox window_role=Options] floating enable
 for_window [class=Firefox window_role=About] floating enable
 for_window [window_role=pop-up] floating enable
 for_window [window_role=bubble] floating enable
-for_window [class=Telegram] resize set 375px
+for_window [class=Telegram] resize set 375 0
 for_window [class=Bluemail|Telegram|Thunderbird|Slack|URxvt|Firefox|Google-Chrome|Tilix|Code|Goland*|Pycharm*|libreoffice*|Gimp*|Inkscape|Vlc] focus
 for_window [class=keepassxc|feh|Spotify] floating enable
 
 # autostart
-exec --no-startup-id nm-applet
-#exec --no-startup-id tint2
 exec --no-startup-id polybar bottom
+exec --no-startup-id nm-applet
 exec --no-startup-id xsettingsd &
 exec --no-startup-id compton -b
 exec --no-startup-id thunderbird
 exec --no-startup-id /home/kiennt/Apps/Telegram/Telegram
 exec --no-startup-id tilix
+exec --no-startup-id /usr/lib/vino/vino-server &
 # set desktop background with custom effect
 # exec --no-startup-id betterlockscreen -w blur
 # exec --no-startup-id bash ~/.scripts/blurme &
@@ -153,28 +156,6 @@ mode "resize" {
 }
 bindsym $super+r mode "resize"
 
-# panel
-# Use tint2
-# Use polybar
-# bar {
-#     colors {
-#         background #2f343f
-#         statusline #2f343f
-#         separator #4b5262
-# 
-#         # colour of border, background, and text
-#         focused_workspace       #2f343f #bf616a #d8dee8
-#         active_workspace        #2f343f #2f343f #d8dee8
-#         inactive_workspace      #2f343f #2f343f #d8dee8
-#         urgent_workspacei       #2f343f #ebcb8b #2f343f
-#     }
-#     position top
-#     tray_padding 5
-#     font pango: M+ 1m medium 11
-#     output primary
-#     status_command i3status
-# }
-
 set_from_resource $fg foreground
 set_from_resource $bg background
 
@@ -200,4 +181,5 @@ exec_always --no-startup-id pkill compton && compton --config ~/.config/compton.
 exec_always --no-startup-id  bash ~/.scripts/dunst_xr_theme_changer.sh && \
     dunst -conf ~/.config/dunst/dunstrc_xr_colors &
 exec_always xrdb --merge ~/.Xresources
-exec_always hsetroot -add "#c79081" -add "#dfa579" -gradient 0
+exec_always hsetroot -add "#BF616A" -add "#88C0D0" -gradient 0
+exec_always --no-startup-id pkill polybar && polybar bottom
