@@ -99,7 +99,7 @@ module-margin-right = 1
 enable-ipc = true
 wm-restack = i3
 
-font-0 = M+ 1m medium:size=8;2
+font-0 = Fantasque Sans Mono:style=Regular:size=8;2
 font-1 = DejaVuSans:size=8;2
 font-2 = FontAwesome5Free:style=Solid:size=8;2
 font-3 = FontAwesome5Free:style=Regular:size=8;2
