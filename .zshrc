@@ -8,7 +8,8 @@
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="spaceship"
+#ZSH_THEME="spaceship"
+ZSH_THEME="honukai"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -75,8 +76,8 @@ plugins=(
     thefuck
     zsh-completions
     zsh-autosuggestions
-    vi-mode
     git-open
+    vi-mode
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -119,16 +120,20 @@ export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
 source ~/.aliases
 
 # Kubernetes
-if [ $commands[kubectl] ]; then
-  source ~/.kubectl_aliases
-  source <(kubectl completion zsh)
-fi
+#if [ $commands[kubectl] ]; then
+#  source ~/.kubectl_aliases
+#  source <(kubectl completion zsh)
+#fi
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 [ -f ~/.config/z.sh ] && source ~/.config/z.sh
 
 export GOPATH=$HOME/go
-export PATH=$PATH:/usr/local/go/bin:$GOPATH/bin
+export GOBIN=$GOPATH/bin
+export JAVA_HOME=$(update-alternatives --query java | grep Value: | awk -F'Value: ' '{print $2}' | awk -F'/bin/java' '{print $1}')
+export PATH=$PATH:/usr/local/go/bin:$GOPATH/bin:$JAVA_HOME/bin
+export PATH=$PATH:$JAVA_HOME/bin
+export PATH=$PATH:$HOME/.cargo/bin
 
 # Zsh-suggestions
 bindkey '^F' autosuggest-accept
@@ -151,3 +156,6 @@ cat ~/.cache/wal/sequences
 
 # To add support for TTYs this line can be optionally added.
 source ~/.cache/wal/colors-tty.sh
+
+# added by travis gem
+[ ! -s /home/kiennt/.travis/travis.sh ] || source /home/kiennt/.travis/travis.sh
