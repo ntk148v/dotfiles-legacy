@@ -1,7 +1,7 @@
 * {
   /* General */
-  text-font:                            "Hurmit Nerd Font 14";
-  text-font-mono:                       "Hurmit Nerd Font 14";
+  text-font:                            "SF Mono Powerline Regular 14";
+  text-font-mono:                       "SF Mono Powerline Regular 14";
   icon-font:                            "Hurmit Nerd Font Mono 50";
   icon-font-small:                      "Hurmit Nerd Font Mono 24";
   inputbar-margin:                      4px 4px;
