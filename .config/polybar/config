@@ -94,10 +94,10 @@ module-margin-right = 1
 
 ; Enable support for inter-process messaging
 ; See the Messaging wiki page for more details.
-enable-ipc = true
+enable-ipc = false
 wm-restack = i3
 
-font-0 = M+ 1m medium:size=8;2
+font-0 = SF Mono Powerline:style=Regular:size=8;2
 font-1 = DejaVuSans:size=8;2
 font-2 = FontAwesome5Free:style=Solid:size=8;2
 font-3 = FontAwesome5Free:style=Regular:size=8;2
@@ -481,9 +481,8 @@ content = "  MENU  "
 content-background = ${colors.background}
 content-foreground = ${colors.fg3}
 content-padding = 0
-;click-left = ~/.bin/mpd_control.sh -j
 click-left = ~/.scripts/appsmenu.sh
-click-right = ~/.scripts/networkmenu.sh
+click-right = ~/.scripts/powermenu-compact.sh
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;,
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
