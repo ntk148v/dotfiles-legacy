@@ -3,13 +3,12 @@ set $super Mod4
 set $alt Mod1
 
 # set font
-#font pango: Cascadia Code 8
-font pange: Hack Nerd Font Regular 8
+font pange: SF Mono Powerline Regular 8
 
 # Use Mouse+$super to drag floating windows to their wanted position
 floating_modifier $super
 
-default_orientation vertical
+default_orientation auto
 
 # automatically putting workspaces on specific screens
 workspace 1 output HDMI-1
@@ -37,17 +36,17 @@ for_window [class=Firefox window_role=Options] floating enable
 for_window [class=Firefox window_role=About] floating enable
 for_window [window_role=pop-up] floating enable
 for_window [window_role=bubble] floating enable
-for_window [class=Telegram] resize set 375 0
+for_window [class=Telegram] resize set 400 0
 for_window [class=Bluemail|Telegram|Thunderbird|Slack|URxvt|Firefox|Google-Chrome|Tilix|Code|Goland*|Pycharm*|libreoffice*|Gimp*|Inkscape|Vlc] focus
 for_window [class=keepassxc|feh|Spotify] floating enable
 
 # autostart
-exec --no-startup-id polybar bottom
+exec --no-startup-id bash ~/.config/polybar/launch.sh
 exec --no-startup-id nm-applet
 exec --no-startup-id xsettingsd &
 exec --no-startup-id compton -b
 exec --no-startup-id thunderbird
-exec --no-startup-id /home/kiennt/Apps/Telegram/Telegram
+#exec --no-startup-id /home/kiennt/Apps/Telegram/Telegram
 exec --no-startup-id tilix
 exec --no-startup-id /usr/lib/vino/vino-server &
 # set desktop background with custom effect
@@ -62,9 +61,10 @@ bindsym $super+Return exec tilix
 
 # start dmenu (a program launcher)
 bindsym $super+Shift+d exec i3-dmenu-desktop --dmenu="dmenu -i -fn 'Noto Sans:size=8'"
-bindsym $super+d exec bash ~/.scripts/appsmenu.sh
-bindsym $super+p exec bash ~/.scripts/powermenu.sh
-bindsym $super+n exec bash ~/.scripts/networkmenu.sh
+bindsym $super+d exec rofi -theme  ~/.config/rofi/themes/appmenu-nord.rasi -show drun
+#bindsym $super+d exec bash ~/.scripts/appsmenu.sh
+#bindsym $super+p exec bash ~/.scripts/powermenu.sh
+#bindsym $super+n exec bash ~/.scripts/networkmenu.sh
 
 # common apps keybinds
 bindsym Print exec scrot 'Cheese_%a-%d%b%y_%H.%M.png' -e 'viewnior ~/$f'
@@ -181,5 +181,6 @@ exec_always --no-startup-id pkill compton && compton --config ~/.config/compton.
 exec_always --no-startup-id  bash ~/.scripts/dunst_xr_theme_changer.sh && \
     dunst -conf ~/.config/dunst/dunstrc_xr_colors &
 exec_always xrdb --merge ~/.Xresources
-exec_always hsetroot -add "#BF616A" -add "#88C0D0" -gradient 0
-exec_always --no-startup-id pkill polybar && polybar bottom
+#exec_always feh --bg-fill ~/Pictures/david-brooke-martin-lFTtQqVfx6g-unsplash.jpg
+exec_always hsetroot -solid "#000000"
+exec_always --no-startup-id bash ~/.config/polybar/launch.sh

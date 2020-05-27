@@ -10,9 +10,9 @@ Inspired by:
 
 ## Preview
 
-> 28 Nov 2019
+> 27 May 2020
 
-![screenshot](./screenshots/screenshot-2019-11-28-11-11-37.png)
+![screenshot](./screenshots/1_001.png)
 
 ## Installation
 
@@ -31,6 +31,10 @@ Remember to install:
 * Tint2.
 * PyWal.
 * Rofi.
+* Compton.
+* Polybar.
+* Powerline-font.
+* ...
 
 ```zsh
 $ git clone https://github.com/ntk148v/dotfiles.git
