@@ -10,9 +10,8 @@ Inspired by:
 
 ## Preview
 
-> 28 Nov 2019
 
-![screenshot](./screenshots/screenshot-2019-11-28-11-11-37.png)
+![](./screenshots/Screenshot_2020-05-30_16-43-21.png)
 
 ## Installation
 
