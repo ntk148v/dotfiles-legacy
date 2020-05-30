@@ -188,6 +188,6 @@ exec_always --no-startup-id pkill compton && compton --config ~/.config/compton.
 exec_always xrdb --merge ~/.Xresources
 exec_always --no-startup-id  bash ~/.scripts/dunst_xr_theme_changer.sh && \
     dunst -conf ~/.config/dunst/dunstrc_xr_colors &
-#exec_always --no-startup-id feh --bg-fill /home/kiennt/Pictures/opensourceer.png
-exec_always --no-startup-id hsetroot -solid "#eee8d5"
+#exec_always hsetroot -add "#c79081" -add "#dfa579" -gradient 0
+exec_always --no-startup-id feh --bg-fill /home/kiennt/Pictures/opensourceer.png
 exec_always --no-startup-id pkill polybar && polybar bottom

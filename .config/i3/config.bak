@@ -3,62 +3,51 @@ set $super Mod4
 set $alt Mod1
 
 # set font
-font pango: SF Mono Powerline Regular 8
+font pango: Fantasque Sans Mono Regular 8
 
 # Use Mouse+$super to drag floating windows to their wanted position
 floating_modifier $super
 
 # automatically putting workspaces on specific screens
 workspace 1 output eDP-1
-workspace 2 output eDP-1
+workspace 2 output VGA-1
 workspace 3 output eDP-1
-workspace 4 output eDP-1
+workspace 4 output VGA-1
 workspace 5 output eDP-1
-workspace 6 output eDP-1
+workspace 6 output VGA-1
 workspace 7 output eDP-1
-workspace 8 output eDP-1
-
-#workspace 1 output eDP-1
-#workspace 2 output VGA-1
-#workspace 3 output eDP-1
-#workspace 4 output VGA-1
-#workspace 5 output eDP-1
-#workspace 6 output VGA-1
-#workspace 7 output eDP-1
-#workspace 8 output VGA-1
-
+workspace 8 output VGA-1
 
 # window rules, you can find the window class using xprop
 for_window [class=".*"] border pixel 5
+for_window [class=Telegram] border pixel 0
 for_window [class=Tilix] border pixel 35
 assign [class=URxvt|Tilix|Telegram] 1
 assign [class=Google-chrome|Firefox] 2
 assign [class=Code|Goland*|Pycharm*|Neovim] 3
-assign [class=Slack|Thunderbird|libreoffice*] 4
-assign [class=Kdocker|Spotify|Vlc|mpv|Xfburn|Gimp*|Inkscape|Zoom] 5
+assign [class=Slack|Thunderbird|libreoffice*|Bluemail] 4
+assign [class=Kdocker|Spotify|Vlc|mpv|Xfburn|Gimp*|Inkscape] 5
 assign [class=GParted] 6
-assign [class=Virtual-Manager] 7
 for_window [class=Firefox instance=DTA] floating enable
 for_window [class=Firefox window_role=Preferences] floating enable
 for_window [class=Firefox window_role=Options] floating enable
 for_window [class=Firefox window_role=About] floating enable
 for_window [window_role=pop-up] floating enable
 for_window [window_role=bubble] floating enable
-for_window [class=Telegram] resize set 400px
+for_window [class=Telegram] resize set 375px
 for_window [class=Bluemail|Telegram|Thunderbird|Slack|URxvt|Firefox|Google-Chrome|Tilix|Code|Goland*|Pycharm*|libreoffice*|Gimp*|Inkscape|Vlc] focus
-for_window [class=keepassxc|feh] floating enable
+for_window [class=keepassxc|feh|Spotify] floating enable
 
 # autostart
 exec --no-startup-id nm-applet
 exec --no-startup-id polybar bottom
 exec --no-startup-id xsettingsd &
 exec --no-startup-id compton -b
-exec --no-startup-id source ~/.fehbg
 exec --no-startup-id /home/kiennt/Apps/Telegram/Telegram
 exec --no-startup-id tilix
 # set desktop background with custom effect
 # exec --no-startup-id betterlockscreen -w blur
-exec --no-startup-id google-chrome
+exec --no-startup-id feh --bg-scale ~/Workspace/github.com/ntk148v/wallpapers/my-own-wallpapers/kobe.jpg
 
 # start a terminal
 bindsym $super+Return exec tilix
@@ -183,11 +172,11 @@ bindsym $super+g exec compton; gaps inner all set $inner; gaps outer all set $ou
 bindsym $super+Ctrl+g exec compton; gaps inner all set 0; gaps outer all set 0
 
 # reload
-exec_always--no-startup-id xrandr --output VGA-1 --auto --right-of eDP-1
+exec_always--no-startup-id xrandr --output VGA-1 --auto --left-of eDP-1
 exec_always --no-startup-id pkill compton && compton --config ~/.config/compton.conf
 exec_always xrdb --merge ~/.Xresources
 exec_always --no-startup-id  bash ~/.scripts/dunst_xr_theme_changer.sh && \
     dunst -conf ~/.config/dunst/dunstrc_xr_colors &
-#exec_always --no-startup-id feh --bg-fill /home/kiennt/Pictures/opensourceer.png
-exec_always --no-startup-id hsetroot -solid "#eee8d5"
+#exec_always hsetroot -add "#c79081" -add "#dfa579" -gradient 0
+exec_always --no-startup-id feh --bg-scale ~/Workspace/github.com/ntk148v/wallpapers/my-own-wallpapers/kobe.jpg
 exec_always --no-startup-id pkill polybar && polybar bottom

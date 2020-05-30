@@ -39,6 +39,7 @@ Plug 'brooth/far.vim'                     " Find and replace
 Plug 'junegunn/goyo.vim'                  " Distraction-free writing in Vim
 " Or latest tag
 Plug 'neoclide/coc.nvim', {'tag': '*', 'branch': 'release'} "An intellisense engine
+Plug 'sheerun/vim-polyglot'               " A solid language pack
 
 "-------------------=== Fancy things ===----------------------------
 Plug 'flazz/vim-colorschemes'             " Colorschemes
@@ -223,9 +224,6 @@ let g:lightline.colorscheme = 'wal'
 " if (has("termguicolors"))
 "     set termguicolors
 " endif
-" set background=dark
-" let g:gruvbox_material_background = 'hard'
-" colorscheme gruvbox-material
 
 "------------------------
 " NERDTree settings

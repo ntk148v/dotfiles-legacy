@@ -151,3 +151,9 @@ cat ~/.cache/wal/sequences
 
 # To add support for TTYs this line can be optionally added.
 source ~/.cache/wal/colors-tty.sh
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/home/kiennt/Apps/google-cloud-sdk/path.zsh.inc' ]; then . '/home/kiennt/Apps/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/home/kiennt/Apps/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/kiennt/Apps/google-cloud-sdk/completion.zsh.inc'; fi
