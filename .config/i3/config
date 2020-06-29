@@ -3,7 +3,7 @@ set $super Mod4
 set $alt Mod1
 
 # set font
-font pange: SF Mono Powerline Regular 8
+font pange: Iosevka Regular 8
 
 # Use Mouse+$super to drag floating windows to their wanted position
 floating_modifier $super
@@ -172,6 +172,11 @@ set $inner 25
 set $outer 15
 gaps inner $inner
 gaps outer $outer
+smart_borders on
+smart_gaps on
+border_radius 5
+
+
 # toggle gaps
 bindsym $super+g exec compton; gaps inner all set $inner; gaps outer all set $outer
 bindsym $super+Ctrl+g exec compton; gaps inner all set 0; gaps outer all set 0
@@ -181,6 +186,6 @@ exec_always --no-startup-id pkill compton && compton --config ~/.config/compton.
 exec_always --no-startup-id  bash ~/.scripts/dunst_xr_theme_changer.sh && \
     dunst -conf ~/.config/dunst/dunstrc_xr_colors &
 exec_always xrdb --merge ~/.Xresources
-#exec_always feh --bg-fill ~/Pictures/david-brooke-martin-lFTtQqVfx6g-unsplash.jpg
-exec_always hsetroot -solid "#000000"
+#exec_always hsetroot -solid "#009688"
+exec_always feh --bg-fill /warehouse/wallpapers/mobile-wallpapers/eastward_bound.png
 exec_always --no-startup-id bash ~/.config/polybar/launch.sh
