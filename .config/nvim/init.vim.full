@@ -28,7 +28,6 @@ Plug 'junegunn/fzf.vim'
 " Uncomment if you want to use vim-airline over lightline
 " Plug 'vim-airline/vim-airline'            " Lean & mean status/tabline for vim
 " Plug 'vim-airline/vim-airline-themes'     " Themes for airline
-" Plug 'taigacute/spaceline.vim'
 Plug 'itchyny/lightline.vim'
 Plug 'yuttie/comfortable-motion.vim'      " Smooth scrolling
 Plug 'thaerkh/vim-indentguides'           " Visual representation of indents
@@ -45,13 +44,13 @@ Plug 'flazz/vim-colorschemes'             " Colorschemes
 Plug 'jreybert/vimagit'                   " Git Operations
 Plug 'chriskempson/base16-vim'            " Base 16 colors
 Plug 'ryanoasis/vim-devicons'             " Dev Icons
+Plug 'iCyMind/NeoSolarized'
 Plug 'kamwitsta/flatwhite-vim'            " Flatwhite
 Plug 'lifepillar/vim-colortemplate'       " Colortemplate
 Plug 'nightsense/snow'                    " Snow
 Plug 'ntk148v/vim-horizon'                " Horizon
 Plug 'liuchengxu/space-vim-theme'         " Space-vim
 Plug 'ntk148v/wal.vim'                    " PyWal vim
-Plug 'sonph/onehalf', {'rtp': 'vim/'}
 
 "-------------------=== Snippets support ===------------------------
 Plug 'honza/vim-snippets'                 " snippets repo
@@ -68,6 +67,7 @@ Plug 'klen/python-mode'                   " Python mode (docs, refactor, lints..
 
 "-------------------=== Go ===---------------------------------------
 Plug 'fatih/vim-go', {'do': ':GoUpdateBinaries'}
+Plug 'buoto/gotests-vim'                  " Generate table driven tests.
 
 " Initialize plugin system
 call plug#end()
@@ -85,6 +85,11 @@ let base16colorspace=256
 set guicursor=n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50
             \,a:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor
             \,sm:block-blinkwait175-blinkoff150-blinkon175
+" NOTE: This is only compatible with Guake 3.X.
+" Check issue: https://github.com/Guake/guake/issues/772
+" if (has("termguicolors"))
+" "   set termguicolors
+" endif
 
 syntax enable                             " enable syntaax highlighting
 
@@ -215,21 +220,6 @@ else
 endif
 colorscheme wal
 let g:lightline.colorscheme = 'wal'
-
-" NOTE: This is only compatible with Guake 3.X.
-" Check issue: https://github.com/Guake/guake/issues/772
-let current_scheme = get(g:, 'colors_name', 'default')
-if (has("termguicolors") && current_scheme != "wal")
-    set termguicolors
-endif
-
-if exists('+termguicolors')
-  let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-  let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
-  set termguicolors
-endif
-colorscheme onehalflight
-let g:lightline.colorscheme='one'
 
 "------------------------
 " NERDTree settings
@@ -461,93 +451,25 @@ let g:go_version_warning = 0
 " -----
 
 " Start Goyo immediately when starting neovim/vim
-" auto VimEnter * Goyo
-" function! s:goyo_enter()
-"     let b:quitting = 0
-"     let b:quitting_bang = 0
-"     autocmd QuitPre <buffer> let b:quitting = 1
-"     cabbrev <buffer> q! let b:quitting_bang = 1 <bar> q!
-"     silent! call lightline#enable()
-" endfunction
-" 
-" function! s:goyo_leave()
-"     " Quit Vim if this is the only remaining buffer
-"     if b:quitting && len(filter(range(1, bufnr('$')), 'buflisted(v:val)')) == 1
-"         if b:quitting_bang
-"             qa!
-"         else
-"             qa
-"         endif
-"     endif
-" endfunction
+auto VimEnter * Goyo
+function! s:goyo_enter()
+    let b:quitting = 0
+    let b:quitting_bang = 0
+    autocmd QuitPre <buffer> let b:quitting = 1
+    cabbrev <buffer> q! let b:quitting_bang = 1 <bar> q!
+    silent! call lightline#enable()
+endfunction
+
+function! s:goyo_leave()
+    " Quit Vim if this is the only remaining buffer
+    if b:quitting && len(filter(range(1, bufnr('$')), 'buflisted(v:val)')) == 1
+        if b:quitting_bang
+            qa!
+        else
+            qa
+        endif
+    endif
+endfunction
 
 autocmd! User GoyoEnter nested call <SID>goyo_enter()
 autocmd! User GoyoLeave nested call <SID>goyo_leave()
-
-" -----
-"  COC
-" -----
-
-" Better display for messages
-set cmdheight=2
-" Smaller updatetime for CursorHold & CursorHoldI
-set updatetime=300
-" don't give |ins-completion-menu| messages
-set shortmess+=c
-" always show signcolumns
-set signcolumn=yes
-" Use tab for trigger completion with characters ahead and navigate.
-" Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
-inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
-
-" Use <c-space> to trigger completion.
-inoremap <silent><expr> <c-space> coc#refresh()
-
-" Use `[c` and `]c` to navigate diagnostics
-nmap <silent> [c <Plug>(coc-diagnostic-prev)
-nmap <silent> ]c <Plug>(coc-diagnostic-next)
-
-" Remap keys for gotos
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
-
-" Use U to show documentation in preview window
-nnoremap <silent> U :call <SID>show_documentation()<CR>
-
-" Remap for rename current word
-nmap <leader>rn <Plug>(coc-rename)
-
-" Remap for format selected region
-vmap <leader>f  <Plug>(coc-format-selected)
-nmap <leader>f  <Plug>(coc-format-selected)
-" Show all diagnostics
-nnoremap <silent> <space>a  :<C-u>CocList diagnostics<cr>
-" Manage extensions
-nnoremap <silent> <space>e  :<C-u>CocList extensions<cr>
-" Show commands
-nnoremap <silent> <space>c  :<C-u>CocList commands<cr>
-" Find symbol of current document
-nnoremap <silent> <space>o  :<C-u>CocList outline<cr>
-" Search workspace symbols
-nnoremap <silent> <space>s  :<C-u>CocList -I symbols<cr>
-" Do default action for next item.
-nnoremap <silent> <space>j  :<C-u>CocNext<CR>
-" Do default action for previous item.
-nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
-" Resume latest coc list
-nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
-
-" disable vim-go :GoDef short cut (gd)
-" this is handled by LanguageClient [LC]
-let g:go_def_mapping_enabled = 0

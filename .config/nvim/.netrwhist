@@ -1,0 +1,12 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =6
+let g:netrw_dirhist_6='/home/kiennt/.local/share/nvim/plugged/vim-horizon/colors'
+let g:netrw_dirhist_5='/warehouse/Workspace/github.com/ntk148v/CloudFlow/src'
+let g:netrw_dirhist_4='/warehouse/Workspace/github.com/ntk148v/CloudFlow/src/app/executions'
+let g:netrw_dirhist_3='/warehouse/Workspace/github.com/ntk148v/CloudFlow/src/app'
+let g:netrw_dirhist_2='/warehouse/Workspace/github.com/ntk148v/CloudFlow/src'
+let g:netrw_dirhist_1='/home/kiennt/.local/share/nvim/plugged/vim-colortemplate'
+let g:netrw_dirhist_0='/home/kiennt'
+let g:netrw_dirhist_9='/home/kiennt/.local/share/nvim/plugged/vim-colortemplate'
+let g:netrw_dirhist_8='/home/kiennt/.local/share/nvim/plugged/vim-horizon'
+let g:netrw_dirhist_7='/warehouse/Workspace/github.com/vCloud-DFTBA/faythe/pkg/cluster'

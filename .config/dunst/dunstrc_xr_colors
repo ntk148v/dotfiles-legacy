@@ -17,7 +17,7 @@ horizontal_padding = 24
     frame_width = 1
 sort = no
 idle_threshold = 120
-font = Iosevka Regular 8
+font = Hasklug Nerd Font Regular 8
 line_height = 4
 markup = full
 format = "<b>%s</b>\n%b"
@@ -43,17 +43,17 @@ history = ctrl+grave
 context = ctrl+shift+period
 
 [urgency_low]
-    background = "#263238"
-    foreground = "#03a9f4"
+    background = "#282c34"
+    foreground = "#61afef"
 timeout = 2
 
 [urgency_normal]
-    background = "#263238"
-    foreground = "#8bc34a"
+    background = "#282c34"
+    foreground = "#98c379"
 timeout = 4
 
 [urgency_critical]
-    background = "#263238"
-    foreground = "#ff9800"
-    frame_color = "#ff9800"
+    background = "#282c34"
+    foreground = "#e06c75"
+    frame_color = "#e06c75"
 timeout = 0
