@@ -54,6 +54,7 @@ Plug 'ntk148v/vim-horizon'                " Horizon
 Plug 'liuchengxu/space-vim-theme'         " Space-vim
 Plug 'ntk148v/wal.vim'                    " PyWal vim
 Plug 'sainnhe/gruvbox-material'
+Plug 'franbach/miramare'
 
 "-------------------=== Snippets support ===------------------------
 Plug 'honza/vim-snippets'                 " snippets repo
@@ -216,14 +217,15 @@ if strftime('%H') >= 7 && strftime('%H') < 19
 else
     set background=dark
 endif
-colorscheme wal
-let g:lightline.colorscheme = 'wal'
 
 " NOTE: This is only compatible with Guake 3.X.
 " Check issue: https://github.com/Guake/guake/issues/772
 " if (has("termguicolors"))
 "     set termguicolors
 " endif
+
+colorscheme wal
+let g:lightline.colorscheme = 'wal'
 
 "------------------------
 " NERDTree settings

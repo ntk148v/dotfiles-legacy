@@ -3,7 +3,7 @@ set $super Mod4
 set $alt Mod1
 
 # set font
-font pango: SF Mono Powerline Regular 8
+font pango: Envy Code R Regular 8
 
 # Use Mouse+$super to drag floating windows to their wanted position
 floating_modifier $super
@@ -20,7 +20,7 @@ workspace 8 output VGA-1
 
 
 # window rules, you can find the window class using xprop
-for_window [class=".*"] border pixel 3
+for_window [class=".*"] border pixel 0
 #for_window [class=Tilix] border pixel 35
 assign [class=URxvt|Tilix|Telegram] 1
 assign [class=Google-chrome|Firefox] 2
@@ -179,5 +179,5 @@ exec_always --no-startup-id pkill compton && compton --config ~/.config/compton.
 exec_always xrdb --merge ~/.Xresources
 exec_always --no-startup-id  bash ~/.scripts/dunst_xr_theme_changer.sh && \
     dunst -conf ~/.config/dunst/dunstrc_xr_colors &
-exec_always --no-startup-id hsetroot -solid "#eee8d5"
+exec_always --no-startup-id hsetroot -solid "#1b181b"
 exec_always --no-startup-id pkill polybar && MONITOR=VGA-1 polybar bottom

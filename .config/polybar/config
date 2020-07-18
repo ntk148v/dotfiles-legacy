@@ -86,7 +86,7 @@ module-margin-right = 1
 ; See the Messaging wiki page for more details.
 enable-ipc = true
 
-font-0 = SF Mono Powerline:style=Regular:size=8;2
+font-0 = Envy Code R:style=Regular:size=8;2
 font-1 = DejaVuSans:size=8;2
 font-2 = FontAwesome5Free:style=Solid:size=8;2
 font-3 = FontAwesome5Free:style=Regular:size=8;2
