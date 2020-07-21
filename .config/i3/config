@@ -21,8 +21,7 @@ workspace 7 output HDMI-1
 workspace 8 output DP-1
 
 # window rules, you can find the window class using xprop
-for_window [class=".*"] border pixel 5
-for_window [class=Telegram] border pixel 0
+for_window [class=".*"] border pixel 0
 for_window [class=Tilix] border pixel 35
 assign [class=URxvt|Tilix|Telegram] 1
 assign [class=Google-Chrome|Firefox] 2
