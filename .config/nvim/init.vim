@@ -45,8 +45,14 @@ set encoding=UTF-8
 set hidden
 set nobackup
 set nowritebackup
-set mouse=a " enable mouse for all mode
 set cursorline
+" Uncomment it if you want to use mouse
+" if has('mouse')
+"     set mouse=a
+" endif
+
+" By the way, -- INSERT -- is unnecessary anymore because the mode information is displayed in the statusline.
+set noshowmode
 
 set foldmethod=indent
 set foldlevel=99
@@ -63,7 +69,6 @@ set ttimeout
 set ttimeoutlen=10
 set termguicolors
 set ignorecase
-set relativenumber
 
 " Vim color highlighting
 let g:Hexokinase_highlighters = ['virtual']
@@ -99,25 +104,14 @@ let g:coc_status_warning_sign=" "
 map q <Nop>
 inoremap jk <ESC>
 vnoremap <M-/> <Esc>/\%V
-nnoremap <Left> :echoe "Use h"<CR>
-nnoremap <Right> :echoe "Use l"<CR>
-nnoremap <Up> :echoe "Use k"<CR>
-nnoremap <Down> :echoe "Use j"<CR>
 nnoremap <ESC><ESC> :nohlsearch<CR>
-nnoremap L l
-nnoremap H h
-nnoremap l w
-nnoremap h b
+" Word instead of character movement
+" nnoremap L l
+" nnoremap H h
+" nnoremap l w
+" nnoremap h b
 
 vnoremap p "_dP
-
-" Map Emacs like movement in Insert mode
-" inoremap <C-n> <Down>
-" inoremap <C-p> <Up>
-inoremap <C-f> <Right>
-inoremap <C-b> <Left>
-inoremap <C-e> <C-o>$
-inoremap <C-a> <C-o>^
 
 " Remap scrolling
 nnoremap <C-k> <C-u>
@@ -308,7 +302,7 @@ endfunction
 let g:lightline = {
       \ 'colorscheme': 'onehalfdark',
       \ 'active': {
-      \   'left': [ [], [ 'filename' ] ],
+      \   'left': [ ['mode'], ['filename'] ],
       \   'right': [ [], ['cocstatus', 'lineinfo', 'icongitbranch'] ]
       \ },
       \ 'inactive': {
@@ -328,6 +322,14 @@ let g:lightline = {
 
 " Use auocmd to force lightline update.
 autocmd User CocStatusChange,CocDiagnosticChange call lightline#update()
+
+augroup vimrc_autocmds
+    autocmd!
+    autocmd FileType python,rst,c,cpp highlight Excess ctermbg=DarkGrey guibg=Black
+    autocmd FileType python,rst,c,cpp match Excess /\%81v.*/
+    autocmd FileType python,rst,c,cpp set nowrap
+    autocmd FileType python,rst,c,cpp set colorcolumn=80
+augroup END
 
 set shortmess+=c
 set signcolumn=yes
