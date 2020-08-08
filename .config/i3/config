@@ -153,7 +153,7 @@ set_from_resource $bg background
 
 # class                 border  backgr. text indicator child_border
 client.focused          $bg     $bg     $fg  $fg       $fg
-client.focused_inactive $bg     $bg     $fg  $fg       $bg
+client.focused_inactive $bg     $bg     $fg  $bg       $bg
 client.unfocused        $bg     $bg     $fg  $bg       $bg
 client.urgent           $bg     $bg     $fg  $bg       $fg
 client.placeholder      $bg     $bg     $fg  $bg       $fg
