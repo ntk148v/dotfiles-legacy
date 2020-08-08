@@ -161,7 +161,7 @@ client.placeholder      $bg     $bg     $fg  $bg       $fg
 # gaps
 # gap variable
 set $inner 20
-set $outer 20
+set $outer 10
 gaps inner $inner
 gaps outer $outer
 
