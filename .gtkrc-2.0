@@ -1,5 +1,5 @@
 include ".gtkrc-xfce"
 gtk-icon-theme-name="ubuntu-mono-dark"
 gtk-theme-name="wal"
-gtk-font-name="SF Mono Powerline Regular 8"
+gtk-font-name="Cascadia Code PL Regular 8"
 gtk-cursor-theme-name="DMZ-White"
