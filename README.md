@@ -11,7 +11,7 @@ Inspired by:
 ## Preview
 
 
-![](./screenshots/Screenshot_2020-05-30_16-43-21.png)
+![](./screenshots/Screenshot_2020-08-08_12-19-13.png)
 
 ## Installation
 
