@@ -3,38 +3,39 @@ set $super Mod4
 set $alt Mod1
 
 # set font
-font pango: Envy Code R Regular 8
+font pango: Cascadia Code PL Regular 8
 
 # Use Mouse+$super to drag floating windows to their wanted position
 floating_modifier $super
 
 # automatically putting workspaces on specific screens
 workspace 1 output eDP-1
-workspace 2 output eDP-1
+workspace 2 output VGA-1
 workspace 3 output eDP-1
-workspace 4 output eDP-1
+workspace 4 output VGA-1
 workspace 5 output eDP-1
-workspace 6 output eDP-1
+workspace 6 output VGA-1
 workspace 7 output eDP-1
-workspace 8 output eDP-1
+workspace 8 output VGA-1
+
 
 # window rules, you can find the window class using xprop
-for_window [class=".*"] border pixel 0
+for_window [class=".*"] border pixel 5
 assign [class=URxvt|Tilix|Telegram] 1
-assign [class=Google-chrome|Firefox] 2
+assign [class=Google-chrome|Firefox|Brave] 2
 assign [class=Code|Goland*|Pycharm*|Neovim] 3
 assign [class=Slack|Thunderbird|libreoffice*] 4
 assign [class=Kdocker|Spotify|Vlc|mpv|Xfburn|Gimp*|Inkscape|Zoom] 5
 assign [class=GParted] 6
 assign [class=Virtual-Manager] 7
-for_window [class=Firefox instance=DTA] floating enable
-for_window [class=Firefox window_role=Preferences] floating enable
-for_window [class=Firefox window_role=Options] floating enable
-for_window [class=Firefox window_role=About] floating enable
+for_window [class=Firefox|Brave|Google-Chrome instance=DTA] floating enable
+for_window [class=Firefox|Brave|Google-Chrome window_role=Preferences] floating enable
+for_window [class=Firefox|Brave|Google-Chrome window_role=Options] floating enable
+for_window [class=Firefox|Brave|Google-Chrome window_role=About] floating enable
 for_window [window_role=pop-up] floating enable
 for_window [window_role=bubble] floating enable
-for_window [class=Telegram] resize set 400px
-for_window [class=Bluemail|Telegram|Thunderbird|Slack|URxvt|Firefox|Google-Chrome|Tilix|Code|Goland*|Pycharm*|libreoffice*|Gimp*|Inkscape|Vlc] focus
+for_window [class=Telegram] resize set 380px
+for_window [class=Bluemail|Telegram|Thunderbird|Slack|URxvt|Firefox|Brave|Google-Chrome|Tilix|Code|Goland*|Pycharm*|libreoffice*|Gimp*|Inkscape|Vlc] focus
 for_window [class=keepassxc|feh] floating enable
 
 # autostart
@@ -178,4 +179,4 @@ exec_always xrdb --merge ~/.Xresources
 exec_always --no-startup-id  bash ~/.scripts/dunst_xr_theme_changer.sh && \
     dunst -conf ~/.config/dunst/dunstrc_xr_colors &
 exec_always --no-startup-id hsetroot -solid "#282c34"
-exec_always --no-startup-id pkill polybar && polybar bottom
+exec_always --no-startup-id pkill polybar && MONITOR=VGA-1 polybar bottom
