@@ -23,54 +23,51 @@ workspace 8 output DP-1
 # window rules, you can find the window class using xprop
 for_window [class=".*"] border pixel 5
 assign [class=URxvt|Tilix|Telegram] 1
-assign [class=Google-Chrome|Firefox] 2
+assign [class=Google-Chrome|Firefox|Vivaldi] 2
 assign [class=Code|Goland*|Pycharm*|Neovim] 3
 assign [class=Slack|Thunderbird|libreoffice*|Bluemail] 4
 assign [class=Kdocker|Spotify|Vlc|mpv|Xfburn|Gimp*|Inkscape] 5
 assign [class=GParted] 6
-for_window [class=Firefox instance=DTA] floating enable
-for_window [class=Firefox window_role=Preferences] floating enable
-for_window [class=Firefox window_role=Options] floating enable
-for_window [class=Firefox window_role=About] floating enable
+for_window [class=Firefox|Google-Chrome|Vivaldi instance=DTA] floating enable
+for_window [class=Firefox|Google-Chrome|Vivaldi window_role=Preferences] floating enable
+for_window [class=Firefox|Google-Chrome|Vivaldi window_role=Options] floating enable
+for_window [class=Firefox|Google-Chrome|Vivaldi window_role=About] floating enable
 for_window [window_role=pop-up] floating enable
 for_window [window_role=bubble] floating enable
-for_window [class=Telegram] resize set 400 0
-for_window [class=Bluemail|Telegram|Thunderbird|Slack|URxvt|Firefox|Google-Chrome|Tilix|Code|Goland*|Pycharm*|libreoffice*|Gimp*|Inkscape|Vlc] focus
+for_window [class=Telegram] resize set 380 0
+for_window [class=Telegram|Thunderbird|Slack|URxvt|Firefox|Vivaldi|Google-Chrome|Tilix|Code|Goland*|Pycharm*|libreoffice*|Gimp*|Inkscape|Vlc] focus
 for_window [class=keepassxc|feh|Spotify] floating enable
 
 # autostart
 exec --no-startup-id bash ~/.config/polybar/launch.sh
 exec --no-startup-id nm-applet
 exec --no-startup-id xsettingsd &
-#exec --no-startup-id compton -b
 exec --no-startup-id picom -b
 exec --no-startup-id thunderbird
-#exec --no-startup-id /home/kiennt/Apps/Telegram/Telegram
+exec --no-startup-id /home/kiennt/Apps/Telegram/Telegram
 exec --no-startup-id tilix
 exec --no-startup-id /usr/lib/vino/vino-server &
 # set desktop background with custom effect
 # exec --no-startup-id betterlockscreen -w blur
 # exec --no-startup-id bash ~/.scripts/blurme &
-
 # Alternative (set last used background)
 exec --no-startup-id source ~/.fehbg
 
-# start a terminal
-bindsym $super+Return exec tilix
-
-# start dmenu (a program launcher)
-bindsym $super+Shift+d exec i3-dmenu-desktop --dmenu="dmenu -i -fn 'Noto Sans:size=8'"
-bindsym $super+d exec rofi -theme  ~/.config/rofi/themes/appmenu-nord.rasi -show drun
-#bindsym $super+d exec bash ~/.scripts/appsmenu.sh
-#bindsym $super+p exec bash ~/.scripts/powermenu.sh
-#bindsym $super+n exec bash ~/.scripts/networkmenu.sh
+set $browser vivaldi
+set $term    tilix
+set $mail    thunderbird
+set $file    nautilus
 
 # common apps keybinds
 bindsym Print exec scrot 'Cheese_%a-%d%b%y_%H.%M.png' -e 'viewnior ~/$f'
 bindsym $super+l exec betterlockscreen -l dim  -t "Hey! Don't touch my stuff!"
-bindsym $super+Shift+w exec firefox
-bindsym $super+Shift+f exec nautilus
-bindsym $super+Shift+m exec thunderbird
+# start a terminal
+bindsym $super+Return exec $term
+# start dmenu (a program launcher)
+bindsym $super+d exec rofi -theme  ~/.config/rofi/themes/appmenu-nord.rasi -show drun
+bindsym $super+Shift+w exec $browser
+bindsym $super+Shift+f exec $file
+bindsym $super+Shift+m exec $mail
 
 # change volume
 bindsym $alt+u exec amixer -q set Master 5%+
@@ -159,11 +156,6 @@ set_from_resource $fg foreground
 set_from_resource $bg background
 
 # class                 border  backgr. text indicator child_border
-#client.focused          $bg     $bg     $fg  $bg       $bg
-#client.focused_inactive $bg     $bg     $fg  $bg       $bg
-#client.unfocused        $bg     $bg     $fg  $bg       $bg
-#client.urgent           $bg     $bg     $fg  $bg       $bg
-#client.placeholder      $bg     $bg     $fg  $bg       $bg
 client.focused          $bg     $bg     $fg  $fg       $fg
 client.focused_inactive $bg     $bg     $fg  $bg       $bg
 client.unfocused        $bg     $bg     $fg  $bg       $bg
@@ -180,14 +172,13 @@ border_radius 6
 
 
 # toggle gaps
-bindsym $super+g exec compton; gaps inner all set $inner; gaps outer all set $outer
-bindsym $super+Ctrl+g exec compton; gaps inner all set 0; gaps outer all set 0
+bindsym $super+g exec picom; gaps inner all set $inner; gaps outer all set $outer
+bindsym $super+Ctrl+g exec picom; gaps inner all set 0; gaps outer all set 0
 
 # reload
-exec_always --no-startup-id pkill compton && compton --config ~/.config/compton.conf
-exec_always --no-startup-id pkill picom && picom
+exec_always --no-startup-id picom
 exec_always --no-startup-id  bash ~/.scripts/dunst_xr_theme_changer.sh && \
     dunst -conf ~/.config/dunst/dunstrc_xr_colors &
 exec_always xrdb --merge ~/.Xresources
-exec_always hsetroot -solid "#F3F3F3"
+exec_always --no-startup-id feh --bg-fill ~/Pictures/icreateawallpaper.png
 exec_always --no-startup-id bash ~/.config/polybar/launch.sh
