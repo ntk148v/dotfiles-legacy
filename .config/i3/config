@@ -3,7 +3,7 @@ set $super Mod4
 set $alt Mod1
 
 # set font
-font pange: Hasklug Nerd Font Regular 8
+font pange: Hasklug Nerd Font Regular 10
 
 # Use Mouse+$super to drag floating windows to their wanted position
 floating_modifier $super
@@ -21,8 +21,7 @@ workspace 7 output HDMI-1
 workspace 8 output DP-1
 
 # window rules, you can find the window class using xprop
-for_window [class=".*"] border pixel 0
-for_window [class=Tilix] border pixel 35
+for_window [class=".*"] border pixel 5
 assign [class=URxvt|Tilix|Telegram] 1
 assign [class=Google-Chrome|Firefox] 2
 assign [class=Code|Goland*|Pycharm*|Neovim] 3
@@ -43,7 +42,8 @@ for_window [class=keepassxc|feh|Spotify] floating enable
 exec --no-startup-id bash ~/.config/polybar/launch.sh
 exec --no-startup-id nm-applet
 exec --no-startup-id xsettingsd &
-exec --no-startup-id compton -b
+#exec --no-startup-id compton -b
+exec --no-startup-id picom -b
 exec --no-startup-id thunderbird
 #exec --no-startup-id /home/kiennt/Apps/Telegram/Telegram
 exec --no-startup-id tilix
@@ -159,11 +159,16 @@ set_from_resource $fg foreground
 set_from_resource $bg background
 
 # class                 border  backgr. text indicator child_border
-client.focused          $bg     $bg     $fg  $bg       $bg
+#client.focused          $bg     $bg     $fg  $bg       $bg
+#client.focused_inactive $bg     $bg     $fg  $bg       $bg
+#client.unfocused        $bg     $bg     $fg  $bg       $bg
+#client.urgent           $bg     $bg     $fg  $bg       $bg
+#client.placeholder      $bg     $bg     $fg  $bg       $bg
+client.focused          $bg     $bg     $fg  $fg       $fg
 client.focused_inactive $bg     $bg     $fg  $bg       $bg
 client.unfocused        $bg     $bg     $fg  $bg       $bg
-client.urgent           $bg     $bg     $fg  $bg       $bg
-client.placeholder      $bg     $bg     $fg  $bg       $bg
+client.urgent           $bg     $bg     $fg  $bg       $fg
+client.placeholder      $bg     $bg     $fg  $bg       $fg
 
 # gaps
 # gap variable
@@ -180,8 +185,9 @@ bindsym $super+Ctrl+g exec compton; gaps inner all set 0; gaps outer all set 0
 
 # reload
 exec_always --no-startup-id pkill compton && compton --config ~/.config/compton.conf
+exec_always --no-startup-id pkill picom && picom
 exec_always --no-startup-id  bash ~/.scripts/dunst_xr_theme_changer.sh && \
     dunst -conf ~/.config/dunst/dunstrc_xr_colors &
 exec_always xrdb --merge ~/.Xresources
-exec_always feh --bg-fill /warehouse/wallpapers/my-own-wallpapers/vaYTNt7.jpg
+exec_always hsetroot -solid "#F3F3F3"
 exec_always --no-startup-id bash ~/.config/polybar/launch.sh

@@ -12,7 +12,7 @@ Inspired by:
 
 > 27 May 2020
 
-![screenshot](./screenshots/1_001.png)
+![screenshot](./screenshots/Screenshot%20from%202020-08-10%2009-08-49.png)
 
 ## Installation
 
