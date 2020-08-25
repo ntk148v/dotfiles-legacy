@@ -10,25 +10,22 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'preservim/nerdtree'
 Plug 'itchyny/lightline.vim'
 Plug 'ryanoasis/vim-devicons'
-Plug 'easymotion/vim-easymotion'
 Plug 'unkiwii/vim-nerdtree-sync'
 Plug 'tpope/vim-surround'
 Plug 'jiangmiao/auto-pairs'
 Plug 'haya14busa/incsearch.vim'
 Plug 'scrooloose/nerdcommenter'
 Plug 'terryma/vim-multiple-cursors'
+Plug 'flazz/vim-colorschemes'
 Plug 'eugen0329/vim-esearch'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --no-bash' }
 Plug 'junegunn/fzf.vim'
-Plug 't9md/vim-choosewin'
 Plug 'RRethy/vim-hexokinase', { 'do': 'make hexokinase' }
-Plug 'kaicataldo/material.vim'
-Plug 'Yggdroot/indentLine'
-Plug 'atelierbram/Base2Tone-vim'
 Plug 'sonph/onehalf', {'rtp': 'vim/'}
 Plug 'tyrannicaltoucan/vim-quantum'
 Plug 'ntk148v/wal.vim'
 Plug 'ntk148v/vim-horizon'
+Plug 'relastle/bluewery.vim'
 Plug 'fatih/vim-go', {'do': ':GoUpdateBinaries'}
 Plug 'mileszs/ack.vim'
 call plug#end()
@@ -56,6 +53,7 @@ set noshowmode
 
 set foldmethod=indent
 set foldlevel=99
+set conceallevel=0
 
 let g:is_posix = 1
 
@@ -81,10 +79,6 @@ let g:fzf_layout = { 'window': {
       \ 'highlight': 'Comment',
       \ 'rounded': v:false } }
 let $FZF_DEFAULT_COMMAND = 'rg --files --hidden'
-
-" Indent Guide
-let g:indentLine_char = '│'
-let g:indentLine_color_gui = '#363442'
 
 " Esearch config
 let g:esearch = {
@@ -131,19 +125,20 @@ set list
 set backspace=eol,start,indent
 set whichwrap+=<,>,h,l
 
-set tabstop=2
-set softtabstop=2
-set shiftwidth=2
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
 set shiftround
+set smarttab
 set expandtab
 
 set autoindent
 set smartindent
 
 " Persistent undo
-" Don't forget mkdir folder $HOME/.vim/undo
+" Don't forget mkdir folder $HOME/.local/share/nvim/undo
 set undofile
-set undodir=$HOME/.config/nvim/undo
+set undodir=$HOME/.local/share/nvim/undo
 set undolevels=1000
 set undoreload=10000
 
@@ -231,8 +226,6 @@ nnoremap <Leader>tn :tabn<CR>
 nnoremap <Leader>tp :tabp<CR>
 nnoremap <Leader>tc :tabe<CR>
 nnoremap <Leader>tx :tabclose<CR>
-" Jump window
-nmap <Leader>ww <Plug>(choosewin)
 
 " Open terminal
 nnoremap <Leader>at :call FloatTerm()<CR>
@@ -248,9 +241,6 @@ nnoremap <silent> <c-\> :call esearch#init()<CR>
 command! -bang -nargs=* Rg call fzf#vim#grep("rg --column --line-number --no-heading --color=always --smart-case ".shellescape(<q-args>), 1, {'options': '--delimiter : --nth 4..'}, <bang>0)
 nnoremap <silent> \ :Rg<CR>
 nnoremap <silent> <c-o> :CocList outline<CR>
-
-" Choose win
-let g:choosewin_overlay_enable = 1
 
 " NERDTree config
 let NERDTreeMinimalUI=1
@@ -300,7 +290,7 @@ function! LightLineFilename()
 endfunction
 
 let g:lightline = {
-      \ 'colorscheme': 'onehalfdark',
+      \ 'colorscheme': 'bluewery',
       \ 'active': {
       \   'left': [ ['mode'], ['filename'] ],
       \   'right': [ [], ['cocstatus', 'lineinfo', 'icongitbranch'] ]
@@ -449,7 +439,6 @@ let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 " Some custom style
 highlight Normal guibg=NONE
 highlight SignColumn guibg=NONE
-highlight EasyMotionTargetDefault guifg=#ffb400
 highlight WildMenu guifg=#87bb7c
 highlight VertSplit guifg=#1f2329 guibg=NONE
 highlight CocInfoSign guifg=#55606d
