@@ -3,7 +3,7 @@ set $super Mod4
 set $alt Mod1
 
 # set font
-font pange: M+ 2m Regular 10
+font pange: M+ 1m regular 10
 
 # Use Mouse+$super to drag floating windows to their wanted position
 floating_modifier $super
@@ -26,7 +26,7 @@ assign [class=URxvt|Tilix|Telegram] 1
 assign [class=Google-Chrome|Firefox|Vivaldi] 2
 assign [class=Code|Goland*|Pycharm*|Neovim] 3
 assign [class=Slack|Thunderbird|libreoffice*|Bluemail] 4
-assign [class=Kdocker|Spotify|Vlc|mpv|Xfburn|Gimp*|Inkscape] 5
+assign [class=Drawio|Kdocker|Spotify|Vlc|mpv|Xfburn|Gimp*|Inkscape] 5
 assign [class=GParted] 6
 for_window [class=Firefox|Google-Chrome|Vivaldi instance=DTA] floating enable
 for_window [class=Firefox|Google-Chrome|Vivaldi window_role=Preferences] floating enable
@@ -168,8 +168,7 @@ set $inner 25
 set $outer 15
 gaps inner $inner
 gaps outer $outer
-border_radius 6
-
+border_radius 10
 
 # toggle gaps
 bindsym $super+g exec picom; gaps inner all set $inner; gaps outer all set $outer

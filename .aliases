@@ -6,6 +6,12 @@ alias ...="cd ../.."
 alias ....="cd ../../.."
 alias ~="cd ~"
 
+alias bfg='java -jar ~/.scripts/bfg-1.13.0.jar'
+
+alias dm="fuck"
+
+alias diff="colordiff"
+
 alias tailf="tail -f"
 # ls color
 # Very long line
@@ -33,6 +39,20 @@ alias path='echo -e ${PATH//:/\\n}'
 
 # Lazy pip with -H option
 alias piph='sudo -H pip3'
+
+# Enable go module
+alias engomod="export GO111MODULE=on"
+alias disgomod="export GO111MODULE=off"
+
+# Gatepro
+alias gatepro="javaws $HOME/Apps/Gatepro/master.jnlp"
+
+# EnableDisable monitor
+alias dismon="xrandr --output HDMI-1 --off"
+alias enmon="xrandr --auto && xrandr --output HDMI-1 --left-of DP-1 --primary"
+
+# Delete all local branches except master
+alias gitbranchd="git branch | grep -v '^*' | xargs git branch -D"
 
 # Archives
 function extract {
@@ -102,6 +122,8 @@ alias aptuu="sudo apt update ; sudo apt upgrade -y"
 alias aptu="sudo apt update"
 alias aptar="sudo apt autoremove -y"
 alias aptac="sudo apt autoclean -y"
+alias apti="sudo apt install -y"
+alias aptarc="aptar && aptac"
 function wttr {
     local location=$1
     curl wttr.in/~$location
@@ -109,6 +131,9 @@ function wttr {
 
 # Remove none tag Docker images
 alias drmi='docker rmi $(docker images -f "dangling=true" -q)'
+
+# Build image with http proxy build args
+alias dockerbuild='docker build --build-arg HTTP_PROXY=$http_proxy --build-arg HTTPS_PROXY=$http_proxy --build-arg NO_PROXY="$no_proxy" --build-arg http_proxy=$http_proxy --build-arg https_proxy=$http_proxy --build-arg no_proxy="$no_proxy"'
 
 function rmpyc {
     find $1 -name \*.pyc -delete
@@ -130,7 +155,7 @@ function grw () {
 	fi
 }
 
-function gclone() {
+function gclone_legacy() {
     # cd to git dir after clone
     local yes_cd=true
     while getopts "d:" OPTION
@@ -144,9 +169,9 @@ function gclone() {
     done
     if [[ "$1" =~ "openstack"  ]]; then
         # Clone and run git review -s
-        git clone git://git.opendev.org/$1/$2.git $HOME/Workspace/$1/$2
+        git clone http://opendev.org/$1/$2.git $HOME/Workspace/$1/$2
         cd $HOME/Workspace/$1/$2
-        git remote add gerrit ssh://kiennt@review.opendev.org:29418/$1/$2.git
+        git remote add gerrit https://kiennt@review.opendev.org/$1/$2.git
         git review -s
         if $yes_cd; then echo "cd to $HOME/Workspace/$1/$2/"; else cd -; fi
     else
@@ -288,4 +313,17 @@ function termcol() {
       echo;
     done
     echo
+}
+
+# Rename all *.$1 to *.$2
+# usage: chgext oldext newext folder
+function chgext() {
+    old=$1
+    new=$2
+    folder=$3
+    cd $folder
+    for f in *.$old; do
+        mv -- "$f" "${f%.$1}.$2"
+    done
+    cd -
 }
