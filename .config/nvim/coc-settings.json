@@ -31,12 +31,18 @@
     "typeParameter": "\uf728",
     "default": "\uf29c"
   },
+  "python.jediEnabled": false,
+  "python.linting.pylintEnabled": true,
   "languageserver": {
     "golang": {
       "command": "gopls",
-      "rootPatterns": ["go.mod"],
+      "rootPatterns": [
+        "go.mod"
+      ],
       "disableWorkspaceFolders": true,
-      "filetypes": ["go"]
+      "filetypes": [
+        "go"
+      ]
     }
   }
 }

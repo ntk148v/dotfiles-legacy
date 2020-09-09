@@ -16,7 +16,6 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'haya14busa/incsearch.vim'
 Plug 'scrooloose/nerdcommenter'
 Plug 'terryma/vim-multiple-cursors'
-Plug 'flazz/vim-colorschemes'
 Plug 'eugen0329/vim-esearch'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --no-bash' }
 Plug 'junegunn/fzf.vim'
@@ -27,14 +26,16 @@ Plug 'ntk148v/wal.vim'
 Plug 'ntk148v/vim-horizon'
 Plug 'relastle/bluewery.vim'
 Plug 'fatih/vim-go', {'do': ':GoUpdateBinaries'}
+Plug 'arcticicestudio/nord-vim'
 Plug 'mileszs/ack.vim'
 call plug#end()
 
 filetype plugin indent on
 
-"Todo file
+" Todo file
 autocmd BufNewFile,BufRead *.todo set syntax=todo
-
+" Python file
+autocmd BufRead,BufNewFile *.py setlocal textwidth=80
 " Auto remove trailing spaces
 autocmd BufWritePre * %s/\s\+$//e
 
@@ -59,13 +60,13 @@ let g:is_posix = 1
 
 set noswapfile
 set nojoinspaces
-set nowrap
+set wrap
+set linebreak
 set number
 set ttyfast
 set laststatus=2
 set ttimeout
 set ttimeoutlen=10
-set termguicolors
 set ignorecase
 
 " Vim color highlighting
@@ -112,8 +113,8 @@ nnoremap <C-k> <C-u>
 nnoremap <C-j> <C-d>
 
 set background=dark
-" let g:quantum_black=1
-colo bright-quantum
+let g:quantum_black=1
+colo nord
 
 if (&t_Co > 2 || has("gui_running")) && !exists("syntax_on")
   syntax on
@@ -290,7 +291,7 @@ function! LightLineFilename()
 endfunction
 
 let g:lightline = {
-      \ 'colorscheme': 'bluewery',
+      \ 'colorscheme': 'nord',
       \ 'active': {
       \   'left': [ ['mode'], ['filename'] ],
       \   'right': [ [], ['cocstatus', 'lineinfo', 'icongitbranch'] ]
@@ -432,19 +433,10 @@ let g:multi_cursor_prev_key            = '<C-p>'
 let g:multi_cursor_skip_key            = '<C-i>'
 let g:multi_cursor_quit_key            = '<Esc>'
 
-set termguicolors
 let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
 let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
-
-" Some custom style
-highlight Normal guibg=NONE
-highlight SignColumn guibg=NONE
-highlight WildMenu guifg=#87bb7c
-highlight VertSplit guifg=#1f2329 guibg=NONE
-highlight CocInfoSign guifg=#55606d
-highlight LineNr guifg=#454A54
-highlight DiffAdd guibg=NONE
-highlight DiffAdded guibg=NONE
-highlight DiffChange guibg=NONE
-highlight DiffDelete guibg=NONE
-highlight EndOfBuffer guifg=#282c34
+let current_scheme = get(g:, 'colors_name', 'default')
+if (has("termguicolors") && current_scheme != "wal")
+    set termguicolors
+    source ~/.config/nvim/custom_wal.vim
+endif
