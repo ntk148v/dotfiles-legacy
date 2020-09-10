@@ -25,7 +25,7 @@ for_window [class=".*"] border pixel 0
 assign [class=URxvt|Tilix|Telegram] 1
 assign [class=Google-Chrome|Firefox|Vivaldi] 2
 assign [class=Code|Goland*|Pycharm*|Neovim] 3
-assign [class=Slack|Thunderbird|libreoffice*|Bluemail] 4
+assign [class=Thunderbird|libreoffice*|Bluemail] 4
 assign [class=Drawio|Kdocker|Spotify|Vlc|mpv|Xfburn|Gimp*|Inkscape] 5
 assign [class=GParted] 6
 for_window [class=Firefox|Google-Chrome|Vivaldi instance=DTA] floating enable
@@ -34,8 +34,10 @@ for_window [class=Firefox|Google-Chrome|Vivaldi window_role=Options] floating en
 for_window [class=Firefox|Google-Chrome|Vivaldi window_role=About] floating enable
 for_window [window_role=pop-up] floating enable
 for_window [window_role=bubble] floating enable
-for_window [class=Telegram] resize set 380 0
-for_window [class=Telegram|Thunderbird|Slack|URxvt|Firefox|Vivaldi|Google-Chrome|Tilix|Code|Goland*|Pycharm*|libreoffice*|Gimp*|Inkscape|Vlc] focus
+for_window [class=Telegram] resize set 400 500
+for_window [class=Tilix] resize set 600 600
+for_window [class=Tilix] floating enable
+for_window [class=Telegram|Thunderbird|URxvt|Firefox|Vivaldi|Google-Chrome|Tilix|Code|Goland*|Pycharm*|libreoffice*|Gimp*|Inkscape|Vlc] focus
 for_window [class=keepassxc|feh|Spotify] floating enable
 
 # autostart
@@ -45,6 +47,7 @@ exec --no-startup-id xsettingsd &
 exec --no-startup-id picom -b
 exec --no-startup-id thunderbird
 exec --no-startup-id /home/kiennt/Apps/Telegram/Telegram
+exec --no-startup-id fet.sh
 exec --no-startup-id tilix
 exec --no-startup-id /usr/lib/vino/vino-server &
 # set desktop background with custom effect
@@ -179,5 +182,6 @@ exec_always --no-startup-id picom
 exec_always --no-startup-id  bash ~/.scripts/dunst_xr_theme_changer.sh && \
     dunst -conf ~/.config/dunst/dunstrc_xr_colors &
 exec_always xrdb --merge ~/.Xresources
-exec_always --no-startup-id feh --bg-fill ~/Pictures/icreateawallpaper.png
+# exec_always --no-startup-id feh --bg-fill ~/Pictures/icreateawallpaper.png
+exec_always hsetroot -solid "#e6eaee"
 exec_always --no-startup-id bash ~/.config/polybar/launch.sh

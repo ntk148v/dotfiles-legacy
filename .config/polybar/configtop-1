@@ -39,9 +39,9 @@ format-offset =
 
 [colors]
 ; Nord theme ============
-background = ${xrdb:color7}
+background = ${xrdb:color0}
 background-alt = ${xrdb:color1}
-foreground = ${xrdb:color0}
+foreground = ${xrdb:color7}
 foreground-alt = ${xrdb:color2}
 
 fg1 = ${xrdb:color1}
@@ -51,6 +51,8 @@ fg4 = ${xrdb:color4}
 fg5 = ${xrdb:color5}
 fg6 = ${xrdb:color6}
 fg7 = ${xrdb:color7}
+
+
 
 ################################################################################
 ################################################################################
@@ -94,15 +96,15 @@ module-margin-right = 1
 enable-ipc = false
 wm-restack = i3
 
-font-0 = M+ 1m:style=Regular:size=10;2
-font-1 = DejaVuSans:size=10;2
-font-2 = FontAwesome5Free:style=Solid:size=10;2
-font-3 = FontAwesome5Free:style=Regular:size=10;2
+font-0 = M+ 1m:style=Regular:size=8;2
+font-1 = DejaVuSans:size=8;2
+font-2 = FontAwesome5Free:style=Solid:size=8;2
+font-3 = FontAwesome5Free:style=Regular:size=8;2
 font-4 = Material:size=9;2
 
-modules-left = i3
-modules-center = memory_bar cpu_bar
-modules-right = volume time
+modules-left = launcher i3
+modules-center = xwindow
+modules-right = volume memory_bar cpu_bar time
 
 ;tray-detached = false
 ;tray-offset-x = 0
