@@ -3,7 +3,7 @@ set $super Mod4
 set $alt Mod1
 
 # set font
-font pango: Cascadia Code PL Regular 8
+font pango: BlexMono Nerd Font Book 8
 
 # Use Mouse+$super to drag floating windows to their wanted position
 floating_modifier $super
@@ -40,26 +40,17 @@ for_window [class=keepassxc|feh] floating enable
 
 # autostart
 exec --no-startup-id nm-applet
-exec --no-startup-id polybar bottom
+exec --no-startup-id polybar -rq -c $HOME/.config/polybar/config.ini arctic &
 exec --no-startup-id xsettingsd &
 exec --no-startup-id compton -b
 exec --no-startup-id source ~/.fehbg
 exec --no-startup-id /home/kiennt/Apps/Telegram/Telegram
 exec --no-startup-id tilix
-# set desktop background with custom effect
-# exec --no-startup-id betterlockscreen -w blur
-exec --no-startup-id google-chrome
+exec --no-startup-id brave-browser
 
 # start a terminal
 bindsym $super+Return exec tilix
-
-# start dmenu (a program launcher)
-bindsym $super+Shift+d exec i3-dmenu-desktop --dmenu="dmenu -i -fn 'Noto Sans:size=8'"
-bindsym $super+d exec bash ~/.scripts/appsmenu.sh
-bindsym $super+p exec bash ~/.scripts/powermenu.sh
-bindsym $super+n exec bash ~/.scripts/networkmenu.sh
-
-# common apps keybinds
+bindsym $super+d exec rofi -show drun
 bindsym Print exec scrot 'Cheese_%a-%d%b%y_%H.%M.png' -e 'viewnior ~/$f'
 bindsym $super+l exec betterlockscreen -l blur
 bindsym $super+Shift+w exec firefox
@@ -152,11 +143,11 @@ set_from_resource $fg foreground
 set_from_resource $bg background
 
 # class                 border  backgr. text indicator child_border
-client.focused          $bg     $bg     $fg  $fg       $fg
+client.focused          $bg     $bg     $fg  $bg       $bg
 client.focused_inactive $bg     $bg     $fg  $bg       $bg
 client.unfocused        $bg     $bg     $fg  $bg       $bg
-client.urgent           $bg     $bg     $fg  $bg       $fg
-client.placeholder      $bg     $bg     $fg  $bg       $fg
+client.urgent           $bg     $bg     $fg  $bg       $bg
+client.placeholder      $bg     $bg     $fg  $bg       $bg
 
 # gaps
 # gap variable
@@ -166,7 +157,7 @@ gaps inner $inner
 gaps outer $outer
 
 # rounded corners
-border_radius 5
+border_radius 10
 
 # toggle gaps
 bindsym $super+g exec compton; gaps inner all set $inner; gaps outer all set $outer
@@ -178,5 +169,5 @@ exec_always --no-startup-id pkill compton && compton --config ~/.config/compton.
 exec_always xrdb --merge ~/.Xresources
 exec_always --no-startup-id  bash ~/.scripts/dunst_xr_theme_changer.sh && \
     dunst -conf ~/.config/dunst/dunstrc_xr_colors &
-exec_always --no-startup-id hsetroot -solid "#282c34"
-exec_always --no-startup-id pkill polybar && MONITOR=VGA-1 polybar bottom
+exec_always --no-startup-id hsetroot -solid "$fg"
+exec_always --no-startup-id bash ~/.scripts/launch_polybar.sh
