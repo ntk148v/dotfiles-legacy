@@ -40,7 +40,7 @@ for_window [class=keepassxc|feh] floating enable
 
 # autostart
 exec --no-startup-id nm-applet
-exec --no-startup-id polybar -rq -c $HOME/.config/polybar/config.ini arctic &
+exec --no-startup-id polybar -rq -c $HOME/.config/polybar/config.ini top &
 exec --no-startup-id xsettingsd &
 exec --no-startup-id compton -b
 exec --no-startup-id source ~/.fehbg
