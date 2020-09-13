@@ -1,9 +1,0 @@
-@import "~/.cache/wal/colors-rofi-light.rasi"
-* {
-    accent:           @selected-active-background;
-    background-light: @normal-background;
-    background-focus: @active-background;
-    foreground-list:  @selected-normal-foreground;
-    on:               @selected-active-foreground;
-    off:              @selected-active-background;   
-}
