@@ -77,23 +77,7 @@ function install() {
     $HOME/.fzf/install
 
     echo "## Install pywal"
-    sudo -H pip3 install pywal==3.0.1
-
-    echo "## Install thefuck"
-    sudo -H pip3 install thefuck
-
-    echo "## Install oomox & warnai (ubuntu 18.04 only)"
-    sh -c "$(curl -fssL -o /tmp/oomox.deb https://github.com/themix-project/oomox/releases/download/1.11/oomox_1.11-3-gde075379_17.04+.deb)"
-    sudo dpkg -i /tmp/oomox.deb
-    sudo apt install -f -y
-    mkdir -p $HOME/.themes
-    sudo chown $USER:$USER -R $HOME/.themes
-    git clone https://github.com/reorr/warnai $HOME/Workspace/github-repos/warnai
-
-    # Uncomment if want to use
-    echo "## Install diff-so-fancy"
-    sudo wget https://raw.githubusercontent.com/so-fancy/diff-so-fancy/master/third_party/build_fatpack/diff-so-fancy -O /usr/local/bin/diff-so-fancy
-    sudo chmod +x /usr/local/bin/diff-so-fancy
+    sudo -H pip3 install -U pywal wpgtk
 
     echo "## Install golang 1.12"
     wget https://dl.google.com/go/go1.12.7.linux-amd64.tar.gz -O /tmp/go1.12.7.linux-amd64.tar.gz
@@ -106,15 +90,11 @@ function install() {
         --exclude "Makefile" \
         --exclude "python-pkgs.txt" \
         -av --no-perms . ${HOME}
-    sudo cp -r .local/share/fonts/* /usr/share/fonts
-    sudo fc-cache -fv
 
     echo "## Install snap packages"
     sudo snap install spotify
     sudo snap install hugo --channel=extended
-    sudo snap install telegram-desktop
     sudo snap install goland --classic
-    sudo nap install slack --classic
     sudo snap install postman
     sudo snap install pycharm-professional --classic
     sudo snap install code --classic
