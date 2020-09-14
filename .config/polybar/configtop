@@ -38,10 +38,11 @@ format-margin =
 format-offset =
 
 [colors]
-; Nord theme ============
-background = ${xrdb:color7}
+background = ${xrdb:foreground}
+# background = ${xrdb:color7}
 background-alt = ${xrdb:color1}
-foreground = ${xrdb:color0}
+foreground = ${xrdb:background}
+# foreground = ${xrdb:color0}
 foreground-alt = ${xrdb:color2}
 
 fg1 = ${xrdb:color1}
@@ -100,8 +101,8 @@ font-2 = FontAwesome5Free:style=Solid:size=10;2
 font-3 = FontAwesome5Free:style=Regular:size=10;2
 font-4 = Material:size=9;2
 
-modules-left = i3
-modules-center = memory_bar cpu_bar
+modules-left = memory_bar cpu_bar
+modules-center = i3
 modules-right = volume time
 
 ;tray-detached = false
@@ -396,7 +397,6 @@ bar-load-empty-font = 1
 
 [module/memory_bar]
 type = internal/memory
-
 interval = 2
 
 format = <label> <bar-used>
@@ -442,7 +442,6 @@ bar-used-empty-font = 1
 
 [module/mpd]
 type = internal/mpd
-
 interval = 2
 
 format-online =<icon-prev> <icon-stop> <toggle> <icon-next>

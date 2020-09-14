@@ -1,19 +1,19 @@
 configuration {
   show-icons: true;
-  font: "Hasklug Nerd Font Regular 10";
+  font: "M+ 1m Regular 10";
   display-run: " ";
   display-drun: " ";
   display-window: " ";
   modi: "window,run,drun";
 }
 
+@import "~/.cache/wal/colors-rofi-dark.rasi"
 * {
-  background-color: #2E3440;
-  bg-alt: #3B4252;
-  fg: #ECEFF4;
-
-  nord-blue-light: #88C0D0;
-  nord-yellow: #EBCB8B;
+  background-color: @background;
+  bg-alt: @background;
+  fg: @foreground;
+  nord-blue-light: @selected-normal-background;
+  nord-green: @selected-urgent-background;
 
   border: 0;
   lines: 12;
@@ -55,10 +55,10 @@ prompt {
   enabled: true;
   font: "Hasklug Nerd Font 12";
   padding: 12 0 0 12;
-  text-color: @nord-yellow;
+  text-color: @nord-green;
 }
 
 entry {
   padding: 12;
-  text-color: @nord-yellow;
+  text-color: @nord-green;
 }
