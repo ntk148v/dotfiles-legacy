@@ -68,32 +68,12 @@ function install() {
     echo "## Install oh-my-zsh"
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
-    # echo "## Install oh-my-fish"
-    # sudo curl -L https://get.oh-my.fish > install
-    # sudo fish install --path=$HOME/.local/share/omf --config=$HOME/.config/omf
-
     echo "## Install fzf"
     git clone --depth 1 https://github.com/junegunn/fzf.git $HOME/.fzf
     $HOME/.fzf/install
 
     echo "## Install pywal"
-    sudo -H pip3 install pywal==3.0.1
-
-    echo "## Install thefuck"
-    sudo -H pip3 install thefuck
-
-    echo "## Install oomox & warnai (ubuntu 18.04 only)"
-    sh -c "$(curl -fssL -o /tmp/oomox.deb https://github.com/themix-project/oomox/releases/download/1.11/oomox_1.11-3-gde075379_17.04+.deb)"
-    sudo dpkg -i /tmp/oomox.deb
-    sudo apt install -f -y
-    mkdir -p $HOME/.themes
-    sudo chown $USER:$USER -R $HOME/.themes
-    git clone https://github.com/reorr/warnai $HOME/Workspace/github-repos/warnai
-
-    # Uncomment if want to use
-    echo "## Install diff-so-fancy"
-    sudo wget https://raw.githubusercontent.com/so-fancy/diff-so-fancy/master/third_party/build_fatpack/diff-so-fancy -O /usr/local/bin/diff-so-fancy
-    sudo chmod +x /usr/local/bin/diff-so-fancy
+    sudo -H pip3 install pywal wpgtk
 
     echo "## Install golang 1.12"
     wget https://dl.google.com/go/go1.12.7.linux-amd64.tar.gz -O /tmp/go1.12.7.linux-amd64.tar.gz
@@ -114,7 +94,6 @@ function install() {
     sudo snap install hugo --channel=extended
     sudo snap install telegram-desktop
     sudo snap install goland --classic
-    sudo nap install slack --classic
     sudo snap install postman
     sudo snap install pycharm-professional --classic
     sudo snap install code --classic
