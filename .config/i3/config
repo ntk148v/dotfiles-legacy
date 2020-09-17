@@ -34,7 +34,8 @@ for_window [class=Firefox|Google-Chrome|Vivaldi window_role=Options] floating en
 for_window [class=Firefox|Google-Chrome|Vivaldi window_role=About] floating enable
 for_window [window_role=pop-up] floating enable
 for_window [window_role=bubble] floating enable
-for_window [class=Telegram] resize set 400 500
+for_window [class=Telegram] resize set 300 300
+for_window [class=Tilix] resize set 600 600
 for_window [class=Telegram|Thunderbird|URxvt|Firefox|Vivaldi|Google-Chrome|Tilix|Code|Goland*|Pycharm*|libreoffice*|Gimp*|Inkscape|Vlc] focus
 for_window [class=keepassxc|feh|Spotify] floating enable
 
@@ -48,11 +49,7 @@ exec --no-startup-id /home/kiennt/Apps/Telegram/Telegram
 exec --no-startup-id fet.sh
 exec --no-startup-id tilix
 exec --no-startup-id /usr/lib/vino/vino-server &
-# set desktop background with custom effect
-# exec --no-startup-id betterlockscreen -w blur
-# exec --no-startup-id bash ~/.scripts/blurme &
-# Alternative (set last used background)
-exec --no-startup-id source ~/.fehbg
+# exec --no-startup-id flashfocus
 
 set $browser vivaldi
 set $term    tilix
@@ -66,7 +63,7 @@ bindsym $super+l exec betterlockscreen -l dim  -t "Hey! Don't touch my stuff!"
 bindsym $super+Return exec $term
 # start dmenu (a program launcher)
 bindsym $super+d exec rofi -theme  ~/.config/rofi/themes/appmenu-nord.rasi -show drun
-bindsym $super+Shift+w exec $browser
+bindsym $super+Shift+w exec $browser --incognito
 bindsym $super+Shift+f exec $file
 bindsym $super+Shift+m exec $mail
 
@@ -180,6 +177,6 @@ exec_always --no-startup-id picom
 exec_always --no-startup-id  bash ~/.scripts/dunst_xr_theme_changer.sh && \
     dunst -conf ~/.config/dunst/dunstrc_xr_colors &
 exec_always xrdb --merge ~/.Xresources
-# exec_always --no-startup-id feh --bg-fill ~/Pictures/icreateawallpaper.png
 exec_always hsetroot -solid "$fg"
 exec_always --no-startup-id bash ~/.config/polybar/launch.sh
+# exec_always --no-startup-id flashfocus

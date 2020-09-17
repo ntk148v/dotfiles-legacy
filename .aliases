@@ -276,7 +276,7 @@ function upgrade_prezto() {
     git remote -v
     git ls-remote --heads upstream master &> /dev/null | wc -l
     if [[ "$?" == 0 ]]; then
-        git remote add upstream https://github.com/sorin-ionescu/prezto.git 
+        git remote add upstream https://github.com/sorin-ionescu/prezto.git
     fi
     git fetch upstream
     git checkout master
@@ -289,11 +289,11 @@ function upgrade_prezto() {
 #   The Bash Prompt HOWTO: 6.1. Colours
 #   http://www.tldp.org/HOWTO/Bash-Prompt-HOWTO/x329.html
 #
-#   This function echoes a bunch of color codes to the 
-#   terminal to demonstrate what's available.  Each 
+#   This function echoes a bunch of color codes to the
+#   terminal to demonstrate what's available.  Each
 #   line is the color code of one forground color,
-#   out of 17 (default + 16 escapes), followed by a 
-#   test use of that color on all nine background 
+#   out of 17 (default + 16 escapes), followed by a
+#   test use of that color on all nine background
 #   colors (default + 8 escapes).
 function termcol() {
     T='✖✖✖'   # The text for the color test
@@ -326,4 +326,10 @@ function chgext() {
         mv -- "$f" "${f%.$1}.$2"
     done
     cd -
+}
+
+# Run 'fff' with 'f' or whatever you decide to name the function.
+function f() {
+    fff "$@"
+    cd "$(cat "${XDG_CACHE_HOME:=${HOME}/.cache}/fff/.fff_d")"
 }
