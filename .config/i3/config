@@ -35,7 +35,6 @@ for_window [class=Firefox|Google-Chrome|Vivaldi window_role=About] floating enab
 for_window [window_role=pop-up] floating enable
 for_window [window_role=bubble] floating enable
 for_window [class=Telegram] resize set 300 300
-for_window [class=Tilix] resize set 600 600
 for_window [class=Telegram|Thunderbird|URxvt|Firefox|Vivaldi|Google-Chrome|Tilix|Code|Goland*|Pycharm*|libreoffice*|Gimp*|Inkscape|Vlc] focus
 for_window [class=keepassxc|feh|Spotify] floating enable
 
@@ -177,6 +176,7 @@ exec_always --no-startup-id picom
 exec_always --no-startup-id  bash ~/.scripts/dunst_xr_theme_changer.sh && \
     dunst -conf ~/.config/dunst/dunstrc_xr_colors &
 exec_always xrdb --merge ~/.Xresources
-exec_always hsetroot -solid "$fg"
+# exec_always hsetroot -solid "$fg"
+exec_always feh --bg-tile ~/.config/wallpapers/bg.png
 exec_always --no-startup-id bash ~/.config/polybar/launch.sh
 # exec_always --no-startup-id flashfocus
