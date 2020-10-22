@@ -43,17 +43,17 @@ history = ctrl+grave
 context = ctrl+shift+period
 
 [urgency_low]
-    background = "#282c34"
-    foreground = "#61afef"
+    background = "#1c1f26"
+    foreground = "#EACB8B"
 timeout = 2
 
 [urgency_normal]
-    background = "#282c34"
-    foreground = "#98c379"
+    background = "#1c1f26"
+    foreground = "#8FB9BB"
 timeout = 4
 
 [urgency_critical]
-    background = "#282c34"
-    foreground = "#e06c75"
-    frame_color = "#e06c75"
+    background = "#1c1f26"
+    foreground = "#B48EAD"
+    frame_color = "#B48EAD"
 timeout = 0

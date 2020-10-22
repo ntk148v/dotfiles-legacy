@@ -28,6 +28,7 @@ Plug 'relastle/bluewery.vim'
 Plug 'fatih/vim-go', {'do': ':GoUpdateBinaries'}
 Plug 'arcticicestudio/nord-vim'
 Plug 'mileszs/ack.vim'
+Plug 'flrnd/candid.vim'
 call plug#end()
 
 filetype plugin indent on
