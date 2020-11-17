@@ -1,0 +1,172 @@
+;=====================================================
+;   To learn more about how to configure Polybar
+;   go to https://github.com/jaagr/polybar
+;
+;   The README contains alot of information
+;	Themes : https://github.com/jaagr/dots/tree/master/.local/etc/themer/themes
+;   https://github.com/jaagr/polybar/wiki/
+;   https://github.com/jaagr/polybar/wiki/Configuration
+;   https://github.com/jaagr/polybar/wiki/Formatting
+;
+;=====================================================
+
+[global/wm]
+;https://github.com/jaagr/polybar/wiki/Configuration#global-wm-settings
+margin-top = 0
+margin-bottom = 0
+
+[settings]
+;https://github.com/jaagr/polybar/wiki/Configuration#application-settings
+throttle-output = 5
+throttle-output-for = 10
+throttle-input-for = 30
+screenchange-reload = true
+compositing-background = over
+compositing-foreground = over
+compositing-overline = over
+compositing-underline = over
+compositing-border = over
+
+; Define fallback values used by all module formats
+format-foreground = #FF0000
+format-background = #00FF00
+format-underline =
+format-overline =
+format-spacing =
+format-padding =
+format-margin =
+format-offset =
+
+[colors]
+background = ${xrdb:foreground}
+# background = ${xrdb:color7}
+background-alt = ${xrdb:color1}
+foreground = ${xrdb:background}
+# foreground = ${xrdb:color0}
+foreground-alt = ${xrdb:color2}
+
+fg1 = ${xrdb:color1}
+fg2 = ${xrdb:color2}
+fg3 = ${xrdb:color3}
+fg4 = ${xrdb:color4}
+fg5 = ${xrdb:color5}
+fg6 = ${xrdb:color6}
+fg7 = ${xrdb:color7}
+
+################################################################################
+################################################################################
+##############                        TOP BAR                     ##############
+################################################################################
+################################################################################
+
+[bar/top]
+monitor = ${env:MONITOR:}
+monitor-fallback = ${env:MONITOR_FALLBACK:}
+monitor-strict = false
+override-redirect = false
+width = 11%
+height = 30
+radius = 6.0
+radius-top = 4
+radius-bottom = 4
+fixed-center = true
+top = true
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+line-size = 4
+line-color = #f00
+
+border-right-size = 20
+border-left-size = 20
+border-top-size = 20
+border-color = #00000000
+
+padding-left = 0
+padding-right = 1
+
+module-margin-left = 1
+module-margin-right = 1
+
+; Enable support for inter-process messaging
+; See the Messaging wiki page for more details.
+enable-ipc = false
+wm-restack = i3
+
+font-0 = M+ 1m:style=Regular:size=10;2
+font-1 = DejaVuSans:size=10;2
+font-2 = FontAwesome5Free:style=Solid:size=10;2
+font-3 = FontAwesome5Free:style=Regular:size=10;2
+font-4 = Material:size=9;2
+
+modules-left = memory_bar cpu_bar
+
+tray-position = none
+
+################################################################################
+###############################################################################
+############                       MODULES A-Z                      ############
+################################################################################
+################################################################################
+################################################################################
+################################################################################
+################################################################################
+################################################################################
+################################################################################
+#################################################################
+###############################################################################
+################################################################################
+#################################################################
+###############################################################################
+################################################################################
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+[module/cpu_bar]
+type = internal/cpu
+
+; Seconds to sleep between updates
+; Default: 1
+interval = 0.5
+
+; Available tags:
+;   <label> (default)
+;   <bar-load>
+;   <ramp-load>
+;   <ramp-coreload>
+;;format = <label> <ramp-coreload>
+format =<label>
+format-prefix = " "
+format-prefix-foreground = ${colors.foreground}
+format-prefix-background = ${colors.background}
+label-foreground = ${colors.foreground}
+label-background = ${colors.background}
+
+; Available tokens:
+;   %percentage% (default) - total cpu load averaged over all cores
+;   %percentage-sum% - Cumulative load on all cores
+;   %percentage-cores% - load percentage for each core
+;   %percentage-core[1-9]% - load percentage for specific core
+label = "%percentage%%"
+
+#################################################################
+###############################################################################
+
+[module/memory_bar]
+type = internal/memory
+interval = 2
+
+format = <label>
+format-background = ${colors.background}
+format-foreground = ${colors.foreground}
+format-padding = 1
+format-prefix = " "
+label = "%mb_used%"
+
+[module/xwindow]
+type = internal/xwindow
+format-foreground = ${colors.foreground}
+format-background = ${colors.background}
+label-maxlen = 30
+
+; vim:ft=dosini

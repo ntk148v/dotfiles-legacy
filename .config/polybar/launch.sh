@@ -10,4 +10,6 @@ while pgrep -u $UID -x polybar >/dev/null; do sleep 1; done
 
 # Launch bar1 and bar2
 # polybar main -c ~/.config/polybar/config.ini &
-MONITOR=DP-1 polybar top -c ~/.config/polybar/configtop &
+MONITOR=DP-1 polybar top -c ~/.config/polybar/configtop-left &
+MONITOR=DP-1 polybar top -c ~/.config/polybar/configtop-center &
+MONITOR=DP-1 polybar top -c ~/.config/polybar/configtop-right &

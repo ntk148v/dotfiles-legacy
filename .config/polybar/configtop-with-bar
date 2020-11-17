@@ -283,7 +283,7 @@ format-background = ${colors.background}
 ###############################################################################
 [module/volume]
 type = internal/pulseaudio
-format-volume = %{T2}%{F#fefefe}<ramp-volume> <label-volume>
+format-volume = %{T2}%{F#fefefe}<ramp-volume> <label-volume> <bar-volume>
 label-volume = %percentage%%
 label-volume-foreground = ${colors.foreground}
 ramp-volume-foreground = ${colors.foreground}
@@ -300,6 +300,29 @@ ramp-volume-3 = 
 ramp-volume-4 = 
 ramp-headphones-0 = 
 ramp-headphones-1 = 
+; Only applies if <bar-volume> is used
+bar-volume-width = 6
+bar-volume-gradient = false
+
+bar-volume-indicator ="█"
+bar-volume-indicator-foreground = ${colors.fg1}
+bar-volume-indicator-font = 1
+
+bar-volume-fill ="█"
+bar-volume-foreground-0 = ${colors.fg1}
+bar-volume-foreground-1 = ${colors.fg1}
+bar-volume-foreground-2 = ${colors.fg1}
+bar-volume-foreground-3 = ${colors.fg1}
+bar-volume-foreground-4 = ${colors.fg1}
+bar-volume-foreground-5 = ${colors.fg1}
+bar-volume-foreground-6 = ${colors.fg1}
+bar-volume-foreground-7 = ${colors.fg1}
+bar-volume-foreground-8 = ${colors.fg1}
+bar-volume-fill-font = 1
+
+bar-volume-empty ="█"
+bar-volume-empty-foreground = ${colors.fg3}
+bar-volume-empty-font = 1
 
 #################################################################
 ###############################################################################
@@ -317,7 +340,7 @@ interval = 0.5
 ;   <ramp-load>
 ;   <ramp-coreload>
 ;;format = <label> <ramp-coreload>
-format =<label>
+format =<label> <bar-load>
 format-prefix = " "
 format-prefix-foreground = ${colors.foreground}
 format-prefix-background = ${colors.background}
@@ -331,6 +354,44 @@ label-background = ${colors.background}
 ;   %percentage-core[1-9]% - load percentage for specific core
 label = "%percentage%%"
 
+; Only applies if <bar-load> is used
+bar-load-width = 6
+bar-load-gradient = false
+
+bar-load-indicator ="█"
+bar-load-indicator-foreground = ${colors.fg1}
+bar-load-indicator-background = ${colors.background}
+bar-load-indicator-font = 1
+
+bar-load-fill ="█"
+bar-load-fill-foreground = ${colors.fg1}
+bar-load-fill-background = ${colors.background}
+
+bar-load-foreground-0 = ${colors.fg1}
+bar-load-background-0 = ${colors.background}
+bar-load-foreground-1 = ${colors.fg1}
+bar-load-background-1 = ${colors.background}
+bar-load-foreground-2 = ${colors.fg1}
+bar-load-background-2 = ${colors.background}
+bar-load-foreground-3 = ${colors.fg1}
+bar-load-background-3 = ${colors.background}
+bar-load-foreground-4 = ${colors.fg1}
+bar-load-background-4 = ${colors.background}
+;bar-load-foreground-5 = ${colors.foreground}
+;bar-load-background-5 = ${colors.background}
+;bar-load-foreground-6 = ${colors.foreground}
+;bar-load-background-6 = ${colors.background}
+;bar-load-foreground-7 = ${colors.foreground}
+;bar-load-background-7 = ${colors.background}
+;bar-load-foreground-8 = ${colors.foreground}
+;bar-load-background-8 = ${colors.background}
+bar-load-fill-font = 1
+
+bar-load-empty ="█"
+bar-load-empty-foreground = ${colors.fg3}
+bar-load-empty-background = ${colors.background}
+bar-load-empty-font = 1
+
 #################################################################
 ###############################################################################
 
@@ -338,12 +399,43 @@ label = "%percentage%%"
 type = internal/memory
 interval = 2
 
-format = <label>
+format = <label> <bar-used>
 format-background = ${colors.background}
 format-foreground = ${colors.foreground}
 format-padding = 1
 format-prefix = " "
 label = "%mb_used%"
+
+bar-used-width = 6
+bar-used-gradient = false
+
+bar-used-indicator =
+bar-used-indicator-foreground = ${colors.fg1}
+bar-used-indicator-font = 1
+
+bar-used-fill = "█"
+bar-used-foreground-0 = ${colors.fg1}
+bar-used-background-0 = ${colors.background}
+bar-used-foreground-1 = ${colors.fg1}
+bar-used-background-1 = ${colors.background}
+bar-used-foreground-2 = ${colors.fg1}
+bar-used-background-2 = ${colors.background}
+bar-used-foreground-3 = ${colors.fg1}
+bar-used-background-3 = ${colors.background}
+bar-used-foreground-4 = ${colors.fg1}
+bar-used-background-4 = ${colors.background}
+bar-used-foreground-5 = ${colors.fg1}
+bar-used-background-5 = ${colors.background}
+bar-used-foreground-6 = ${colors.foreground}
+bar-used-background-6 = ${colors.background}
+bar-used-foreground-7 = ${colors.fg1}
+bar-used-background-7 = ${colors.background}
+bar-used-foreground-8 = ${colors.fg1}
+bar-used-background-8 = ${colors.background}
+bar-used-fill-font = 1
+bar-used-empty = "█"
+bar-used-empty-foreground = ${colors.fg3}
+bar-used-empty-font = 1
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
