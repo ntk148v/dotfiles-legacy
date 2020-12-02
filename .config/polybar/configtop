@@ -38,10 +38,10 @@ format-margin =
 format-offset =
 
 [colors]
-background = ${xrdb:foreground}
+foreground = ${xrdb:foreground}
 # background = ${xrdb:color7}
 background-alt = ${xrdb:color1}
-foreground = ${xrdb:background}
+background = ${xrdb:background}
 # foreground = ${xrdb:color0}
 foreground-alt = ${xrdb:color2}
 
