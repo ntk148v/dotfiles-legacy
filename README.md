@@ -1,5 +1,7 @@
 # Dotfiles - Environment Configuration
 
+> **NOTE**: This repository won't be maintained and updated anymore, I've moved to a [new repository](https://github.com/ntk148v/dotfiles.git).
+
 This project is a container for alias, configuration files and scripts with
 which my standard operating environment can be replicated. It includes .vim
 and .zshrc configuration.
