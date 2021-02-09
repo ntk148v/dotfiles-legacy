@@ -22,9 +22,9 @@ workspace 8 output VGA-1
 # window rules, you can find the window class using xprop
 for_window [class=".*"] border pixel 5
 assign [class=URxvt|Tilix|Telegram] 1
-assign [class=Google-chrome|Firefox|Brave] 2
-assign [class=Code|Goland*|Pycharm*|Neovim] 3
-assign [class=Slack|Thunderbird|libreoffice*] 4
+assign [class=Google-chrome|Firefox|Brave] 3
+assign [class=Code|Goland*|Pycharm*|Neovim] 5
+assign [class=Slack|Thunderbird|libreoffice*] 5
 assign [class=Kdocker|Spotify|Vlc|mpv|Xfburn|Gimp*|Inkscape|Zoom] 5
 assign [class=GParted] 6
 assign [class=Virtual-Manager] 7
@@ -34,7 +34,7 @@ for_window [class=Firefox|Brave|Google-Chrome window_role=Options] floating enab
 for_window [class=Firefox|Brave|Google-Chrome window_role=About] floating enable
 for_window [window_role=pop-up] floating enable
 for_window [window_role=bubble] floating enable
-for_window [class=Telegram] resize set 380px
+for_window [class=Telegram] resize set 300 300
 for_window [class=Bluemail|Telegram|Thunderbird|Slack|URxvt|Firefox|Brave|Google-Chrome|Tilix|Code|Goland*|Pycharm*|libreoffice*|Gimp*|Inkscape|Vlc] focus
 for_window [class=keepassxc|feh] floating enable
 
@@ -46,7 +46,7 @@ exec --no-startup-id compton -b
 exec --no-startup-id source ~/.fehbg
 exec --no-startup-id /home/kiennt/Apps/Telegram/Telegram
 exec --no-startup-id tilix
-exec --no-startup-id brave-browser
+exec --no-startup-id google-chrome
 
 # start a terminal
 bindsym $super+Return exec tilix
@@ -169,5 +169,6 @@ exec_always --no-startup-id pkill compton && compton --config ~/.config/compton.
 exec_always xrdb --merge ~/.Xresources
 exec_always --no-startup-id  bash ~/.scripts/dunst_xr_theme_changer.sh && \
     dunst -conf ~/.config/dunst/dunstrc_xr_colors &
-exec_always --no-startup-id hsetroot -solid "$fg"
+#exec_always --no-startup-id hsetroot -solid "$fg"
+exec_always --no-startup-id feh --bg-fill ~/Pictures/diogo-nunes-Wa9ilX9XYOI-unsplash.jpg
 exec_always --no-startup-id bash ~/.scripts/launch_polybar.sh

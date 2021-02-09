@@ -1,5 +1,7 @@
 " File              : init.vim
 " Author            : Kien Nguyen-Tuan <kiennt2609@gmail.com>
+" JS config
+let g:polyglot_disabled = ['jsx', 'tsx', 'js', 'ts']
 
 set rtp+=~/.local/share/nvim/plugged
 call plug#begin('~/.local/share/nvim/plugged')
@@ -56,6 +58,7 @@ set noshowmode
 
 set foldmethod=indent
 set foldlevel=99
+set conceallevel=0
 
 let g:is_posix = 1
 
@@ -92,9 +95,6 @@ let g:esearch = {
   \ 'backend': 'nvim'
   \}
 call esearch#out#win#map('<Enter>', 'tab')
-
-" JS config
-let g:polyglot_disabled = ['jsx', 'tsx', 'js', 'ts']
 
 " Custom icon for coc.nvim statusline
 let g:coc_status_error_sign=" "
