@@ -43,6 +43,7 @@ autocmd BufNewFile,BufRead *.todo set syntax=todo
 " Auto remove trailing spaces
 autocmd BufWritePre * %s/\s\+$//e
 
+set conceallevel=0
 set encoding=UTF-8
 set hidden
 set nobackup
@@ -52,19 +53,16 @@ set cursorline
 " if has('mouse')
 "     set mouse=a
 " endif
-
 " By the way, -- INSERT -- is unnecessary anymore because the mode information is displayed in the statusline.
 set noshowmode
-
 set foldmethod=indent
 set foldlevel=99
-set conceallevel=0
 
 let g:is_posix = 1
 
 set noswapfile
 set nojoinspaces
-set nowrap
+set wrap
 set number
 set ttyfast
 set laststatus=2
