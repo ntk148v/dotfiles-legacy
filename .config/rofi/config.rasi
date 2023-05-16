@@ -1,17 +1,7 @@
-@import "~/.cache/wal/colors-rofi-dark.rasi"
-* {
-    accent:           @selected-active-background;
-    background-light: @normal-background;
-    background-focus: @active-background;
-    foreground-list:  @selected-normal-foreground;
-    on:               @selected-active-foreground;
-    off:              @selected-active-background;
-}
-
 configuration {
   modi: "run,drun,window";
   width: 20;
-  font: "BlexMono Nerd Font Book 10";
+  font: "M+ 1m medium 10";
   terminal: "alacritty";
   disable-history: false;
   sidebar-mode: true;
@@ -22,6 +12,16 @@ configuration {
   separator-style: "none";
   hide-scrollbar: true;
   window-format: "{w} {c}";
+}
+
+@import "~/.cache/wal/colors-rofi-dark.rasi"
+* {
+    accent:           @selected-active-background;
+    background-light: @normal-background;
+    background-focus: @active-background;
+    foreground-list:  @selected-normal-foreground;
+    on:               @selected-active-foreground;
+    off:              @selected-active-background;
 }
 
 * {
